@@ -17,10 +17,11 @@ package com.mindorks.framework.mvp;
 
 import android.content.Context;
 
-import com.mindorks.framework.mvp.data.DataManager;
-import com.mindorks.framework.mvp.di.component.DaggerTestComponent;
-import com.mindorks.framework.mvp.di.component.TestComponent;
-import com.mindorks.framework.mvp.di.module.ApplicationTestModule;
+import com.fatkhun.agriculture.mvp.MvpApp;
+import com.fatkhun.agriculture.mvp.data.DataManager;
+import com.fatkhun.agriculture.mvp.di.component.DaggerTestComponent;
+import com.fatkhun.agriculture.mvp.di.component.TestComponent;
+import com.fatkhun.agriculture.mvp.di.module.ApplicationTestModule;
 
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
