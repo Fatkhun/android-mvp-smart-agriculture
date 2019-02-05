@@ -13,9 +13,9 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.feed.blogs;
+package com.fatkhun.agriculture.mvp.ui.feed.blogs;
 
-import com.mindorks.framework.mvp.ui.base.MvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.base.MvpPresenter;
 
 /**
  * Created by janisharali on 25/05/17.

@@ -13,13 +13,13 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.data.network;
+package com.fatkhun.agriculture.mvp.data.network;
 
-import com.mindorks.framework.mvp.data.network.model.BlogResponse;
-import com.mindorks.framework.mvp.data.network.model.LoginRequest;
-import com.mindorks.framework.mvp.data.network.model.LoginResponse;
-import com.mindorks.framework.mvp.data.network.model.LogoutResponse;
-import com.mindorks.framework.mvp.data.network.model.OpenSourceResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.LoginRequest;
+import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import javax.inject.Inject;

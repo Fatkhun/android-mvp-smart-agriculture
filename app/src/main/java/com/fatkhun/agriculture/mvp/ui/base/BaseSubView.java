@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.base;
+package com.fatkhun.agriculture.mvp.ui.base;
 
 import android.annotation.TargetApi;
 import android.content.Context;

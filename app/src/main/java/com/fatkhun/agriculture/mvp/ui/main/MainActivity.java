@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.main;
+package com.fatkhun.agriculture.mvp.ui.main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -37,16 +37,17 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
 
-import com.mindorks.framework.mvp.BuildConfig;
-import com.mindorks.framework.mvp.R;
-import com.mindorks.framework.mvp.data.db.model.Question;
-import com.mindorks.framework.mvp.ui.about.AboutFragment;
-import com.mindorks.framework.mvp.ui.base.BaseActivity;
-import com.mindorks.framework.mvp.ui.custom.RoundedImageView;
-import com.mindorks.framework.mvp.ui.feed.FeedActivity;
-import com.mindorks.framework.mvp.ui.login.LoginActivity;
-import com.mindorks.framework.mvp.ui.main.rating.RateUsDialog;
-import com.mindorks.framework.mvp.utils.ScreenUtils;
+
+import com.fatkhun.agriculture.mvp.BuildConfig;
+import com.fatkhun.agriculture.mvp.R;
+import com.fatkhun.agriculture.mvp.data.db.model.Question;
+import com.fatkhun.agriculture.mvp.ui.about.AboutFragment;
+import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
+import com.fatkhun.agriculture.mvp.ui.custom.RoundedImageView;
+import com.fatkhun.agriculture.mvp.ui.feed.FeedActivity;
+import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
+import com.fatkhun.agriculture.mvp.ui.main.rating.RateUsDialog;
+import com.fatkhun.agriculture.mvp.utils.ScreenUtils;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.mindorks.placeholderview.listeners.ItemRemovedListener;

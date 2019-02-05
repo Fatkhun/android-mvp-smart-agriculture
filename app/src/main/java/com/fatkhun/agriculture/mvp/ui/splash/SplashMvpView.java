@@ -13,9 +13,9 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.splash;
+package com.fatkhun.agriculture.mvp.ui.splash;
 
-import com.mindorks.framework.mvp.ui.base.MvpView;
+import com.fatkhun.agriculture.mvp.ui.base.MvpView;
 
 /**
  * Created by janisharali on 27/01/17.

@@ -13,11 +13,11 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.di.component;
+package com.fatkhun.agriculture.mvp.di.component;
 
-import com.mindorks.framework.mvp.di.PerService;
-import com.mindorks.framework.mvp.di.module.ServiceModule;
-import com.mindorks.framework.mvp.service.SyncService;
+import com.fatkhun.agriculture.mvp.di.PerService;
+import com.fatkhun.agriculture.mvp.di.module.ServiceModule;
+import com.fatkhun.agriculture.mvp.service.SyncService;
 
 import dagger.Component;
 

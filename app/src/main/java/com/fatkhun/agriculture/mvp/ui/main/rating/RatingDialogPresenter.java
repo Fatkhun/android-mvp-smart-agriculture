@@ -13,13 +13,14 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.main.rating;
+package com.fatkhun.agriculture.mvp.ui.main.rating;
 
 
-import com.mindorks.framework.mvp.R;
-import com.mindorks.framework.mvp.data.DataManager;
-import com.mindorks.framework.mvp.ui.base.BasePresenter;
-import com.mindorks.framework.mvp.utils.rx.SchedulerProvider;
+
+import com.fatkhun.agriculture.mvp.R;
+import com.fatkhun.agriculture.mvp.data.DataManager;
+import com.fatkhun.agriculture.mvp.ui.base.BasePresenter;
+import com.fatkhun.agriculture.mvp.utils.rx.SchedulerProvider;
 
 import javax.inject.Inject;
 

@@ -13,27 +13,27 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.di.module;
+package com.fatkhun.agriculture.mvp.di.module;
 
 import android.app.Application;
 import android.content.Context;
 
 import com.mindorks.framework.mvp.BuildConfig;
 import com.mindorks.framework.mvp.R;
-import com.mindorks.framework.mvp.data.AppDataManager;
-import com.mindorks.framework.mvp.data.DataManager;
-import com.mindorks.framework.mvp.data.db.AppDbHelper;
-import com.mindorks.framework.mvp.data.db.DbHelper;
-import com.mindorks.framework.mvp.data.network.ApiHeader;
-import com.mindorks.framework.mvp.data.network.ApiHelper;
-import com.mindorks.framework.mvp.data.network.AppApiHelper;
-import com.mindorks.framework.mvp.data.prefs.AppPreferencesHelper;
-import com.mindorks.framework.mvp.data.prefs.PreferencesHelper;
-import com.mindorks.framework.mvp.di.ApiInfo;
-import com.mindorks.framework.mvp.di.ApplicationContext;
-import com.mindorks.framework.mvp.di.DatabaseInfo;
-import com.mindorks.framework.mvp.di.PreferenceInfo;
-import com.mindorks.framework.mvp.utils.AppConstants;
+import com.fatkhun.agriculture.mvp.data.AppDataManager;
+import com.fatkhun.agriculture.mvp.data.DataManager;
+import com.fatkhun.agriculture.mvp.data.db.AppDbHelper;
+import com.fatkhun.agriculture.mvp.data.db.DbHelper;
+import com.fatkhun.agriculture.mvp.data.network.ApiHeader;
+import com.fatkhun.agriculture.mvp.data.network.ApiHelper;
+import com.fatkhun.agriculture.mvp.data.network.AppApiHelper;
+import com.fatkhun.agriculture.mvp.data.prefs.AppPreferencesHelper;
+import com.fatkhun.agriculture.mvp.data.prefs.PreferencesHelper;
+import com.fatkhun.agriculture.mvp.di.ApiInfo;
+import com.fatkhun.agriculture.mvp.di.ApplicationContext;
+import com.fatkhun.agriculture.mvp.di.DatabaseInfo;
+import com.fatkhun.agriculture.mvp.di.PreferenceInfo;
+import com.fatkhun.agriculture.mvp.utils.AppConstants;
 
 import javax.inject.Singleton;
 

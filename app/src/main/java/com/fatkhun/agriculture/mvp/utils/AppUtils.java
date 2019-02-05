@@ -13,13 +13,13 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.utils;
+package com.fatkhun.agriculture.mvp.utils;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
-import com.mindorks.framework.mvp.R;
+import com.fatkhun.agriculture.mvp.R;
 
 
 /**

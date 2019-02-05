@@ -13,16 +13,16 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.di.component;
+package com.fatkhun.agriculture.mvp.di.component;
 
 import android.app.Application;
 import android.content.Context;
 
-import com.mindorks.framework.mvp.MvpApp;
-import com.mindorks.framework.mvp.data.DataManager;
-import com.mindorks.framework.mvp.di.ApplicationContext;
-import com.mindorks.framework.mvp.di.module.ApplicationModule;
-import com.mindorks.framework.mvp.service.SyncService;
+import com.fatkhun.agriculture.mvp.MvpApp;
+import com.fatkhun.agriculture.mvp.data.DataManager;
+import com.fatkhun.agriculture.mvp.di.ApplicationContext;
+import com.fatkhun.agriculture.mvp.di.module.ApplicationModule;
+import com.fatkhun.agriculture.mvp.service.SyncService;
 
 import javax.inject.Singleton;
 

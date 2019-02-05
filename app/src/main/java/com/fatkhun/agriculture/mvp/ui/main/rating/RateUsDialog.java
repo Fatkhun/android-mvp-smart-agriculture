@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.main.rating;
+package com.fatkhun.agriculture.mvp.ui.main.rating;
 
 import android.graphics.PorterDuff;
 import android.graphics.drawable.LayerDrawable;
@@ -27,10 +27,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
 
-import com.mindorks.framework.mvp.R;
-import com.mindorks.framework.mvp.di.component.ActivityComponent;
-import com.mindorks.framework.mvp.ui.base.BaseDialog;
-import com.mindorks.framework.mvp.utils.AppUtils;
+
+import com.fatkhun.agriculture.mvp.R;
+import com.fatkhun.agriculture.mvp.di.component.ActivityComponent;
+import com.fatkhun.agriculture.mvp.ui.base.BaseDialog;
+import com.fatkhun.agriculture.mvp.utils.AppUtils;
 
 import javax.inject.Inject;
 

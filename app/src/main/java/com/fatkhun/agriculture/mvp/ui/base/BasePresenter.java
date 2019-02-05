@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.base;
+package com.fatkhun.agriculture.mvp.ui.base;
 
 /**
  * Created by janisharali on 27/01/17.
@@ -23,14 +23,15 @@ import android.util.Log;
 
 import com.androidnetworking.common.ANConstants;
 import com.androidnetworking.error.ANError;
+import com.fatkhun.agriculture.mvp.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
-import com.mindorks.framework.mvp.R;
-import com.mindorks.framework.mvp.data.DataManager;
-import com.mindorks.framework.mvp.data.network.model.ApiError;
-import com.mindorks.framework.mvp.utils.AppConstants;
-import com.mindorks.framework.mvp.utils.rx.SchedulerProvider;
+
+import com.fatkhun.agriculture.mvp.data.DataManager;
+import com.fatkhun.agriculture.mvp.data.network.model.ApiError;
+import com.fatkhun.agriculture.mvp.utils.AppConstants;
+import com.fatkhun.agriculture.mvp.utils.rx.SchedulerProvider;
 
 import javax.inject.Inject;
 import javax.net.ssl.HttpsURLConnection;

@@ -13,10 +13,10 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.feed.blogs;
+package com.fatkhun.agriculture.mvp.ui.feed.blogs;
 
-import com.mindorks.framework.mvp.data.network.model.BlogResponse;
-import com.mindorks.framework.mvp.ui.base.MvpView;
+import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
+import com.fatkhun.agriculture.mvp.ui.base.MvpView;
 
 import java.util.List;
 

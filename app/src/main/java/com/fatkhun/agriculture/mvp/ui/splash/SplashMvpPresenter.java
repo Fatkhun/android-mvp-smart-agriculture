@@ -13,11 +13,11 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.splash;
+package com.fatkhun.agriculture.mvp.ui.splash;
 
 
-import com.mindorks.framework.mvp.di.PerActivity;
-import com.mindorks.framework.mvp.ui.base.MvpPresenter;
+import com.fatkhun.agriculture.mvp.di.PerActivity;
+import com.fatkhun.agriculture.mvp.ui.base.MvpPresenter;
 
 /**
  * Created by janisharali on 27/01/17.

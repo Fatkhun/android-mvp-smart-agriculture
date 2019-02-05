@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.di;
+package com.fatkhun.agriculture.mvp.di;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

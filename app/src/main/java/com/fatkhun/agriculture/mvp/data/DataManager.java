@@ -13,12 +13,12 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.data;
+package com.fatkhun.agriculture.mvp.data;
 
 
-import com.mindorks.framework.mvp.data.db.DbHelper;
-import com.mindorks.framework.mvp.data.network.ApiHelper;
-import com.mindorks.framework.mvp.data.prefs.PreferencesHelper;
+import com.fatkhun.agriculture.mvp.data.db.DbHelper;
+import com.fatkhun.agriculture.mvp.data.network.ApiHelper;
+import com.fatkhun.agriculture.mvp.data.prefs.PreferencesHelper;
 
 import io.reactivex.Observable;
 

@@ -13,12 +13,12 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.login;
+package com.fatkhun.agriculture.mvp.ui.login;
 
-import com.mindorks.framework.mvp.data.DataManager;
-import com.mindorks.framework.mvp.data.network.model.LoginRequest;
-import com.mindorks.framework.mvp.data.network.model.LoginResponse;
-import com.mindorks.framework.mvp.utils.rx.TestSchedulerProvider;
+import com.fatkhun.agriculture.mvp.data.DataManager;
+import com.fatkhun.agriculture.mvp.data.network.model.LoginRequest;
+import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
+import com.fatkhun.agriculture.mvp.utils.rx.TestSchedulerProvider;
 
 import org.junit.After;
 import org.junit.Before;

@@ -13,14 +13,14 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.login;
+package com.fatkhun.agriculture.mvp.ui.login;
 
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.mindorks.framework.mvp.R;
-import com.mindorks.framework.mvp.TestComponentRule;
+import com.fatkhun.agriculture.mvp.TestComponentRule;
 
 import org.junit.Before;
 import org.junit.Rule;

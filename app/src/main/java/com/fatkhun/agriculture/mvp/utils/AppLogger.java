@@ -13,9 +13,11 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.utils;
+package com.fatkhun.agriculture.mvp.utils;
 
-import com.mindorks.framework.mvp.BuildConfig;
+
+
+import com.fatkhun.agriculture.mvp.BuildConfig;
 
 import timber.log.Timber;
 

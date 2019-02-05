@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.data;
+package com.fatkhun.agriculture.mvp.data;
 
 
 import android.content.Context;
@@ -22,21 +22,21 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.$Gson$Types;
 import com.google.gson.reflect.TypeToken;
-import com.mindorks.framework.mvp.data.db.DbHelper;
-import com.mindorks.framework.mvp.data.db.model.Option;
-import com.mindorks.framework.mvp.data.db.model.Question;
-import com.mindorks.framework.mvp.data.db.model.User;
-import com.mindorks.framework.mvp.data.network.ApiHeader;
-import com.mindorks.framework.mvp.data.network.ApiHelper;
-import com.mindorks.framework.mvp.data.network.model.BlogResponse;
-import com.mindorks.framework.mvp.data.network.model.LoginRequest;
-import com.mindorks.framework.mvp.data.network.model.LoginResponse;
-import com.mindorks.framework.mvp.data.network.model.LogoutResponse;
-import com.mindorks.framework.mvp.data.network.model.OpenSourceResponse;
-import com.mindorks.framework.mvp.data.prefs.PreferencesHelper;
-import com.mindorks.framework.mvp.di.ApplicationContext;
-import com.mindorks.framework.mvp.utils.AppConstants;
-import com.mindorks.framework.mvp.utils.CommonUtils;
+import com.fatkhun.agriculture.mvp.data.db.DbHelper;
+import com.fatkhun.agriculture.mvp.data.db.model.Option;
+import com.fatkhun.agriculture.mvp.data.db.model.Question;
+import com.fatkhun.agriculture.mvp.data.db.model.User;
+import com.fatkhun.agriculture.mvp.data.network.ApiHeader;
+import com.fatkhun.agriculture.mvp.data.network.ApiHelper;
+import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.LoginRequest;
+import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
+import com.fatkhun.agriculture.mvp.data.prefs.PreferencesHelper;
+import com.fatkhun.agriculture.mvp.di.ApplicationContext;
+import com.fatkhun.agriculture.mvp.utils.AppConstants;
+import com.fatkhun.agriculture.mvp.utils.CommonUtils;
 
 import java.lang.reflect.Type;
 import java.util.List;

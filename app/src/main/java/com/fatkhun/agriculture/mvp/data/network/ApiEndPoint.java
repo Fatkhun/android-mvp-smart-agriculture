@@ -13,9 +13,10 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.data.network;
+package com.fatkhun.agriculture.mvp.data.network;
 
-import com.mindorks.framework.mvp.BuildConfig;
+
+import com.fatkhun.agriculture.mvp.BuildConfig;
 
 /**
  * Created by amitshekhar on 01/02/17.

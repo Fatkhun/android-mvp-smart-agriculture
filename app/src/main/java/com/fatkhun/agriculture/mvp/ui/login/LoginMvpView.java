@@ -13,9 +13,9 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.login;
+package com.fatkhun.agriculture.mvp.ui.login;
 
-import com.mindorks.framework.mvp.ui.base.MvpView;
+import com.fatkhun.agriculture.mvp.ui.base.MvpView;
 
 /**
  * Created by janisharali on 27/01/17.

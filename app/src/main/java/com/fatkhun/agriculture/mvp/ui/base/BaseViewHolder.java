@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.base;
+package com.fatkhun.agriculture.mvp.ui.base;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

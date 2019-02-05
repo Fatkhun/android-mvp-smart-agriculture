@@ -13,10 +13,10 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.main;
+package com.fatkhun.agriculture.mvp.ui.main;
 
-import com.mindorks.framework.mvp.data.db.model.Question;
-import com.mindorks.framework.mvp.ui.base.MvpView;
+import com.fatkhun.agriculture.mvp.data.db.model.Question;
+import com.fatkhun.agriculture.mvp.ui.base.MvpView;
 
 import java.util.List;
 

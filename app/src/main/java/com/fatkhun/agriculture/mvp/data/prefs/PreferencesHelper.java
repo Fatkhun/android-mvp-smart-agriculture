@@ -13,9 +13,9 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.data.prefs;
+package com.fatkhun.agriculture.mvp.data.prefs;
 
-import com.mindorks.framework.mvp.data.DataManager;
+import com.fatkhun.agriculture.mvp.data.DataManager;
 
 /**
  * Created by janisharali on 27/01/17.

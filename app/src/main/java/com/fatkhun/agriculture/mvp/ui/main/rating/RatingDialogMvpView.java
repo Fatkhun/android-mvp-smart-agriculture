@@ -13,9 +13,9 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.main.rating;
+package com.fatkhun.agriculture.mvp.ui.main.rating;
 
-import com.mindorks.framework.mvp.ui.base.DialogMvpView;
+import com.fatkhun.agriculture.mvp.ui.base.DialogMvpView;
 
 /**
  * Created by janisharali on 24/05/17.

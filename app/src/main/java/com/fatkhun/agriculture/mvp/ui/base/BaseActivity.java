@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.base;
+package com.fatkhun.agriculture.mvp.ui.base;
 
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
@@ -31,14 +31,16 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mindorks.framework.mvp.MvpApp;
-import com.mindorks.framework.mvp.R;
-import com.mindorks.framework.mvp.di.component.ActivityComponent;
-import com.mindorks.framework.mvp.di.component.DaggerActivityComponent;
-import com.mindorks.framework.mvp.di.module.ActivityModule;
-import com.mindorks.framework.mvp.ui.login.LoginActivity;
-import com.mindorks.framework.mvp.utils.CommonUtils;
-import com.mindorks.framework.mvp.utils.NetworkUtils;
+import com.fatkhun.agriculture.mvp.MvpApp;
+
+import com.fatkhun.agriculture.mvp.R;
+import com.fatkhun.agriculture.mvp.di.component.ActivityComponent;
+
+import com.fatkhun.agriculture.mvp.di.component.DaggerActivityComponent;
+import com.fatkhun.agriculture.mvp.di.module.ActivityModule;
+import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
+import com.fatkhun.agriculture.mvp.utils.CommonUtils;
+import com.fatkhun.agriculture.mvp.utils.NetworkUtils;
 
 import butterknife.Unbinder;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;

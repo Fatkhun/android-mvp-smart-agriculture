@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.base;
+package com.fatkhun.agriculture.mvp.ui.base;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -32,7 +32,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.RelativeLayout;
 
-import com.mindorks.framework.mvp.di.component.ActivityComponent;
+import com.fatkhun.agriculture.mvp.di.component.ActivityComponent;
 
 import butterknife.Unbinder;
 

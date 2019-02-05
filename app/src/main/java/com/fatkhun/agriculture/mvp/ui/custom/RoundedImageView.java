@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.custom;
+package com.fatkhun.agriculture.mvp.ui.custom;
 
 import android.content.Context;
 import android.graphics.Bitmap;

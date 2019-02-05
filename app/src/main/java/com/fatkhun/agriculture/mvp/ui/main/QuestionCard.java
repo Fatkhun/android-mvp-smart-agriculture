@@ -13,16 +13,17 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.main;
+package com.fatkhun.agriculture.mvp.ui.main;
 
 import android.graphics.Color;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.androidnetworking.widget.ANImageView;
-import com.mindorks.framework.mvp.R;
-import com.mindorks.framework.mvp.data.db.model.Option;
-import com.mindorks.framework.mvp.data.db.model.Question;
+
+import com.fatkhun.agriculture.mvp.R;
+import com.fatkhun.agriculture.mvp.data.db.model.Option;
+import com.fatkhun.agriculture.mvp.data.db.model.Question;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.NonReusable;

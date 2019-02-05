@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.base;
+package com.fatkhun.agriculture.mvp.ui.base;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -23,8 +23,8 @@ import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
-import com.mindorks.framework.mvp.di.component.ActivityComponent;
-import com.mindorks.framework.mvp.utils.CommonUtils;
+import com.fatkhun.agriculture.mvp.di.component.ActivityComponent;
+import com.fatkhun.agriculture.mvp.utils.CommonUtils;
 
 import butterknife.Unbinder;
 

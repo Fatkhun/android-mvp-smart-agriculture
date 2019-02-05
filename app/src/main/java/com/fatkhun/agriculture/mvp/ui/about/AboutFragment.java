@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.about;
+package com.fatkhun.agriculture.mvp.ui.about;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,9 +21,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mindorks.framework.mvp.R;
-import com.mindorks.framework.mvp.di.component.ActivityComponent;
-import com.mindorks.framework.mvp.ui.base.BaseFragment;
+
+import com.fatkhun.agriculture.mvp.R;
+import com.fatkhun.agriculture.mvp.di.component.ActivityComponent;
+import com.fatkhun.agriculture.mvp.ui.base.BaseFragment;
 
 import javax.inject.Inject;
 

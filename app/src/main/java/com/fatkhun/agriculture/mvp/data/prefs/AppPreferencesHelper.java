@@ -13,15 +13,15 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.data.prefs;
+package com.fatkhun.agriculture.mvp.data.prefs;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.mindorks.framework.mvp.data.DataManager;
-import com.mindorks.framework.mvp.di.ApplicationContext;
-import com.mindorks.framework.mvp.di.PreferenceInfo;
-import com.mindorks.framework.mvp.utils.AppConstants;
+import com.fatkhun.agriculture.mvp.data.DataManager;
+import com.fatkhun.agriculture.mvp.di.ApplicationContext;
+import com.fatkhun.agriculture.mvp.di.PreferenceInfo;
+import com.fatkhun.agriculture.mvp.utils.AppConstants;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

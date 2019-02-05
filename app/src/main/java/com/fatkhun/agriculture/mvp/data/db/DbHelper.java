@@ -13,11 +13,11 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.data.db;
+package com.fatkhun.agriculture.mvp.data.db;
 
-import com.mindorks.framework.mvp.data.db.model.Option;
-import com.mindorks.framework.mvp.data.db.model.Question;
-import com.mindorks.framework.mvp.data.db.model.User;
+import com.fatkhun.agriculture.mvp.data.db.model.Option;
+import com.fatkhun.agriculture.mvp.data.db.model.Question;
+import com.fatkhun.agriculture.mvp.data.db.model.User;
 
 import java.util.List;
 

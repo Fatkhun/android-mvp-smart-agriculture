@@ -13,18 +13,18 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.di.component;
+package com.fatkhun.agriculture.mvp.di.component;
 
-import com.mindorks.framework.mvp.di.PerActivity;
-import com.mindorks.framework.mvp.di.module.ActivityModule;
-import com.mindorks.framework.mvp.ui.about.AboutFragment;
-import com.mindorks.framework.mvp.ui.feed.FeedActivity;
-import com.mindorks.framework.mvp.ui.feed.blogs.BlogFragment;
-import com.mindorks.framework.mvp.ui.feed.opensource.OpenSourceFragment;
-import com.mindorks.framework.mvp.ui.login.LoginActivity;
-import com.mindorks.framework.mvp.ui.main.MainActivity;
-import com.mindorks.framework.mvp.ui.main.rating.RateUsDialog;
-import com.mindorks.framework.mvp.ui.splash.SplashActivity;
+import com.fatkhun.agriculture.mvp.di.PerActivity;
+import com.fatkhun.agriculture.mvp.di.module.ActivityModule;
+import com.fatkhun.agriculture.mvp.ui.about.AboutFragment;
+import com.fatkhun.agriculture.mvp.ui.feed.FeedActivity;
+import com.fatkhun.agriculture.mvp.ui.feed.blogs.BlogFragment;
+import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceFragment;
+import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
+import com.fatkhun.agriculture.mvp.ui.main.MainActivity;
+import com.fatkhun.agriculture.mvp.ui.main.rating.RateUsDialog;
+import com.fatkhun.agriculture.mvp.ui.splash.SplashActivity;
 
 import dagger.Component;
 

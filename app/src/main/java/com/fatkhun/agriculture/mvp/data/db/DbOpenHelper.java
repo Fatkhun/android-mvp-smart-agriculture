@@ -13,14 +13,14 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.data.db;
+package com.fatkhun.agriculture.mvp.data.db;
 
 import android.content.Context;
 
-import com.mindorks.framework.mvp.data.db.model.DaoMaster;
-import com.mindorks.framework.mvp.di.ApplicationContext;
-import com.mindorks.framework.mvp.di.DatabaseInfo;
-import com.mindorks.framework.mvp.utils.AppLogger;
+import com.fatkhun.agriculture.mvp.data.db.model.DaoMaster;
+import com.fatkhun.agriculture.mvp.di.ApplicationContext;
+import com.fatkhun.agriculture.mvp.di.DatabaseInfo;
+import com.fatkhun.agriculture.mvp.utils.AppLogger;
 
 import org.greenrobot.greendao.database.Database;
 

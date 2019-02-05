@@ -13,17 +13,18 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp;
+package com.fatkhun.agriculture.mvp;
 
 import android.app.Application;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.interceptors.HttpLoggingInterceptor.Level;
-import com.mindorks.framework.mvp.data.DataManager;
-import com.mindorks.framework.mvp.di.component.ApplicationComponent;
-import com.mindorks.framework.mvp.di.component.DaggerApplicationComponent;
-import com.mindorks.framework.mvp.di.module.ApplicationModule;
-import com.mindorks.framework.mvp.utils.AppLogger;
+import com.fatkhun.agriculture.mvp.data.DataManager;
+
+import com.fatkhun.agriculture.mvp.di.component.ApplicationComponent;
+import com.fatkhun.agriculture.mvp.di.component.DaggerApplicationComponent;
+import com.fatkhun.agriculture.mvp.di.module.ApplicationModule;
+import com.fatkhun.agriculture.mvp.utils.AppLogger;
 
 import javax.inject.Inject;
 

@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.utils;
+package com.fatkhun.agriculture.mvp.utils;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -23,7 +23,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.provider.Settings;
 
-import com.mindorks.framework.mvp.R;
+
+import com.fatkhun.agriculture.mvp.R;
 
 import java.io.IOException;
 import java.io.InputStream;

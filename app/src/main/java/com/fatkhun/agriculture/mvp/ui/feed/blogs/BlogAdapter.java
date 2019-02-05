@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.feed.blogs;
+package com.fatkhun.agriculture.mvp.ui.feed.blogs;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -26,10 +26,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.mindorks.framework.mvp.R;
-import com.mindorks.framework.mvp.data.network.model.BlogResponse;
-import com.mindorks.framework.mvp.ui.base.BaseViewHolder;
-import com.mindorks.framework.mvp.utils.AppLogger;
+
+import com.fatkhun.agriculture.mvp.R;
+import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
+import com.fatkhun.agriculture.mvp.ui.base.BaseViewHolder;
+import com.fatkhun.agriculture.mvp.utils.AppLogger;
 
 import java.util.List;
 

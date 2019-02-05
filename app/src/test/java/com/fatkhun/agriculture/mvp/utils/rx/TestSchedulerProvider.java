@@ -1,4 +1,4 @@
-package com.mindorks.framework.mvp.utils.rx;
+package com.fatkhun.agriculture.mvp.utils.rx;
 
 import io.reactivex.Scheduler;
 import io.reactivex.schedulers.TestScheduler;

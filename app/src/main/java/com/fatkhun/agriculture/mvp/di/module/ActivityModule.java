@@ -13,45 +13,45 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.di.module;
+package com.fatkhun.agriculture.mvp.di.module;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 
-import com.mindorks.framework.mvp.data.network.model.BlogResponse;
-import com.mindorks.framework.mvp.data.network.model.OpenSourceResponse;
-import com.mindorks.framework.mvp.di.ActivityContext;
-import com.mindorks.framework.mvp.di.PerActivity;
-import com.mindorks.framework.mvp.ui.about.AboutMvpPresenter;
-import com.mindorks.framework.mvp.ui.about.AboutMvpView;
-import com.mindorks.framework.mvp.ui.about.AboutPresenter;
-import com.mindorks.framework.mvp.ui.feed.FeedMvpPresenter;
-import com.mindorks.framework.mvp.ui.feed.FeedMvpView;
-import com.mindorks.framework.mvp.ui.feed.FeedPagerAdapter;
-import com.mindorks.framework.mvp.ui.feed.FeedPresenter;
-import com.mindorks.framework.mvp.ui.feed.blogs.BlogAdapter;
-import com.mindorks.framework.mvp.ui.feed.blogs.BlogMvpPresenter;
-import com.mindorks.framework.mvp.ui.feed.blogs.BlogMvpView;
-import com.mindorks.framework.mvp.ui.feed.blogs.BlogPresenter;
-import com.mindorks.framework.mvp.ui.feed.opensource.OpenSourceAdapter;
-import com.mindorks.framework.mvp.ui.feed.opensource.OpenSourceMvpPresenter;
-import com.mindorks.framework.mvp.ui.feed.opensource.OpenSourceMvpView;
-import com.mindorks.framework.mvp.ui.feed.opensource.OpenSourcePresenter;
-import com.mindorks.framework.mvp.ui.login.LoginMvpPresenter;
-import com.mindorks.framework.mvp.ui.login.LoginMvpView;
-import com.mindorks.framework.mvp.ui.login.LoginPresenter;
-import com.mindorks.framework.mvp.ui.main.MainMvpPresenter;
-import com.mindorks.framework.mvp.ui.main.MainMvpView;
-import com.mindorks.framework.mvp.ui.main.MainPresenter;
-import com.mindorks.framework.mvp.ui.main.rating.RatingDialogMvpPresenter;
-import com.mindorks.framework.mvp.ui.main.rating.RatingDialogMvpView;
-import com.mindorks.framework.mvp.ui.main.rating.RatingDialogPresenter;
-import com.mindorks.framework.mvp.ui.splash.SplashMvpPresenter;
-import com.mindorks.framework.mvp.ui.splash.SplashMvpView;
-import com.mindorks.framework.mvp.ui.splash.SplashPresenter;
-import com.mindorks.framework.mvp.utils.rx.AppSchedulerProvider;
-import com.mindorks.framework.mvp.utils.rx.SchedulerProvider;
+import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
+import com.fatkhun.agriculture.mvp.di.ActivityContext;
+import com.fatkhun.agriculture.mvp.di.PerActivity;
+import com.fatkhun.agriculture.mvp.ui.about.AboutMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.about.AboutMvpView;
+import com.fatkhun.agriculture.mvp.ui.about.AboutPresenter;
+import com.fatkhun.agriculture.mvp.ui.feed.FeedMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.feed.FeedMvpView;
+import com.fatkhun.agriculture.mvp.ui.feed.FeedPagerAdapter;
+import com.fatkhun.agriculture.mvp.ui.feed.FeedPresenter;
+import com.fatkhun.agriculture.mvp.ui.feed.blogs.BlogAdapter;
+import com.fatkhun.agriculture.mvp.ui.feed.blogs.BlogMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.feed.blogs.BlogMvpView;
+import com.fatkhun.agriculture.mvp.ui.feed.blogs.BlogPresenter;
+import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceAdapter;
+import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceMvpView;
+import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourcePresenter;
+import com.fatkhun.agriculture.mvp.ui.login.LoginMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.login.LoginMvpView;
+import com.fatkhun.agriculture.mvp.ui.login.LoginPresenter;
+import com.fatkhun.agriculture.mvp.ui.main.MainMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.main.MainMvpView;
+import com.fatkhun.agriculture.mvp.ui.main.MainPresenter;
+import com.fatkhun.agriculture.mvp.ui.main.rating.RatingDialogMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.main.rating.RatingDialogMvpView;
+import com.fatkhun.agriculture.mvp.ui.main.rating.RatingDialogPresenter;
+import com.fatkhun.agriculture.mvp.ui.splash.SplashMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.splash.SplashMvpView;
+import com.fatkhun.agriculture.mvp.ui.splash.SplashPresenter;
+import com.fatkhun.agriculture.mvp.utils.rx.AppSchedulerProvider;
+import com.fatkhun.agriculture.mvp.utils.rx.SchedulerProvider;
 
 import java.util.ArrayList;
 

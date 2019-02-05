@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.service;
+package com.fatkhun.agriculture.mvp.service;
 
 import android.app.Service;
 import android.content.Context;
@@ -21,11 +21,12 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
-import com.mindorks.framework.mvp.MvpApp;
-import com.mindorks.framework.mvp.data.DataManager;
-import com.mindorks.framework.mvp.di.component.DaggerServiceComponent;
-import com.mindorks.framework.mvp.di.component.ServiceComponent;
-import com.mindorks.framework.mvp.utils.AppLogger;
+import com.fatkhun.agriculture.mvp.MvpApp;
+import com.fatkhun.agriculture.mvp.data.DataManager;
+
+import com.fatkhun.agriculture.mvp.di.component.DaggerServiceComponent;
+import com.fatkhun.agriculture.mvp.di.component.ServiceComponent;
+import com.fatkhun.agriculture.mvp.utils.AppLogger;
 
 import javax.inject.Inject;
 

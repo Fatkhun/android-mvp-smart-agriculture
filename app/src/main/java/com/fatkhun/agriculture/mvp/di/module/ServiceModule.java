@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.di.module;
+package com.fatkhun.agriculture.mvp.di.module;
 
 import android.app.Service;
 

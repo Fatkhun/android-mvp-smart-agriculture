@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.utils;
+package com.fatkhun.agriculture.mvp.utils;
 
 import android.app.Activity;
 import android.content.Context;

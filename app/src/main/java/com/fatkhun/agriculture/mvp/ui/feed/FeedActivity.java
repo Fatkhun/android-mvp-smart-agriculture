@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.ui.feed;
+package com.fatkhun.agriculture.mvp.ui.feed;
 
 import android.content.Context;
 import android.content.Intent;
@@ -25,8 +25,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.mindorks.framework.mvp.R;
-import com.mindorks.framework.mvp.ui.base.BaseActivity;
+
+import com.fatkhun.agriculture.mvp.R;
+import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
 
 import javax.inject.Inject;
 

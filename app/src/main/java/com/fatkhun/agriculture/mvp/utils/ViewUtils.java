@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.utils;
+package com.fatkhun.agriculture.mvp.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -21,7 +21,8 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 
-import com.mindorks.framework.mvp.R;
+import com.fatkhun.agriculture.mvp.R;
+
 
 /**
  * Created by janisharali on 27/01/17.

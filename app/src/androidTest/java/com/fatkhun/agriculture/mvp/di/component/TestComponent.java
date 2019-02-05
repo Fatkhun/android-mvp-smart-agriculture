@@ -13,9 +13,9 @@
  * limitations under the License
  */
 
-package com.mindorks.framework.mvp.di.component;
+package com.fatkhun.agriculture.mvp.di.component;
 
-import com.mindorks.framework.mvp.di.module.ApplicationTestModule;
+import com.fatkhun.agriculture.mvp.di.module.ApplicationTestModule;
 
 import javax.inject.Singleton;
 
