@@ -26,6 +26,9 @@ import com.fatkhun.agriculture.mvp.di.PerActivity;
 import com.fatkhun.agriculture.mvp.ui.about.AboutMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.about.AboutMvpView;
 import com.fatkhun.agriculture.mvp.ui.about.AboutPresenter;
+import com.fatkhun.agriculture.mvp.ui.dashboard.DashboardMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.dashboard.DashboardMvpView;
+import com.fatkhun.agriculture.mvp.ui.dashboard.DashboardPresenter;
 import com.fatkhun.agriculture.mvp.ui.feed.FeedMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.feed.FeedMvpView;
 import com.fatkhun.agriculture.mvp.ui.feed.FeedPagerAdapter;
@@ -47,6 +50,9 @@ import com.fatkhun.agriculture.mvp.ui.main.MainPresenter;
 import com.fatkhun.agriculture.mvp.ui.main.rating.RatingDialogMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.main.rating.RatingDialogMvpView;
 import com.fatkhun.agriculture.mvp.ui.main.rating.RatingDialogPresenter;
+import com.fatkhun.agriculture.mvp.ui.register.RegisterMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.register.RegisterMvpView;
+import com.fatkhun.agriculture.mvp.ui.register.RegisterPresenter;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashMvpView;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashPresenter;
@@ -91,6 +97,18 @@ public class ActivityModule {
     @Provides
     SchedulerProvider provideSchedulerProvider() {
         return new AppSchedulerProvider();
+    }
+
+    @Provides
+    @PerActivity
+    RegisterMvpPresenter<RegisterMvpView> provideRegisterPresenter(RegisterPresenter<RegisterMvpView> presenter){
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    DashboardMvpPresenter<DashboardMvpView> provideDashboardPresenter(DashboardPresenter<DashboardMvpView> presenter){
+        return presenter;
     }
 
     @Provides

@@ -24,6 +24,7 @@ import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceFragment;
 import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
 import com.fatkhun.agriculture.mvp.ui.main.MainActivity;
 import com.fatkhun.agriculture.mvp.ui.main.rating.RateUsDialog;
+import com.fatkhun.agriculture.mvp.ui.register.RegisterActivity;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashActivity;
 
 import dagger.Component;
@@ -52,4 +53,5 @@ public interface ActivityComponent {
 
     void inject(RateUsDialog dialog);
 
+    void inject(RegisterActivity activity);
 }

@@ -80,9 +80,6 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     @BindView(R.id.tv_app_version)
     TextView mAppVersionTextView;
 
-    @BindView(R.id.cards_container)
-    SwipePlaceHolderView mCardsContainerView;
-
     private TextView mNameTextView;
 
     private TextView mEmailTextView;
@@ -119,31 +116,6 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         } else {
             onFragmentDetached(AboutFragment.TAG);
         }
-    }
-
-    @Override
-    public void refreshQuestionnaire(List<Question> questionList) {
-        for (Question question : questionList) {
-            if (question != null
-                    && question.getOptionList() != null
-                    && question.getOptionList().size() == 3) {
-                mCardsContainerView.addView(new QuestionCard(question));
-            }
-        }
-    }
-
-    @Override
-    public void reloadQuestionnaire(List<Question> questionList) {
-        refreshQuestionnaire(questionList);
-        ScaleAnimation animation =
-                new ScaleAnimation(
-                        1.15f, 1, 1.15f, 1,
-                        Animation.RELATIVE_TO_SELF, 0.5f,
-                        Animation.RELATIVE_TO_SELF, 0.5f);
-
-        mCardsContainerView.setAnimation(animation);
-        animation.setDuration(100);
-        animation.start();
     }
 
     @Override
@@ -273,40 +245,6 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         mDrawerToggle.syncState();
         setupNavMenu();
         mPresenter.onNavMenuCreated();
-        setupCardContainerView();
-        mPresenter.onViewInitialized();
-    }
-
-    private void setupCardContainerView() {
-
-        int screenWidth = ScreenUtils.getScreenWidth(this);
-        int screenHeight = ScreenUtils.getScreenHeight(this);
-
-        mCardsContainerView.getBuilder()
-                .setDisplayViewCount(3)
-                .setHeightSwipeDistFactor(10)
-                .setWidthSwipeDistFactor(5)
-                .setSwipeDecor(new SwipeDecor()
-                        .setViewWidth((int) (0.90 * screenWidth))
-                        .setViewHeight((int) (0.75 * screenHeight))
-                        .setPaddingTop(20)
-                        .setSwipeRotationAngle(10)
-                        .setRelativeScale(0.01f));
-
-        mCardsContainerView.addItemRemoveListener(new ItemRemovedListener() {
-            @Override
-            public void onItemRemoved(int count) {
-                if (count == 0) {
-                    // reload the contents again after 1 sec delay
-                    new Handler(getMainLooper()).postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mPresenter.onCardExhausted();
-                        }
-                    }, 800);
-                }
-            }
-        });
     }
 
     void setupNavMenu() {

@@ -20,11 +20,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
+import com.fatkhun.agriculture.mvp.ui.dashboard.DashboardActivity;
 import com.fatkhun.agriculture.mvp.ui.main.MainActivity;
+import com.fatkhun.agriculture.mvp.ui.register.RegisterActivity;
 
 import javax.inject.Inject;
 
@@ -48,6 +51,9 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
     @BindView(R.id.et_password)
     EditText mPasswordEditText;
 
+    @BindView(R.id.tv_to_register)
+    TextView tvToRegister;
+
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, LoginActivity.class);
         return intent;
@@ -63,6 +69,8 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(LoginActivity.this);
+
+        setUp();
     }
 
     @OnClick(R.id.btn_server_login)
@@ -96,6 +104,14 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
 
     @Override
     protected void setUp() {
+        tvToRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = RegisterActivity.getStartIntent(LoginActivity.this);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 }

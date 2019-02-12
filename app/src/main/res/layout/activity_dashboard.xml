@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.dashboard.DashboardActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/bg_dashboard">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/ic_facebook"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:padding="10dp"
+                    android:textColor="@color/dark_gray"
+                    android:text="Jhon Doe"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_gray"
+                    android:text="11 Januari 2019"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/iv_suhu_udara"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_suhu_udara"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_facebook" />
+
+            <TextView
+                android:id="@+id/tv_suhu_udara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:layout_marginLeft="72dp"
+                android:layout_marginBottom="8dp"
+                android:text="Suhu Udara"
+                android:textColor="@color/dark_gray"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_suhu_udara"
+                app:layout_constraintRight_toRightOf="@+id/iv_suhu_udara"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_suhu_udara"
+                app:layout_constraintVertical_bias="0.3" />
+
+            <TextView
+                android:id="@+id/tv_waktu_suhu_udara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="47 min"
+                android:textColor="@color/semi_gray"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/iv_suhu_udara"
+                app:layout_constraintTop_toBottomOf="@+id/tv_suhu_udara" />
+
+            <TextView
+                android:id="@+id/tv_nilai_suhu_udara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="8dp"
+                android:text="28"
+                android:textSize="40sp"
+                android:textColor="@color/orange"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_waktu_suhu_udara"
+                app:layout_constraintStart_toEndOf="@+id/tv_suhu_udara"
+                app:layout_constraintTop_toTopOf="@+id/tv_suhu_udara"
+                app:layout_constraintVertical_bias="0.7" />
+
+            <TextView
+                android:id="@+id/tv_item_suhu_udara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="℃"
+                android:textSize="20sp"
+                android:textColor="@color/orange"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_nilai_suhu_udara"
+                app:layout_constraintStart_toEndOf="@+id/tv_nilai_suhu_udara"
+                app:layout_constraintTop_toTopOf="@+id/tv_nilai_suhu_udara" />
+        </android.support.constraint.ConstraintLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"/>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/iv_kelembaban_udara"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_kelembaban_udara"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_facebook" />
+
+            <TextView
+                android:id="@+id/tv_kelembaban_udara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:layout_marginLeft="72dp"
+                android:layout_marginBottom="8dp"
+                android:text="Kelembaban Udara"
+                android:textColor="@color/dark_gray"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_kelembaban_udara"
+                app:layout_constraintRight_toRightOf="@+id/iv_kelembaban_udara"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_kelembaban_udara" />
+
+            <TextView
+                android:id="@+id/tv_waktu_kelembaban_udara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="47 min"
+                android:textColor="@color/semi_gray"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/iv_kelembaban_udara"
+                app:layout_constraintTop_toBottomOf="@+id/tv_kelembaban_udara" />
+
+            <TextView
+                android:id="@+id/tv_nilai_kelembaban_udara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="8dp"
+                android:text="68"
+                android:textSize="40sp"
+                android:textColor="@color/light_blue"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_waktu_kelembaban_udara"
+                app:layout_constraintStart_toEndOf="@+id/tv_kelembaban_udara"
+                app:layout_constraintTop_toTopOf="@+id/tv_kelembaban_udara"
+                app:layout_constraintVertical_bias="0.7" />
+
+            <TextView
+                android:id="@+id/tv_item_kelembaban_udara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="%"
+                android:textSize="20sp"
+                android:textColor="@color/light_blue"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_nilai_kelembaban_udara"
+                app:layout_constraintStart_toEndOf="@+id/tv_nilai_kelembaban_udara"
+                app:layout_constraintTop_toTopOf="@+id/tv_nilai_kelembaban_udara" />
+        </android.support.constraint.ConstraintLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"/>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/iv_kelembaban_tanah"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_kelembaban_tanah"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_facebook" />
+
+            <TextView
+                android:id="@+id/tv_kelembaban_tanah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:layout_marginLeft="72dp"
+                android:layout_marginBottom="8dp"
+                android:text="Kelembaban Udara"
+                android:textColor="@color/dark_gray"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_kelembaban_tanah"
+                app:layout_constraintRight_toRightOf="@+id/iv_kelembaban_tanah"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_kelembaban_tanah" />
+
+            <TextView
+                android:id="@+id/tv_waktu_kelembaban_tanah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="47 min"
+                android:textColor="@color/semi_gray"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/iv_kelembaban_tanah"
+                app:layout_constraintTop_toBottomOf="@+id/tv_kelembaban_tanah" />
+
+            <TextView
+                android:id="@+id/tv_nilai_kelembaban_tanah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="8dp"
+                android:text="73"
+                android:textSize="40sp"
+                android:textColor="@color/light_green"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_waktu_kelembaban_tanah"
+                app:layout_constraintStart_toEndOf="@+id/tv_kelembaban_tanah"
+                app:layout_constraintTop_toTopOf="@+id/tv_kelembaban_tanah"
+                app:layout_constraintVertical_bias="0.7" />
+
+            <TextView
+                android:id="@+id/tv_item_kelembaban_tanah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="%"
+                android:textSize="20sp"
+                android:textColor="@color/light_green"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_nilai_kelembaban_tanah"
+                app:layout_constraintStart_toEndOf="@+id/tv_nilai_kelembaban_tanah"
+                app:layout_constraintTop_toTopOf="@+id/tv_nilai_kelembaban_tanah" />
+        </android.support.constraint.ConstraintLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"/>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/iv_siram"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_siram"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_facebook" />
+
+            <TextView
+                android:id="@+id/tv_siram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:layout_marginLeft="72dp"
+                android:layout_marginBottom="8dp"
+                android:text="Siram"
+                android:textColor="@color/dark_gray"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_siram"
+                app:layout_constraintRight_toRightOf="@+id/iv_siram"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_siram" />
+
+            <TextView
+                android:id="@+id/tv_waktu_siram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="47 min"
+                android:textColor="@color/semi_gray"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/iv_siram"
+                app:layout_constraintTop_toBottomOf="@+id/tv_siram" />
+
+            <TextView
+                android:id="@+id/tv_nilai_siram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="140dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="8dp"
+                android:text="28%"
+                android:textSize="40sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_waktu_siram"
+                app:layout_constraintStart_toEndOf="@+id/tv_siram"
+                app:layout_constraintTop_toTopOf="@+id/tv_siram"
+                app:layout_constraintVertical_bias="0.7" />
+        </android.support.constraint.ConstraintLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"/>
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
