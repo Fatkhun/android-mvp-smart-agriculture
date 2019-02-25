@@ -73,6 +73,9 @@ dependencies {
     // database
     implementation "org.greenrobot:greendao:$rootProject.greenDaoVersion"
 
+    //firebase
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+
     // debug database
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     debugImplementation "com.amitshekhar.android:debug-db:$rootProject.debugDBVersion"
@@ -112,3 +115,5 @@ dependencies {
 configurations.all {
     resolutionStrategy.force "com.android.support:support-annotations:$supportLibraryVersion"
 }
+
+apply plugin: 'com.google.gms.google-services'
