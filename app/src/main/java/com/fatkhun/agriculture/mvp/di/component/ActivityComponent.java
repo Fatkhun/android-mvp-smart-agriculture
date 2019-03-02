@@ -25,6 +25,10 @@ import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
 import com.fatkhun.agriculture.mvp.ui.main.MainActivity;
 import com.fatkhun.agriculture.mvp.ui.main.rating.RateUsDialog;
 import com.fatkhun.agriculture.mvp.ui.register.RegisterActivity;
+import com.fatkhun.agriculture.mvp.ui.reminder.RemindActivity;
+import com.fatkhun.agriculture.mvp.ui.remindercrud.RemindCreateEditActivity;
+import com.fatkhun.agriculture.mvp.ui.remindpreference.RemindPreferenceActivity;
+import com.fatkhun.agriculture.mvp.ui.remindview.RemindViewActivity;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashActivity;
 
 import dagger.Component;
@@ -54,4 +58,12 @@ public interface ActivityComponent {
     void inject(RateUsDialog dialog);
 
     void inject(RegisterActivity activity);
+
+    void inject(RemindActivity activity);
+
+    void inject(RemindCreateEditActivity activity);
+
+    void inject(RemindViewActivity activity);
+
+    void inject(RemindPreferenceActivity activity);
 }

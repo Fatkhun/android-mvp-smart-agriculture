@@ -16,6 +16,9 @@
 package com.fatkhun.agriculture.mvp;
 
 import android.app.Application;
+import android.content.Intent;
+import android.os.Build;
+import android.support.v4.content.ContextCompat;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.interceptors.HttpLoggingInterceptor.Level;

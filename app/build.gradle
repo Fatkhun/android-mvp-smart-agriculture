@@ -73,8 +73,21 @@ dependencies {
     // database
     implementation "org.greenrobot:greendao:$rootProject.greenDaoVersion"
 
-    //firebase
-    implementation 'com.google.firebase:firebase-core:16.0.1'
+    // firebase
+    implementation 'com.google.firebase:firebase-core:10.0.1'
+    implementation 'com.google.firebase:firebase-auth:10.0.1'
+    implementation 'com.google.firebase:firebase-messaging:10.0.1'
+
+    // material tab and dialog
+    implementation 'com.jpardogo.materialtabstrip:library:1.1.0'
+    implementation 'com.afollestad.material-dialogs:commons:0.8.6.1'
+
+    // schedule
+    implementation 'com.getbase:floatingactionbutton:1.9.0'
+    implementation 'com.wdullaer:materialdatetimepicker:1.2.1'
+    implementation 'com.bignerdranch.android:recyclerview-multiselect:+'
+    implementation 'com.wrapp.floatlabelededittext:library:0.0.6'
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
 
     // debug database
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'

@@ -47,6 +47,7 @@ import com.fatkhun.agriculture.mvp.ui.custom.RoundedImageView;
 import com.fatkhun.agriculture.mvp.ui.feed.FeedActivity;
 import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
 import com.fatkhun.agriculture.mvp.ui.main.rating.RateUsDialog;
+import com.fatkhun.agriculture.mvp.ui.reminder.RemindActivity;
 import com.fatkhun.agriculture.mvp.utils.ScreenUtils;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
@@ -214,8 +215,6 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 return true;
             case R.id.action_share:
                 return true;
-            case R.id.action_delete:
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -291,7 +290,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
 
     @Override
     public void openMyFeedActivity() {
-        startActivity(FeedActivity.getStartIntent(this));
+        startActivity(RemindActivity.getStartIntent(this));
     }
 
     @Override

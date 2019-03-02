@@ -16,6 +16,7 @@
 package com.fatkhun.agriculture.mvp.di.module;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 
@@ -53,6 +54,18 @@ import com.fatkhun.agriculture.mvp.ui.main.rating.RatingDialogPresenter;
 import com.fatkhun.agriculture.mvp.ui.register.RegisterMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.register.RegisterMvpView;
 import com.fatkhun.agriculture.mvp.ui.register.RegisterPresenter;
+import com.fatkhun.agriculture.mvp.ui.reminder.RemindMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.reminder.RemindMvpView;
+import com.fatkhun.agriculture.mvp.ui.reminder.RemindPresenter;
+import com.fatkhun.agriculture.mvp.ui.remindercrud.RemindCreateEditMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.remindercrud.RemindCreateEditMvpView;
+import com.fatkhun.agriculture.mvp.ui.remindercrud.RemindCreateEditPresenter;
+import com.fatkhun.agriculture.mvp.ui.remindpreference.RemindPreferenceMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.remindpreference.RemindPreferenceMvpView;
+import com.fatkhun.agriculture.mvp.ui.remindpreference.RemindPreferencePresenter;
+import com.fatkhun.agriculture.mvp.ui.remindview.RemindViewMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.remindview.RemindViewMvpView;
+import com.fatkhun.agriculture.mvp.ui.remindview.RemindViewPresenter;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashMvpView;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashPresenter;
@@ -73,6 +86,8 @@ import io.reactivex.disposables.CompositeDisposable;
 public class ActivityModule {
 
     private AppCompatActivity mActivity;
+    Context context;
+    Cursor cursor;
 
     public ActivityModule(AppCompatActivity activity) {
         this.mActivity = activity;
@@ -108,6 +123,30 @@ public class ActivityModule {
     @Provides
     @PerActivity
     DashboardMvpPresenter<DashboardMvpView> provideDashboardPresenter(DashboardPresenter<DashboardMvpView> presenter){
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    RemindMvpPresenter<RemindMvpView> provideRemindPresenter(RemindPresenter<RemindMvpView> presenter){
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    RemindCreateEditMvpPresenter<RemindCreateEditMvpView> provideRemindCreateEditPresenter(RemindCreateEditPresenter<RemindCreateEditMvpView> presenter){
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    RemindPreferenceMvpPresenter<RemindPreferenceMvpView> provideRemindPreferencePresenter(RemindPreferencePresenter<RemindPreferenceMvpView> presenter){
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    RemindViewMvpPresenter<RemindViewMvpView> provideRemindViewPresenter(RemindViewPresenter<RemindViewMvpView> presenter){
         return presenter;
     }
 

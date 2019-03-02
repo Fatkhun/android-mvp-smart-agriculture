@@ -36,6 +36,10 @@ public final class AppConstants {
 
     public static final String TIMESTAMP_FORMAT = "yyyyMMdd_HHmmss";
 
+    public static final String CHANNEL_ID = "my_channel_01";
+    public static final String CHANNEL_NAME = "Agriculture Notification";
+    public static final String CHANNEL_DESCRIPTION = "www.smart.id";
+
     private AppConstants() {
         // This utility class is not publicly instantiable
     }
