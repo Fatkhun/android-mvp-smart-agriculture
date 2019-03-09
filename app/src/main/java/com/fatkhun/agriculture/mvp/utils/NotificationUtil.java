@@ -21,6 +21,7 @@ import com.fatkhun.agriculture.mvp.data.receivers.DismissReceiver;
 import com.fatkhun.agriculture.mvp.data.receivers.NagReceiver;
 import com.fatkhun.agriculture.mvp.data.receivers.SnoozeActionReceiver;
 import com.fatkhun.agriculture.mvp.ui.remindview.RemindViewActivity;
+import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlActivity;
 
 import java.util.Calendar;
 
@@ -32,7 +33,7 @@ public class NotificationUtil {
         int importance = NotificationManager.IMPORTANCE_HIGH;
 
         // Create intent for notification onClick behaviour
-        Intent viewIntent = new Intent(context, RemindViewActivity.class);
+        Intent viewIntent = new Intent(context, WaterControlActivity.class);
         viewIntent.putExtra("NOTIFICATION_ID", reminder.getId());
         viewIntent.putExtra("NOTIFICATION_DISMISS", true);
         PendingIntent pending = PendingIntent.getActivity(context, reminder.getId(), viewIntent, PendingIntent.FLAG_UPDATE_CURRENT);

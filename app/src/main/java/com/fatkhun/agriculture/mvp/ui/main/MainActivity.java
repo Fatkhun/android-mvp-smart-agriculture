@@ -245,6 +245,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
 
     @Override
     protected void setUp() {
+        mToolbar.setTitle("Agriculture");
         setSupportActionBar(mToolbar);
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,
