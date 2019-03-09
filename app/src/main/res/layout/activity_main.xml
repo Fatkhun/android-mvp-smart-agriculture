@@ -113,6 +113,9 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="Humidity"
+                                        android:layout_marginTop="10dp"
+                                        android:textColor="@color/black_effective"
+                                        android:fontFamily="@font/roboto_medium"
                                         android:textAlignment="center"/>
                                 </LinearLayout>
 
@@ -128,7 +131,7 @@
                                         android:layout_width="150dp"
                                         android:layout_height="150dp"
                                         android:tint="@color/light_blue"
-                                        app:srcCompat="@drawable/ic_wb_sunny_white_24dp"
+                                        app:srcCompat="@drawable/ic_humidity"
                                         android:scaleType="fitCenter"/>
                                 </LinearLayout>
 
@@ -183,7 +186,7 @@
                                         android:layout_width="150dp"
                                         android:layout_height="150dp"
                                         android:tint="@color/light_green"
-                                        app:srcCompat="@drawable/ic_wb_sunny_white_24dp"
+                                        app:srcCompat="@drawable/ic_soil_moisture"
                                         android:scaleType="fitCenter"/>
                                 </LinearLayout>
 
@@ -215,6 +218,9 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="Soil Moisture"
+                                        android:layout_marginTop="10dp"
+                                        android:textColor="@color/black_effective"
+                                        android:fontFamily="@font/roboto_medium"
                                         android:textAlignment="center"/>
                                 </LinearLayout>
 
@@ -268,26 +274,22 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
 
-                                    <com.dinuscxj.progressbar.CircleProgressBar
-                                        android:id="@+id/cp_temperature"
-                                        app:style="solid_line"
-                                        app:progress_stroke_width="8dp"
-                                        app:line_width="4dp"
-                                        app:line_count="30"
-                                        app:progress_stroke_cap="round"
-                                        app:progress_shader="sweep"
-                                        app:progress_background_color="@color/shadow"
-                                        app:progress_start_color="@color/cyan_dark"
-                                        app:progress_end_color="@android:color/transparent"
-                                        app:progress_text_color="@color/cyan_dark"
-                                        app:progress_text_size="20sp"
-                                        android:layout_width="70dp"
-                                        android:layout_height="70dp"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:textSize="80sp"
+                                        android:textColor="@color/black_effective"
+                                        android:fontFamily="@font/neutra2_text_bold"
+                                        android:textAlignment="center"/>
 
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="Temperature"
+                                        android:layout_marginTop="10dp"
+                                        android:textColor="@color/black_effective"
+                                        android:fontFamily="@font/roboto_medium"
                                         android:textAlignment="center"/>
                                 </LinearLayout>
 
@@ -303,7 +305,7 @@
                                         android:layout_width="150dp"
                                         android:layout_height="150dp"
                                         android:tint="@color/orange"
-                                        app:srcCompat="@drawable/ic_brightness_high_white_24dp"
+                                        app:srcCompat="@drawable/ic_temperature"
                                         android:scaleType="fitCenter"/>
                                 </LinearLayout>
 
