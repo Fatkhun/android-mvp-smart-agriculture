@@ -24,14 +24,14 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
+                android:background="@color/colorPrimaryDark"
                 android:theme="@style/Toolbar"
                 app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="?attr/colorPrimary"
+                android:background="@color/colorPrimaryDark"
                 android:orientation="vertical"
                 android:paddingBottom="14dp"
                 android:paddingLeft="@dimen/title_padding_left"

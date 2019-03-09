@@ -45,6 +45,7 @@ public class RemindPreferenceActivity extends BaseActivity implements RemindPref
     @Override
     protected void setUp() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.settings);
         setSupportActionBar(toolbar);
         if (toolbar != null) toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
         if (getActionBar() != null) getActionBar().setDisplayHomeAsUpEnabled(true);

@@ -15,6 +15,7 @@
 
 package com.fatkhun.agriculture.mvp.ui.main;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Animatable;
@@ -38,6 +39,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
 
 
+import com.dinuscxj.progressbar.CircleProgressBar;
 import com.fatkhun.agriculture.mvp.BuildConfig;
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.db.model.Question;
@@ -48,10 +50,16 @@ import com.fatkhun.agriculture.mvp.ui.feed.FeedActivity;
 import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
 import com.fatkhun.agriculture.mvp.ui.main.rating.RateUsDialog;
 import com.fatkhun.agriculture.mvp.ui.reminder.RemindActivity;
+import com.fatkhun.agriculture.mvp.ui.remindpreference.RemindPreferenceActivity;
+import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlActivity;
 import com.fatkhun.agriculture.mvp.utils.ScreenUtils;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.mindorks.placeholderview.listeners.ItemRemovedListener;
+
+import org.eazegraph.lib.charts.ValueLineChart;
+import org.eazegraph.lib.models.ValueLinePoint;
+import org.eazegraph.lib.models.ValueLineSeries;
 
 import java.util.List;
 
@@ -80,6 +88,21 @@ public class MainActivity extends BaseActivity implements MainMvpView {
 
     @BindView(R.id.tv_app_version)
     TextView mAppVersionTextView;
+
+    @BindView(R.id.cp_humidity)
+    CircleProgressBar cpHumidity;
+
+    @BindView(R.id.cp_soil_moisture)
+    CircleProgressBar cpSoilMoisture;
+
+    @BindView(R.id.line_chart_humidity)
+    ValueLineChart lineChartHumidity;
+
+    @BindView(R.id.line_chart_soil_moisture)
+    ValueLineChart lineChartSoilMoisture;
+
+    @BindView(R.id.line_chart_temperature)
+    ValueLineChart lineChartTemperature;
 
     private TextView mNameTextView;
 
@@ -195,30 +218,30 @@ public class MainActivity extends BaseActivity implements MainMvpView {
             mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        super.onCreateOptionsMenu(menu);
+//        getMenuInflater().inflate(R.menu.main, menu);
+//        return true;
+//    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Drawable drawable = item.getIcon();
-        if (drawable instanceof Animatable) {
-            ((Animatable) drawable).start();
-        }
-        switch (item.getItemId()) {
-            case R.id.action_cut:
-                return true;
-            case R.id.action_copy:
-                return true;
-            case R.id.action_share:
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        Drawable drawable = item.getIcon();
+//        if (drawable instanceof Animatable) {
+//            ((Animatable) drawable).start();
+//        }
+//        switch (item.getItemId()) {
+//            case R.id.action_cut:
+//                return true;
+//            case R.id.action_copy:
+//                return true;
+//            case R.id.action_share:
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
 
     @Override
     protected void setUp() {
@@ -244,6 +267,110 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         mDrawerToggle.syncState();
         setupNavMenu();
         mPresenter.onNavMenuCreated();
+
+        //result sensor
+        resultSensor();
+        // chart
+        chartSensor();
+    }
+
+    private void chartSensor(){
+        ValueLineSeries humidity = new ValueLineSeries();
+        humidity.setColor(0xFF56B7F1);
+
+        humidity.addPoint(new ValueLinePoint("Jan", 2.4f));
+        humidity.addPoint(new ValueLinePoint("Feb", 3.4f));
+        humidity.addPoint(new ValueLinePoint("Mar", .4f));
+        humidity.addPoint(new ValueLinePoint("Apr", 1.2f));
+        humidity.addPoint(new ValueLinePoint("Mai", 2.6f));
+        humidity.addPoint(new ValueLinePoint("Jun", 1.0f));
+        humidity.addPoint(new ValueLinePoint("Jul", 3.5f));
+        humidity.addPoint(new ValueLinePoint("Aug", 2.4f));
+        humidity.addPoint(new ValueLinePoint("Sep", 2.4f));
+        humidity.addPoint(new ValueLinePoint("Oct", 3.4f));
+        humidity.addPoint(new ValueLinePoint("Nov", .4f));
+        humidity.addPoint(new ValueLinePoint("Dec", 1.3f));
+
+        lineChartHumidity.addSeries(humidity);
+        lineChartHumidity.startAnimation();
+
+        ValueLineSeries soilMoisture = new ValueLineSeries();
+        soilMoisture.setColor(0xFF56B7F1);
+
+        soilMoisture.addPoint(new ValueLinePoint("Jan", 2.4f));
+        soilMoisture.addPoint(new ValueLinePoint("Feb", 3.4f));
+        soilMoisture.addPoint(new ValueLinePoint("Mar", .4f));
+        soilMoisture.addPoint(new ValueLinePoint("Apr", 1.2f));
+        soilMoisture.addPoint(new ValueLinePoint("Mai", 2.6f));
+        soilMoisture.addPoint(new ValueLinePoint("Jun", 1.0f));
+        soilMoisture.addPoint(new ValueLinePoint("Jul", 3.5f));
+        soilMoisture.addPoint(new ValueLinePoint("Aug", 2.4f));
+        soilMoisture.addPoint(new ValueLinePoint("Sep", 2.4f));
+        soilMoisture.addPoint(new ValueLinePoint("Oct", 3.4f));
+        soilMoisture.addPoint(new ValueLinePoint("Nov", .4f));
+        soilMoisture.addPoint(new ValueLinePoint("Dec", 1.3f));
+
+        lineChartSoilMoisture.addSeries(soilMoisture);
+        lineChartSoilMoisture.startAnimation();
+
+        ValueLineSeries temperature = new ValueLineSeries();
+        temperature.setColor(0xFF56B7F1);
+
+        temperature.addPoint(new ValueLinePoint("Jan", 2.4f));
+        temperature.addPoint(new ValueLinePoint("Feb", 3.4f));
+        temperature.addPoint(new ValueLinePoint("Mar", .4f));
+        temperature.addPoint(new ValueLinePoint("Apr", 1.2f));
+        temperature.addPoint(new ValueLinePoint("Mai", 2.6f));
+        temperature.addPoint(new ValueLinePoint("Jun", 1.0f));
+        temperature.addPoint(new ValueLinePoint("Jul", 3.5f));
+        temperature.addPoint(new ValueLinePoint("Aug", 2.4f));
+        temperature.addPoint(new ValueLinePoint("Sep", 2.4f));
+        temperature.addPoint(new ValueLinePoint("Oct", 3.4f));
+        temperature.addPoint(new ValueLinePoint("Nov", .4f));
+        temperature.addPoint(new ValueLinePoint("Dec", 1.3f));
+
+        lineChartTemperature.addSeries(temperature);
+        lineChartTemperature.startAnimation();
+    }
+
+    private void resultSensor(){
+        ValueAnimator humidity = ValueAnimator.ofInt(0, 30);
+        ValueAnimator soilMoisture = ValueAnimator.ofInt(0, 46);
+
+        humidity.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                Integer progress = (Integer) animation.getAnimatedValue();
+                try{
+                    if ( progress != null) {
+                        cpHumidity.setProgress(progress);
+                    }else {
+                        cpHumidity.setProgress(0);
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+        humidity.setDuration(5000);
+        humidity.start();
+        soilMoisture.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                Integer progress = (Integer) animation.getAnimatedValue();
+                try{
+                    if ( progress != null) {
+                        cpSoilMoisture.setProgress(progress);
+                    }else {
+                        cpSoilMoisture.setProgress(0);
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+        soilMoisture.setDuration(5000);
+        soilMoisture.start();
     }
 
     void setupNavMenu() {
@@ -261,11 +388,14 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                             case R.id.nav_item_about:
                                 mPresenter.onDrawerOptionAboutClick();
                                 return true;
-                            case R.id.nav_item_rate_us:
-                                mPresenter.onDrawerRateUsClick();
+                            case R.id.nav_item_watering:
+                                mPresenter.onDrawerWaterControlClick();
                                 return true;
-                            case R.id.nav_item_feed:
-                                mPresenter.onDrawerMyFeedClick();
+                            case R.id.nav_item_reminder:
+                                mPresenter.onDrawerReminderClick();
+                                return true;
+                            case R.id.nav_item_setting:
+                                mPresenter.onDrawerSettingClick();
                                 return true;
                             case R.id.nav_item_logout:
                                 mPresenter.onDrawerOptionLogoutClick();
@@ -284,13 +414,18 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     }
 
     @Override
-    public void showRateUsDialog() {
-        RateUsDialog.newInstance().show(getSupportFragmentManager());
+    public void openWaterControlActivity() {
+        startActivity(WaterControlActivity.getStartIntent(this));
     }
 
     @Override
-    public void openMyFeedActivity() {
+    public void openReminderActivity() {
         startActivity(RemindActivity.getStartIntent(this));
+    }
+
+    @Override
+    public void openSettingActivity() {
+        startActivity(RemindPreferenceActivity.getStartIntent(this));
     }
 
     @Override

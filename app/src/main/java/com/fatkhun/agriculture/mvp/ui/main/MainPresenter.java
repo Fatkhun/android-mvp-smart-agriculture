@@ -113,14 +113,20 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V>
     }
 
     @Override
-    public void onDrawerRateUsClick() {
+    public void onDrawerWaterControlClick() {
         getMvpView().closeNavigationDrawer();
-        getMvpView().showRateUsDialog();
+        getMvpView().openWaterControlActivity();
     }
 
     @Override
-    public void onDrawerMyFeedClick() {
+    public void onDrawerReminderClick() {
         getMvpView().closeNavigationDrawer();
-        getMvpView().openMyFeedActivity();
+        getMvpView().openReminderActivity();
+    }
+
+    @Override
+    public void onDrawerSettingClick() {
+        getMvpView().closeNavigationDrawer();
+        getMvpView().openSettingActivity();
     }
 }

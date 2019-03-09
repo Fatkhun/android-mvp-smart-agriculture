@@ -38,9 +38,11 @@ public interface MainMvpView extends MvpView {
 
     void updateAppVersion();
 
-    void showRateUsDialog();
+    void openWaterControlActivity();
 
-    void openMyFeedActivity();
+    void openReminderActivity();
+
+    void openSettingActivity();
 
     void closeNavigationDrawer();
 

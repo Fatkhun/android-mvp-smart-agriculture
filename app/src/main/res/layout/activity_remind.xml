@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:orientation="horizontal"
-            android:background="?attr/colorPrimary">
+            android:background="@color/colorPrimaryDark">
 
             <com.astuetz.PagerSlidingTabStrip
                 android:id="@+id/tabs"
@@ -28,14 +28,14 @@
                 android:layout_marginLeft="@dimen/tabs_padding"
                 android:layout_marginStart="@dimen/tabs_padding"
                 android:layout_weight="0.5"
-                android:background="?attr/colorPrimary" />
+                android:background="@color/colorPrimaryDark" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
+                android:background="?attr/colorPrimaryDark"
                 app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
                 android:theme="@style/Toolbar" />
 

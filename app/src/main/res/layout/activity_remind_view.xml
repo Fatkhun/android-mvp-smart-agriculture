@@ -24,7 +24,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
+                android:background="@color/colorPrimaryDark"
                 app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
                 android:theme="@style/Toolbar" />
 
@@ -32,6 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:background="@color/colorPrimaryDark"
                 android:paddingBottom="15dp">
 
                 <include layout="@layout/notification"/>

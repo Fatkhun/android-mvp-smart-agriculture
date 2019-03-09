@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
     <PreferenceCategory
         android:title="@string/preference_notification_category">
-        <CheckBoxPreference
+        <SwitchPreference
             android:defaultValue="true"
             android:key="checkBoxVibrate"
             android:title="@string/checkbox_vibrate"/>
@@ -12,26 +12,30 @@
             android:title="@string/checkbox_sound"
             android:defaultValue="content://settings/system/notification_sound"
             android:ringtoneType="notification" />
-        <CheckBoxPreference
+        <SwitchPreference
             android:defaultValue="true"
             android:key="checkBoxLED"
             android:title="@string/checkbox_LED"/>
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="checkBoxOngoing"
             android:title="@string/checkbox_ongoing"
             android:summary="@string/ongoing_detail"/>
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="checkBoxMarkAsDone"
             android:title="@string/mark_as_done"
             android:summary="@string/mark_as_done_detail"/>
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="checkBoxSnooze"
             android:title="@string/snooze"
             android:summary="@string/snooze_detail"/>
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="checkBoxNagging"
             android:title="@string/nagging_reminder"
             android:summary="@string/nagging_detail"/>
+        <SwitchPreference
+            android:key="switchPumpAuto"
+            android:title="Water Pump"
+            android:summary="Set water pump to automatically"/>
         <com.fatkhun.agriculture.mvp.data.dialogs.PreferenceNagTimePicker
             android:key="nagInterval"
             android:title="@string/nagging_interval"/>

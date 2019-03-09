@@ -27,9 +27,9 @@ import com.fatkhun.agriculture.mvp.di.PerActivity;
 import com.fatkhun.agriculture.mvp.ui.about.AboutMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.about.AboutMvpView;
 import com.fatkhun.agriculture.mvp.ui.about.AboutPresenter;
-import com.fatkhun.agriculture.mvp.ui.dashboard.DashboardMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.dashboard.DashboardMvpView;
-import com.fatkhun.agriculture.mvp.ui.dashboard.DashboardPresenter;
+import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlMvpView;
+import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlPresenter;
 import com.fatkhun.agriculture.mvp.ui.feed.FeedMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.feed.FeedMvpView;
 import com.fatkhun.agriculture.mvp.ui.feed.FeedPagerAdapter;
@@ -122,7 +122,7 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-    DashboardMvpPresenter<DashboardMvpView> provideDashboardPresenter(DashboardPresenter<DashboardMvpView> presenter){
+    WaterControlMvpPresenter<WaterControlMvpView> provideWaterControlPresenter(WaterControlPresenter<WaterControlMvpView> presenter){
         return presenter;
     }
 

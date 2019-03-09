@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:text="@string/rate_us" />
+                android:text="@string/watering" />
 
             <RatingBar
                 android:id="@+id/rating_bar_feedback"

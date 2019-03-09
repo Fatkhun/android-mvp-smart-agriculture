@@ -95,25 +95,4 @@ public class RemindActivity extends BaseActivity implements RemindMvpView, Remin
             fabIsHidden = false;
         }
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent preferenceIntent = new Intent(this, RemindPreferenceActivity.class);
-                startActivity(preferenceIntent);
-                return true;
-            case R.id.action_about:
-                Intent aboutIntent = new Intent(this, RemindPreferenceActivity.class);
-                startActivity(aboutIntent);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

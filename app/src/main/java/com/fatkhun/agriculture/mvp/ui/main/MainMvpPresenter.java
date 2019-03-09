@@ -30,9 +30,11 @@ public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V>
 
     void onDrawerOptionLogoutClick();
 
-    void onDrawerRateUsClick();
+    void onDrawerWaterControlClick();
 
-    void onDrawerMyFeedClick();
+    void onDrawerReminderClick();
+
+    void onDrawerSettingClick();
 
     void onNavMenuCreated();
 }

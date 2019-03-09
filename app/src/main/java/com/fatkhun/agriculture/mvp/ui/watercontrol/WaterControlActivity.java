@@ -1,8 +1,7 @@
-package com.fatkhun.agriculture.mvp.ui.dashboard;
+package com.fatkhun.agriculture.mvp.ui.watercontrol;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.fatkhun.agriculture.mvp.R;
@@ -10,20 +9,20 @@ import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
 
 import javax.inject.Inject;
 
-public class DashboardActivity extends BaseActivity implements DashboardMvpView {
+public class WaterControlActivity extends BaseActivity implements WaterControlMvpView {
 
     @Inject
-    DashboardMvpPresenter<DashboardMvpView> mPresenter;
+    WaterControlMvpPresenter<WaterControlMvpView> mPresenter;
 
     public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, DashboardActivity.class);
+        Intent intent = new Intent(context, WaterControlActivity.class);
         return intent;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_water_control);
     }
 
     @Override
