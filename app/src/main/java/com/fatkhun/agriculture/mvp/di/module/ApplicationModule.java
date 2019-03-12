@@ -23,8 +23,6 @@ import com.fatkhun.agriculture.mvp.BuildConfig;
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.AppDataManager;
 import com.fatkhun.agriculture.mvp.data.DataManager;
-import com.fatkhun.agriculture.mvp.data.db.AppDbHelper;
-import com.fatkhun.agriculture.mvp.data.db.DbHelper;
 import com.fatkhun.agriculture.mvp.data.network.ApiHeader;
 import com.fatkhun.agriculture.mvp.data.network.ApiHelper;
 import com.fatkhun.agriculture.mvp.data.network.AppApiHelper;
@@ -88,12 +86,6 @@ public class ApplicationModule {
     @Singleton
     DataManager provideDataManager(AppDataManager appDataManager) {
         return appDataManager;
-    }
-
-    @Provides
-    @Singleton
-    DbHelper provideDbHelper(AppDbHelper appDbHelper) {
-        return appDbHelper;
     }
 
     @Provides

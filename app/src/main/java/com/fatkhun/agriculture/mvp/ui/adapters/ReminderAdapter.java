@@ -20,7 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fatkhun.agriculture.mvp.R;
-import com.fatkhun.agriculture.mvp.data.db.model.Reminder;
+import com.fatkhun.agriculture.mvp.data.database.model.Reminder;
 import com.fatkhun.agriculture.mvp.ui.remindview.RemindViewActivity;
 import com.fatkhun.agriculture.mvp.utils.DateAndTimeUtil;
 

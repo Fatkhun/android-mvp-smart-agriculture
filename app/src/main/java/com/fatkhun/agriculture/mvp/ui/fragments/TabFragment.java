@@ -19,9 +19,8 @@ import android.widget.TextView;
 
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.database.DatabaseHelper;
-import com.fatkhun.agriculture.mvp.data.db.model.Reminder;
+import com.fatkhun.agriculture.mvp.data.database.model.Reminder;
 import com.fatkhun.agriculture.mvp.ui.adapters.ReminderAdapter;
-import com.fatkhun.agriculture.mvp.ui.base.BaseFragment;
 
 import java.util.List;
 

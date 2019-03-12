@@ -42,11 +42,11 @@ import android.widget.TextView;
 import com.dinuscxj.progressbar.CircleProgressBar;
 import com.fatkhun.agriculture.mvp.BuildConfig;
 import com.fatkhun.agriculture.mvp.R;
-import com.fatkhun.agriculture.mvp.data.db.model.Question;
 import com.fatkhun.agriculture.mvp.ui.about.AboutFragment;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
 import com.fatkhun.agriculture.mvp.ui.custom.RoundedImageView;
 import com.fatkhun.agriculture.mvp.ui.feed.FeedActivity;
+import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListActivity;
 import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
 import com.fatkhun.agriculture.mvp.ui.main.rating.RateUsDialog;
 import com.fatkhun.agriculture.mvp.ui.reminder.RemindActivity;
@@ -386,8 +386,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         mDrawer.closeDrawer(GravityCompat.START);
                         switch (item.getItemId()) {
-                            case R.id.nav_item_about:
-                                mPresenter.onDrawerOptionAboutClick();
+                            case R.id.nav_item_history:
+                                mPresenter.onDrawerHistoryClick();
                                 return true;
                             case R.id.nav_item_watering:
                                 mPresenter.onDrawerWaterControlClick();
@@ -427,6 +427,11 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     @Override
     public void openSettingActivity() {
         startActivity(RemindPreferenceActivity.getStartIntent(this));
+    }
+
+    @Override
+    public void openHistoryActivity() {
+        startActivity(HistoryListActivity.getStartIntent(this));
     }
 
     @Override

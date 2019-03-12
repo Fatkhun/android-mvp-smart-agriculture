@@ -7,9 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.fatkhun.agriculture.mvp.R;
-import com.fatkhun.agriculture.mvp.data.db.model.Colour;
-import com.fatkhun.agriculture.mvp.data.db.model.Icon;
-import com.fatkhun.agriculture.mvp.data.db.model.Reminder;
+import com.fatkhun.agriculture.mvp.data.database.model.Colour;
+import com.fatkhun.agriculture.mvp.data.database.model.Icon;
+import com.fatkhun.agriculture.mvp.data.database.model.Reminder;
 
 import java.util.ArrayList;
 import java.util.List;

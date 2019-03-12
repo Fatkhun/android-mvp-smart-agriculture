@@ -8,7 +8,7 @@ import android.os.Build;
 
 
 import com.fatkhun.agriculture.mvp.data.database.DatabaseHelper;
-import com.fatkhun.agriculture.mvp.data.db.model.Reminder;
+import com.fatkhun.agriculture.mvp.data.database.model.Reminder;
 import com.fatkhun.agriculture.mvp.data.receivers.AlarmReceiver;
 
 import java.util.Calendar;

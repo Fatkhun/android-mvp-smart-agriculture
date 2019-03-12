@@ -16,15 +16,21 @@
 package com.fatkhun.agriculture.mvp.data.network;
 
 import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
-import com.fatkhun.agriculture.mvp.data.network.model.LoginRequest;
+import com.fatkhun.agriculture.mvp.data.network.model.Data;
+import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.SensorResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.User;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import io.reactivex.Observable;
 import io.reactivex.Single;
 
 /**
@@ -47,33 +53,32 @@ public class AppApiHelper implements ApiHelper {
     }
 
     @Override
-    public Single<LoginResponse> doGoogleLoginApiCall(LoginRequest.GoogleLoginRequest
-                                                              request) {
-        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_GOOGLE_LOGIN)
+    public Single<LoginResponse> registerUser(String name, String email, String password) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_REGISTER_USER)
                 .addHeaders(mApiHeader.getPublicApiHeader())
-                .addBodyParameter(request)
+                .addBodyParameter("name",name)
+                .addBodyParameter("email",email)
+                .addBodyParameter("password",password)
                 .build()
                 .getObjectSingle(LoginResponse.class);
     }
 
     @Override
-    public Single<LoginResponse> doFacebookLoginApiCall(LoginRequest.FacebookLoginRequest
-                                                                request) {
-        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_FACEBOOK_LOGIN)
-                .addHeaders(mApiHeader.getPublicApiHeader())
-                .addBodyParameter(request)
+    public Single<LoginResponse> loginUser(String email, String password) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_LOGIN_USER)
+                .addHeaders(mApiHeader.getProtectedApiHeader())
+                .addBodyParameter("email",email)
+                .addBodyParameter("password",password)
                 .build()
                 .getObjectSingle(LoginResponse.class);
     }
 
     @Override
-    public Single<LoginResponse> doServerLoginApiCall(LoginRequest.ServerLoginRequest
-                                                              request) {
-        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_SERVER_LOGIN)
-                .addHeaders(mApiHeader.getPublicApiHeader())
-                .addBodyParameter(request)
+    public Single<List<SensorResponse>> getDataAll() {
+        return  Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_DATA_ALL)
+                .addHeaders(mApiHeader.getProtectedApiHeader())
                 .build()
-                .getObjectSingle(LoginResponse.class);
+                .getObjectListSingle(SensorResponse.class);
     }
 
     @Override

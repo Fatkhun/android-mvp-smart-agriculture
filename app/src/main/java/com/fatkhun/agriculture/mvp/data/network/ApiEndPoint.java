@@ -17,6 +17,7 @@ package com.fatkhun.agriculture.mvp.data.network;
 
 
 import com.fatkhun.agriculture.mvp.BuildConfig;
+import com.fatkhun.agriculture.mvp.utils.AppConstants;
 
 /**
  * Created by amitshekhar on 01/02/17.
@@ -41,6 +42,15 @@ public final class ApiEndPoint {
 
     public static final String ENDPOINT_OPEN_SOURCE = BuildConfig.BASE_URL
             + "/5926c34212000035026871cd";
+
+    public static final String ENDPOINT_LOGIN_USER = AppConstants.BASE_URL_API
+            + "users/login";
+
+    public static final String ENDPOINT_REGISTER_USER = AppConstants.BASE_URL_API
+            + "users/register";
+
+    public static final String ENDPOINT_DATA_ALL = AppConstants.BASE_URL_API
+            + "data/index/all";
 
     private ApiEndPoint() {
         // This class is not publicly instantiable

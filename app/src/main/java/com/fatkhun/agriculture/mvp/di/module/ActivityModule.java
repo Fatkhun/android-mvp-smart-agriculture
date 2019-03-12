@@ -21,12 +21,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.SensorResponse;
 import com.fatkhun.agriculture.mvp.di.ActivityContext;
 import com.fatkhun.agriculture.mvp.di.PerActivity;
 import com.fatkhun.agriculture.mvp.ui.about.AboutMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.about.AboutMvpView;
 import com.fatkhun.agriculture.mvp.ui.about.AboutPresenter;
+import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListAdapter;
+import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListMvpView;
+import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListPresenter;
 import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlMvpView;
 import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlPresenter;
@@ -178,6 +184,12 @@ public class ActivityModule {
     }
 
     @Provides
+    @PerActivity
+    HistoryListMvpPresenter<HistoryListMvpView> provideHistoryListPresenter(HistoryListPresenter<HistoryListMvpView> presenter){
+        return presenter;
+    }
+
+    @Provides
     RatingDialogMvpPresenter<RatingDialogMvpView> provideRateUsPresenter(
             RatingDialogPresenter<RatingDialogMvpView> presenter) {
         return presenter;
@@ -214,6 +226,11 @@ public class ActivityModule {
     @Provides
     BlogAdapter provideBlogAdapter() {
         return new BlogAdapter(new ArrayList<BlogResponse.Blog>());
+    }
+
+    @Provides
+    HistoryListAdapter provideHistoryListAdapter(){
+        return new HistoryListAdapter(new ArrayList<SensorResponse>(), context);
     }
 
     @Provides

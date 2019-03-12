@@ -6,4 +6,6 @@ import com.fatkhun.agriculture.mvp.ui.splash.SplashMvpView;
 
 @PerActivity
 public interface RegisterMvpPresenter<V extends RegisterMvpView> extends MvpPresenter<V> {
+
+    void registerUser(String name, String email, String password);
 }

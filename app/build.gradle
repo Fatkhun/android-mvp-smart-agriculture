@@ -14,7 +14,6 @@
  */
 
 apply plugin: 'com.android.application'
-apply plugin: 'org.greenrobot.greendao'
 apply from: '../config/quality/quality.gradle'
 
 android {
@@ -41,10 +40,10 @@ android {
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
     }
-}
-
-greendao {
-    schemaVersion 1
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 }
 
 dependencies {
@@ -69,9 +68,6 @@ dependencies {
 
     // parser
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
-
-    // database
-    implementation "org.greenrobot:greendao:$rootProject.greenDaoVersion"
 
     // firebase
     implementation 'com.google.firebase:firebase-core:10.0.1'

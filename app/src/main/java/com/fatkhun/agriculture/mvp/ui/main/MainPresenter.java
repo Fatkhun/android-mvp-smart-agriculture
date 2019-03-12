@@ -17,7 +17,6 @@ package com.fatkhun.agriculture.mvp.ui.main;
 
 import com.androidnetworking.error.ANError;
 import com.fatkhun.agriculture.mvp.data.DataManager;
-import com.fatkhun.agriculture.mvp.data.db.model.Question;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.ui.base.BasePresenter;
 import com.fatkhun.agriculture.mvp.utils.rx.SchedulerProvider;
@@ -50,6 +49,12 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V>
     public void onDrawerOptionAboutClick() {
         getMvpView().closeNavigationDrawer();
         getMvpView().showAboutFragment();
+    }
+
+    @Override
+    public void onDrawerHistoryClick() {
+        getMvpView().closeNavigationDrawer();
+        getMvpView().openHistoryActivity();
     }
 
     @Override

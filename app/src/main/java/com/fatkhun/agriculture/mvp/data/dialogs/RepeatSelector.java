@@ -9,7 +9,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 
 import com.fatkhun.agriculture.mvp.R;
-import com.fatkhun.agriculture.mvp.data.db.model.Reminder;
+import com.fatkhun.agriculture.mvp.data.database.model.Reminder;
 
 
 public class RepeatSelector extends DialogFragment {

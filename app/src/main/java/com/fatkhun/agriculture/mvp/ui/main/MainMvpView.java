@@ -15,7 +15,6 @@
 
 package com.fatkhun.agriculture.mvp.ui.main;
 
-import com.fatkhun.agriculture.mvp.data.db.model.Question;
 import com.fatkhun.agriculture.mvp.ui.base.MvpView;
 
 import java.util.List;
@@ -43,6 +42,8 @@ public interface MainMvpView extends MvpView {
     void openReminderActivity();
 
     void openSettingActivity();
+
+    void openHistoryActivity();
 
     void closeNavigationDrawer();
 

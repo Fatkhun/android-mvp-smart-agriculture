@@ -1,4 +1,4 @@
-package com.fatkhun.agriculture.mvp.data.db.model;
+package com.fatkhun.agriculture.mvp.data.database.model;
 
 public class Reminder {
 

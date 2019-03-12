@@ -16,7 +16,6 @@
 package com.fatkhun.agriculture.mvp.data;
 
 
-import com.fatkhun.agriculture.mvp.data.db.DbHelper;
 import com.fatkhun.agriculture.mvp.data.network.ApiHelper;
 import com.fatkhun.agriculture.mvp.data.prefs.PreferencesHelper;
 
@@ -26,23 +25,18 @@ import io.reactivex.Observable;
  * Created by janisharali on 27/01/17.
  */
 
-public interface DataManager extends DbHelper, PreferencesHelper, ApiHelper {
+public interface DataManager extends PreferencesHelper, ApiHelper {
 
-    void updateApiHeader(Long userId, String accessToken);
+    void updateApiHeader(String userId, String accessToken);
 
     void setUserAsLoggedOut();
 
-    Observable<Boolean> seedDatabaseQuestions();
-
-    Observable<Boolean> seedDatabaseOptions();
-
     void updateUserInfo(
             String accessToken,
-            Long userId,
+            String userId,
             LoggedInMode loggedInMode,
             String userName,
-            String email,
-            String profilePicPath);
+            String email);
 
     enum LoggedInMode {
 

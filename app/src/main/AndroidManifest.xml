@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".ui.historylist.HistoryListActivity"></activity>
         <activity
             android:name=".ui.splash.SplashActivity"
             android:launchMode="singleTop"
@@ -59,31 +59,29 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".ui.custom.SnoozeDialog"
-            android:theme="@style/AppThemeTransparent"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeTransparent" />
         <activity
             android:name=".ui.remindpreference.RemindPreferenceActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.remindview.RemindViewActivity"
-            android:theme="@style/AppThemeLight"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeLight" />
         <activity
             android:name=".ui.remindercrud.RemindCreateEditActivity"
-            android:theme="@style/AppThemeLight"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeLight" />
         <activity
             android:name=".ui.reminder.RemindActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
         <service android:name=".data.firebase.MyFirebaseInstanceIdService">
             <intent-filter>
@@ -97,19 +95,14 @@
         </service>
         <service android:name=".service.SyncService" />
 
-        <receiver
-            android:name=".data.receivers.AlarmReceiver"/>
-        <receiver
-            android:name=".data.receivers.SnoozeActionReceiver"/>
-        <receiver
-            android:name=".data.receivers.SnoozeReceiver"/>
-        <receiver
-            android:name=".data.receivers.DismissReceiver"/>
-        <receiver
-            android:name=".data.receivers.NagReceiver"/>
+        <receiver android:name=".data.receivers.AlarmReceiver" />
+        <receiver android:name=".data.receivers.SnoozeActionReceiver" />
+        <receiver android:name=".data.receivers.SnoozeReceiver" />
+        <receiver android:name=".data.receivers.DismissReceiver" />
+        <receiver android:name=".data.receivers.NagReceiver" />
         <receiver
             android:name=".data.receivers.BootReceiver"
-            android:enabled="true" >
+            android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />

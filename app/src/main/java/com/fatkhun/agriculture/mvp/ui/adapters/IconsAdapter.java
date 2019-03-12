@@ -8,7 +8,7 @@ import android.widget.ImageView;
 
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.database.DatabaseHelper;
-import com.fatkhun.agriculture.mvp.data.db.model.Icon;
+import com.fatkhun.agriculture.mvp.data.database.model.Icon;
 import com.fatkhun.agriculture.mvp.data.dialogs.IconPicker;
 
 import java.util.List;

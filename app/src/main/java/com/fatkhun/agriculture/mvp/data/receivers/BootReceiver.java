@@ -6,7 +6,7 @@ import android.content.Intent;
 
 
 import com.fatkhun.agriculture.mvp.data.database.DatabaseHelper;
-import com.fatkhun.agriculture.mvp.data.db.model.Reminder;
+import com.fatkhun.agriculture.mvp.data.database.model.Reminder;
 import com.fatkhun.agriculture.mvp.utils.AlarmUtil;
 import com.fatkhun.agriculture.mvp.utils.DateAndTimeUtil;
 

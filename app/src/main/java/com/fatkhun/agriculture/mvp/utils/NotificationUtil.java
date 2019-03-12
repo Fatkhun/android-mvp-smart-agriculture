@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.preference.PreferenceManager;
@@ -16,11 +15,10 @@ import android.support.v4.app.NotificationCompat;
 
 
 import com.fatkhun.agriculture.mvp.R;
-import com.fatkhun.agriculture.mvp.data.db.model.Reminder;
+import com.fatkhun.agriculture.mvp.data.database.model.Reminder;
 import com.fatkhun.agriculture.mvp.data.receivers.DismissReceiver;
 import com.fatkhun.agriculture.mvp.data.receivers.NagReceiver;
 import com.fatkhun.agriculture.mvp.data.receivers.SnoozeActionReceiver;
-import com.fatkhun.agriculture.mvp.ui.remindview.RemindViewActivity;
 import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlActivity;
 
 import java.util.Calendar;

@@ -16,11 +16,16 @@
 package com.fatkhun.agriculture.mvp.data.network;
 
 import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
-import com.fatkhun.agriculture.mvp.data.network.model.LoginRequest;
+import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.SensorResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.User;
 
+import java.util.List;
+
+import io.reactivex.Observable;
 import io.reactivex.Single;
 
 /**
@@ -31,11 +36,11 @@ public interface ApiHelper {
 
     ApiHeader getApiHeader();
 
-    Single<LoginResponse> doGoogleLoginApiCall(LoginRequest.GoogleLoginRequest request);
+    Single<LoginResponse> registerUser(String name, String email, String password);
 
-    Single<LoginResponse> doFacebookLoginApiCall(LoginRequest.FacebookLoginRequest request);
+    Single<LoginResponse> loginUser(String email, String password);
 
-    Single<LoginResponse> doServerLoginApiCall(LoginRequest.ServerLoginRequest request);
+    Single<List<SensorResponse>> getDataAll();
 
     Single<LogoutResponse> doLogoutApiCall();
 

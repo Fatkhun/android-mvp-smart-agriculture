@@ -21,6 +21,7 @@ import com.fatkhun.agriculture.mvp.ui.about.AboutFragment;
 import com.fatkhun.agriculture.mvp.ui.feed.FeedActivity;
 import com.fatkhun.agriculture.mvp.ui.feed.blogs.BlogFragment;
 import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceFragment;
+import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListActivity;
 import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
 import com.fatkhun.agriculture.mvp.ui.main.MainActivity;
 import com.fatkhun.agriculture.mvp.ui.main.rating.RateUsDialog;
@@ -66,4 +67,6 @@ public interface ActivityComponent {
     void inject(RemindViewActivity activity);
 
     void inject(RemindPreferenceActivity activity);
+
+    void inject(HistoryListActivity activity);
 }

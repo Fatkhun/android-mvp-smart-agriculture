@@ -26,10 +26,6 @@ import com.fatkhun.agriculture.mvp.ui.base.MvpPresenter;
 @PerActivity
 public interface LoginMvpPresenter<V extends LoginMvpView> extends MvpPresenter<V> {
 
-    void onServerLoginClick(String email, String password);
-
-    void onGoogleLoginClick();
-
-    void onFacebookLoginClick();
+    void loginUser(String email, String password);
 
 }

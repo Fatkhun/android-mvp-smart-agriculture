@@ -3,7 +3,7 @@ package com.fatkhun.agriculture.mvp.utils;
 import android.content.Context;
 
 import com.fatkhun.agriculture.mvp.R;
-import com.fatkhun.agriculture.mvp.data.db.model.Reminder;
+import com.fatkhun.agriculture.mvp.data.database.model.Reminder;
 
 public class TextFormatUtil {
 
