@@ -135,7 +135,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             humidity.setText(String.valueOf(item.getHumidity()));
             soilMoisture.setText(String.valueOf(item.getSoilMoisture()));
             temperature.setText(String.valueOf(item.getTemp()));
-            water.setText(String.valueOf(item.getWaterVolume()));
+            water.setText(String.valueOf(item.getWaterVolume() + " ml"));
             time.setText(String.valueOf(dateConverter(item.getTime())));
 
             itemView.setOnClickListener(v->{

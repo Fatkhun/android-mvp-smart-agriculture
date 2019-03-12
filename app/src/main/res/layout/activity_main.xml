@@ -130,7 +130,6 @@
                                     <ImageView
                                         android:layout_width="150dp"
                                         android:layout_height="150dp"
-                                        android:tint="@color/light_blue"
                                         app:srcCompat="@drawable/ic_humidity"
                                         android:scaleType="fitCenter"/>
                                 </LinearLayout>
@@ -185,7 +184,6 @@
                                     <ImageView
                                         android:layout_width="150dp"
                                         android:layout_height="150dp"
-                                        android:tint="@color/light_green"
                                         app:srcCompat="@drawable/ic_soil_moisture"
                                         android:scaleType="fitCenter"/>
                                 </LinearLayout>
@@ -305,7 +303,6 @@
                                     <ImageView
                                         android:layout_width="150dp"
                                         android:layout_height="150dp"
-                                        android:tint="@color/orange"
                                         app:srcCompat="@drawable/ic_temperature"
                                         android:scaleType="fitCenter"/>
                                 </LinearLayout>
