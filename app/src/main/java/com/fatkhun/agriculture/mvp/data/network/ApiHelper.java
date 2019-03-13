@@ -15,8 +15,8 @@
 
 package com.fatkhun.agriculture.mvp.data.network;
 
+import com.fatkhun.agriculture.mvp.data.network.model.AverageDataResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
-import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
@@ -41,6 +41,8 @@ public interface ApiHelper {
     Single<LoginResponse> loginUser(String email, String password);
 
     Single<List<SensorResponse>> getDataAll();
+
+    Single<List<AverageDataResponse>> getAverageDataAll();
 
     Single<LogoutResponse> doLogoutApiCall();
 

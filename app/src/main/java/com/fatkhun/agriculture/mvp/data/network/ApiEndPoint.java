@@ -52,6 +52,9 @@ public final class ApiEndPoint {
     public static final String ENDPOINT_DATA_ALL = AppConstants.BASE_URL_API
             + "data/index/all";
 
+    public static final String ENDPOINT_AVERAGE_DATA_ALL = AppConstants.BASE_URL_API
+            + "data/average/all";
+
     private ApiEndPoint() {
         // This class is not publicly instantiable
     }

@@ -18,7 +18,7 @@ package com.fatkhun.agriculture.mvp.data;
 
 import android.content.Context;
 
-import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.AverageDataResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.SensorResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -97,6 +97,11 @@ public class AppDataManager implements DataManager {
     @Override
     public Single<List<SensorResponse>> getDataAll() {
         return mApiHelper.getDataAll();
+    }
+
+    @Override
+    public Single<List<AverageDataResponse>> getAverageDataAll() {
+        return mApiHelper.getAverageDataAll();
     }
 
     @Override

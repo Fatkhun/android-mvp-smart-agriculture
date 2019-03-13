@@ -15,6 +15,8 @@
 
 package com.fatkhun.agriculture.mvp.ui.main;
 
+import android.util.Log;
+
 import com.androidnetworking.error.ANError;
 import com.fatkhun.agriculture.mvp.data.DataManager;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
@@ -25,8 +27,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 
 /**
@@ -115,6 +119,37 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V>
         if (profilePicUrl != null && !profilePicUrl.isEmpty()) {
             getMvpView().updateUserProfilePic(profilePicUrl);
         }
+    }
+
+    @Override
+    public void getAverageDataAll() {
+        getMvpView().showLoading();
+        getCompositeDisposable().add(getDataManager()
+                .getAverageDataAll()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(averageData ->  {
+                    if (!isViewAttached()){
+                        return;
+                    }
+                    if (averageData != null && averageData.size() != 0){
+                        getMvpView().setupAverageDataAll(averageData);
+                    }
+                    getMvpView().hideLoading();
+                    Log.d("Debug",averageData.toString());
+                }, throwable ->  {
+                    if (!isViewAttached()) {
+                        return;
+                    }
+
+                    getMvpView().hideLoading();
+
+                    // handle the error here
+                    if (throwable instanceof ANError) {
+                        ANError anError = (ANError) throwable;
+                        baseHandleError(anError);
+                    }
+                }));
     }
 
     @Override

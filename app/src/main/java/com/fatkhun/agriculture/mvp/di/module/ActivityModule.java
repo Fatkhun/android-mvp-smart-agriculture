@@ -21,7 +21,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
-import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.SensorResponse;
 import com.fatkhun.agriculture.mvp.di.ActivityContext;

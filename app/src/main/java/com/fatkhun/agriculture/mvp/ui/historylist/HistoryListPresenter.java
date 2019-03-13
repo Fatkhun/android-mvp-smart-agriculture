@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.androidnetworking.error.ANError;
 import com.fatkhun.agriculture.mvp.data.DataManager;
-import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.ui.base.BasePresenter;
 import com.fatkhun.agriculture.mvp.ui.base.MvpView;
 import com.fatkhun.agriculture.mvp.ui.feed.FeedMvpPresenter;

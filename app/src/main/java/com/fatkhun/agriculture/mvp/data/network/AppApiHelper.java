@@ -15,9 +15,8 @@
 
 package com.fatkhun.agriculture.mvp.data.network;
 
+import com.fatkhun.agriculture.mvp.data.network.model.AverageDataResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
-import com.fatkhun.agriculture.mvp.data.network.model.Data;
-import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
@@ -79,6 +78,14 @@ public class AppApiHelper implements ApiHelper {
                 .addHeaders(mApiHeader.getProtectedApiHeader())
                 .build()
                 .getObjectListSingle(SensorResponse.class);
+    }
+
+    @Override
+    public Single<List<AverageDataResponse>> getAverageDataAll() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_AVERAGE_DATA_ALL)
+                .addHeaders(mApiHeader.getProtectedApiHeader())
+                .build()
+                .getObjectListSingle(AverageDataResponse.class);
     }
 
     @Override

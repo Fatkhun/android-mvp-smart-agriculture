@@ -15,6 +15,7 @@
 
 package com.fatkhun.agriculture.mvp.ui.main;
 
+import com.fatkhun.agriculture.mvp.data.network.model.AverageDataResponse;
 import com.fatkhun.agriculture.mvp.ui.base.MvpView;
 
 import java.util.List;
@@ -50,4 +51,6 @@ public interface MainMvpView extends MvpView {
     void lockDrawer();
 
     void unlockDrawer();
+
+    void setupAverageDataAll(List<AverageDataResponse> averageDataResponse);
 }
