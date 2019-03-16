@@ -2,19 +2,22 @@ package com.fatkhun.agriculture.mvp.ui.historylist;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.widget.AbsListView;
+import android.widget.LinearLayout;
 
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.network.model.SensorResponse;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
-import com.fatkhun.agriculture.mvp.ui.feed.FeedActivity;
-import com.fatkhun.agriculture.mvp.ui.feed.FeedMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.feed.FeedMvpView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +27,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HistoryListActivity extends BaseActivity implements HistoryListMvpView {
+public class HistoryListActivity extends BaseActivity implements HistoryListMvpView, SwipeRefreshLayout.OnRefreshListener, HistoryListAdapter.Callback {
 
     @Inject
     HistoryListMvpPresenter<HistoryListMvpView> mPresenter;
@@ -41,8 +44,10 @@ public class HistoryListActivity extends BaseActivity implements HistoryListMvpV
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    List<SensorResponse> dataResponseList;
+    @BindView(R.id.swipe_container)
+    SwipeRefreshLayout swipeRefreshLayout;
 
+    List<SensorResponse> dataResponseList;
 
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, HistoryListActivity.class);
@@ -78,15 +83,36 @@ public class HistoryListActivity extends BaseActivity implements HistoryListMvpV
         rvDataAll.setLayoutManager(mLayoutManager);
         rvDataAll.setItemAnimator(new DefaultItemAnimator());
         rvDataAll.setAdapter(mHistoryListAdapter);
+        mHistoryListAdapter.setCallback(this);
 
-        mPresenter.getDataAll();
+        swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent,
+                android.R.color.holo_green_dark,
+                android.R.color.holo_orange_dark,
+                android.R.color.holo_blue_dark);
+
+        /**
+         * Showing Swipe Refresh animation on activity create
+         * As animation won't start on onCreate, post runnable is used
+         */
+        swipeRefreshLayout.post(new Runnable() {
+
+            @Override
+            public void run() {
+
+                if(swipeRefreshLayout != null) {
+                    swipeRefreshLayout.setRefreshing(true);
+                }
+                // TODO Fetching data from server
+                mPresenter.getDataAll();
+            }
+        });
     }
 
     @Override
     public void updateData(List<SensorResponse> dataResponseLists) {
         mHistoryListAdapter.addItems(dataResponseLists);
-        dataResponseList = dataResponseLists;
-        mHistoryListAdapter.notifyDataSetChanged();
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
@@ -98,5 +124,26 @@ public class HistoryListActivity extends BaseActivity implements HistoryListMvpV
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+    }
+
+    @Override
+    public void showLoading() {
+        super.showLoading();
+    }
+
+    @Override
+    public void hideLoading() {
+        super.hideLoading();
+    }
+
+    @Override
+    public void onBlogEmptyViewRetryClick() {
+        Log.d("LOAD DATA", "onBlogEmptyViewRetryClick: ");
+        mPresenter.getDataAll();
+    }
+
+    @Override
+    public void onRefresh() {
+        mPresenter.getDataAll();
     }
 }

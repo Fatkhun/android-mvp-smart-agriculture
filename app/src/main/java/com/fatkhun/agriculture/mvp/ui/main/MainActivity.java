@@ -29,13 +29,18 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
@@ -64,8 +69,12 @@ import org.eazegraph.lib.charts.ValueLineChart;
 import org.eazegraph.lib.models.ValueLinePoint;
 import org.eazegraph.lib.models.ValueLineSeries;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import javax.inject.Inject;
 
@@ -76,7 +85,7 @@ import butterknife.ButterKnife;
  * Created by janisharali on 27/01/17.
  */
 
-public class MainActivity extends BaseActivity implements MainMvpView {
+public class MainActivity extends BaseActivity implements MainMvpView, SwipeRefreshLayout.OnRefreshListener {
 
     @Inject
     MainMvpPresenter<MainMvpView> mPresenter;
@@ -117,6 +126,9 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     @BindView(R.id.line_chart_water)
     ValueLineChart lineChartWater;
 
+    @BindView(R.id.swipe_container)
+    SwipeRefreshLayout swipeRefreshLayout;
+
     private TextView mNameTextView;
 
     private TextView mEmailTextView;
@@ -124,6 +136,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     private RoundedImageView mProfileImageView;
 
     private ActionBarDrawerToggle mDrawerToggle;
+
 
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
@@ -239,71 +252,71 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         List<Integer> temp = new ArrayList<>();
         List<Integer> water = new ArrayList<>();
 
-        time.add(averageDataResponse.get(0).getId());
-        time.add(averageDataResponse.get(1).getId());
-        time.add(averageDataResponse.get(2).getId());
-        time.add(averageDataResponse.get(3).getId());
-        time.add(averageDataResponse.get(4).getId());
-        time.add(averageDataResponse.get(5).getId());
-        time.add(averageDataResponse.get(6).getId());
-        time.add(averageDataResponse.get(7).getId());
-        time.add(averageDataResponse.get(8).getId());
-        time.add(averageDataResponse.get(9).getId());
-        time.add(averageDataResponse.get(10).getId());
-        time.add(averageDataResponse.get(11).getId());
+        time.add(dateConverter(averageDataResponse.get(0).getId()));
+        time.add(dateConverter(averageDataResponse.get(1).getId()));
+        time.add(dateConverter(averageDataResponse.get(2).getId()));
+        time.add(dateConverter(averageDataResponse.get(3).getId()));
+        time.add(dateConverter(averageDataResponse.get(4).getId()));
+        time.add(dateConverter(averageDataResponse.get(5).getId()));
+        time.add(dateConverter(averageDataResponse.get(6).getId()));
+        time.add(dateConverter(averageDataResponse.get(7).getId()));
+        time.add(dateConverter(averageDataResponse.get(8).getId()));
+        time.add(dateConverter(averageDataResponse.get(9).getId()));
+        time.add(dateConverter(averageDataResponse.get(10).getId()));
+        time.add(dateConverter(averageDataResponse.get(11).getId()));
 
 
-        humidity.add(Math.round(Float.valueOf(averageDataResponse.get(0).getAvgHumidity())));
-        humidity.add(Math.round(Float.valueOf(averageDataResponse.get(1).getAvgHumidity())));
-        humidity.add(Math.round(Float.valueOf(averageDataResponse.get(2).getAvgHumidity())));
-        humidity.add(Math.round(Float.valueOf(averageDataResponse.get(3).getAvgHumidity())));
-        humidity.add(Math.round(Float.valueOf(averageDataResponse.get(4).getAvgHumidity())));
-        humidity.add(Math.round(Float.valueOf(averageDataResponse.get(5).getAvgHumidity())));
-        humidity.add(Math.round(Float.valueOf(averageDataResponse.get(6).getAvgHumidity())));
-        humidity.add(Math.round(Float.valueOf(averageDataResponse.get(7).getAvgHumidity())));
-        humidity.add(Math.round(Float.valueOf(averageDataResponse.get(8).getAvgHumidity())));
-        humidity.add(Math.round(Float.valueOf(averageDataResponse.get(9).getAvgHumidity())));
-        humidity.add(Math.round(Float.valueOf(averageDataResponse.get(10).getAvgHumidity())));
-        humidity.add(Math.round(Float.valueOf(averageDataResponse.get(11).getAvgHumidity())));
+        humidity.add(Math.round(averageDataResponse.get(0).getAvgHumidity()));
+        humidity.add(Math.round((averageDataResponse.get(1).getAvgHumidity())));
+        humidity.add(Math.round((averageDataResponse.get(2).getAvgHumidity())));
+        humidity.add(Math.round((averageDataResponse.get(3).getAvgHumidity())));
+        humidity.add(Math.round((averageDataResponse.get(4).getAvgHumidity())));
+        humidity.add(Math.round((averageDataResponse.get(5).getAvgHumidity())));
+        humidity.add(Math.round((averageDataResponse.get(6).getAvgHumidity())));
+        humidity.add(Math.round((averageDataResponse.get(7).getAvgHumidity())));
+        humidity.add(Math.round((averageDataResponse.get(8).getAvgHumidity())));
+        humidity.add(Math.round((averageDataResponse.get(9).getAvgHumidity())));
+        humidity.add(Math.round((averageDataResponse.get(10).getAvgHumidity())));
+        humidity.add(Math.round((averageDataResponse.get(11).getAvgHumidity())));
 
-        soilMoisture.add(Math.round(Float.valueOf(averageDataResponse.get(0).getAvgSoilMoisture())));
-        soilMoisture.add(Math.round(Float.valueOf(averageDataResponse.get(1).getAvgSoilMoisture())));
-        soilMoisture.add(Math.round(Float.valueOf(averageDataResponse.get(2).getAvgSoilMoisture())));
-        soilMoisture.add(Math.round(Float.valueOf(averageDataResponse.get(3).getAvgSoilMoisture())));
-        soilMoisture.add(Math.round(Float.valueOf(averageDataResponse.get(4).getAvgSoilMoisture())));
-        soilMoisture.add(Math.round(Float.valueOf(averageDataResponse.get(5).getAvgSoilMoisture())));
-        soilMoisture.add(Math.round(Float.valueOf(averageDataResponse.get(6).getAvgSoilMoisture())));
-        soilMoisture.add(Math.round(Float.valueOf(averageDataResponse.get(7).getAvgSoilMoisture())));
-        soilMoisture.add(Math.round(Float.valueOf(averageDataResponse.get(8).getAvgSoilMoisture())));
-        soilMoisture.add(Math.round(Float.valueOf(averageDataResponse.get(9).getAvgSoilMoisture())));
-        soilMoisture.add(Math.round(Float.valueOf(averageDataResponse.get(10).getAvgSoilMoisture())));
-        soilMoisture.add(Math.round(Float.valueOf(averageDataResponse.get(11).getAvgSoilMoisture())));
+        soilMoisture.add(Math.round((averageDataResponse.get(0).getAvgSoilMoisture())));
+        soilMoisture.add(Math.round((averageDataResponse.get(1).getAvgSoilMoisture())));
+        soilMoisture.add(Math.round((averageDataResponse.get(2).getAvgSoilMoisture())));
+        soilMoisture.add(Math.round((averageDataResponse.get(3).getAvgSoilMoisture())));
+        soilMoisture.add(Math.round((averageDataResponse.get(4).getAvgSoilMoisture())));
+        soilMoisture.add(Math.round((averageDataResponse.get(5).getAvgSoilMoisture())));
+        soilMoisture.add(Math.round((averageDataResponse.get(6).getAvgSoilMoisture())));
+        soilMoisture.add(Math.round((averageDataResponse.get(7).getAvgSoilMoisture())));
+        soilMoisture.add(Math.round((averageDataResponse.get(8).getAvgSoilMoisture())));
+        soilMoisture.add(Math.round((averageDataResponse.get(9).getAvgSoilMoisture())));
+        soilMoisture.add(Math.round((averageDataResponse.get(10).getAvgSoilMoisture())));
+        soilMoisture.add(Math.round((averageDataResponse.get(11).getAvgSoilMoisture())));
 
-        temp.add(Math.round(Float.valueOf(averageDataResponse.get(0).getAvgTemp())));
-        temp.add(Math.round(Float.valueOf(averageDataResponse.get(1).getAvgTemp())));
-        temp.add(Math.round(Float.valueOf(averageDataResponse.get(2).getAvgTemp())));
-        temp.add(Math.round(Float.valueOf(averageDataResponse.get(3).getAvgTemp())));
-        temp.add(Math.round(Float.valueOf(averageDataResponse.get(4).getAvgTemp())));
-        temp.add(Math.round(Float.valueOf(averageDataResponse.get(5).getAvgTemp())));
-        temp.add(Math.round(Float.valueOf(averageDataResponse.get(6).getAvgTemp())));
-        temp.add(Math.round(Float.valueOf(averageDataResponse.get(7).getAvgTemp())));
-        temp.add(Math.round(Float.valueOf(averageDataResponse.get(8).getAvgTemp())));
-        temp.add(Math.round(Float.valueOf(averageDataResponse.get(9).getAvgTemp())));
-        temp.add(Math.round(Float.valueOf(averageDataResponse.get(10).getAvgTemp())));
-        temp.add(Math.round(Float.valueOf(averageDataResponse.get(11).getAvgTemp())));
+        temp.add(Math.round((averageDataResponse.get(0).getAvgTemp())));
+        temp.add(Math.round((averageDataResponse.get(1).getAvgTemp())));
+        temp.add(Math.round((averageDataResponse.get(2).getAvgTemp())));
+        temp.add(Math.round((averageDataResponse.get(3).getAvgTemp())));
+        temp.add(Math.round((averageDataResponse.get(4).getAvgTemp())));
+        temp.add(Math.round((averageDataResponse.get(5).getAvgTemp())));
+        temp.add(Math.round((averageDataResponse.get(6).getAvgTemp())));
+        temp.add(Math.round((averageDataResponse.get(7).getAvgTemp())));
+        temp.add(Math.round((averageDataResponse.get(8).getAvgTemp())));
+        temp.add(Math.round((averageDataResponse.get(9).getAvgTemp())));
+        temp.add(Math.round((averageDataResponse.get(10).getAvgTemp())));
+        temp.add(Math.round((averageDataResponse.get(11).getAvgTemp())));
 
-        water.add(Math.round(Float.valueOf(averageDataResponse.get(0).getAvgWater())));
-        water.add(Math.round(Float.valueOf(averageDataResponse.get(1).getAvgWater())));
-        water.add(Math.round(Float.valueOf(averageDataResponse.get(2).getAvgWater())));
-        water.add(Math.round(Float.valueOf(averageDataResponse.get(3).getAvgWater())));
-        water.add(Math.round(Float.valueOf(averageDataResponse.get(4).getAvgWater())));
-        water.add(Math.round(Float.valueOf(averageDataResponse.get(5).getAvgWater())));
-        water.add(Math.round(Float.valueOf(averageDataResponse.get(6).getAvgWater())));
-        water.add(Math.round(Float.valueOf(averageDataResponse.get(7).getAvgWater())));
-        water.add(Math.round(Float.valueOf(averageDataResponse.get(8).getAvgWater())));
-        water.add(Math.round(Float.valueOf(averageDataResponse.get(9).getAvgWater())));
-        water.add(Math.round(Float.valueOf(averageDataResponse.get(10).getAvgWater())));
-        water.add(Math.round(Float.valueOf(averageDataResponse.get(11).getAvgWater())));
+        water.add(Math.round((averageDataResponse.get(0).getAvgWater())));
+        water.add(Math.round((averageDataResponse.get(1).getAvgWater())));
+        water.add(Math.round((averageDataResponse.get(2).getAvgWater())));
+        water.add(Math.round((averageDataResponse.get(3).getAvgWater())));
+        water.add(Math.round((averageDataResponse.get(4).getAvgWater())));
+        water.add(Math.round((averageDataResponse.get(5).getAvgWater())));
+        water.add(Math.round((averageDataResponse.get(6).getAvgWater())));
+        water.add(Math.round((averageDataResponse.get(7).getAvgWater())));
+        water.add(Math.round((averageDataResponse.get(8).getAvgWater())));
+        water.add(Math.round((averageDataResponse.get(9).getAvgWater())));
+        water.add(Math.round((averageDataResponse.get(10).getAvgWater())));
+        water.add(Math.round((averageDataResponse.get(11).getAvgWater())));
 
 
         tvTemp.setText(String.valueOf(temp.get(0)));
@@ -313,6 +326,24 @@ public class MainActivity extends BaseActivity implements MainMvpView {
 
         resultSensor(humidity, soilMoisture);
         chartSensor(time, humidity, soilMoisture, temp, water);
+
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    private String dateConverter(String dateInput){
+        try {
+            SimpleDateFormat spf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            spf.setTimeZone(TimeZone.getTimeZone("UTC"));
+            Date newDate = null;
+            newDate = spf.parse(dateInput);
+            spf= new SimpleDateFormat("HH:mm");
+            String returnDate = spf.format(newDate);
+            return returnDate;
+
+        }catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 //    @Override
@@ -366,8 +397,30 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         setupNavMenu();
         mPresenter.onNavMenuCreated();
 
-        mPresenter.getAverageDataAll();
+        swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent,
+                android.R.color.holo_green_dark,
+                android.R.color.holo_orange_dark,
+                android.R.color.holo_blue_dark);
+
+        /**
+         * Showing Swipe Refresh animation on activity create
+         * As animation won't start on onCreate, post runnable is used
+         */
+        swipeRefreshLayout.post(new Runnable() {
+
+            @Override
+            public void run() {
+
+                if(swipeRefreshLayout != null) {
+                    swipeRefreshLayout.setRefreshing(true);
+                    // TODO Fetching data from server
+                    mPresenter.getAverageDataAll();
+                }
+            }
+        });
     }
+
 
     private void chartSensor(List<String> times, List<Integer> humiditys, List<Integer> soilMoistures,
                              List<Integer> temps, List<Integer> waters){
@@ -556,4 +609,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     }
 
 
+    @Override
+    public void onRefresh() {
+        mPresenter.getAverageDataAll();
+    }
 }

@@ -57,4 +57,5 @@ public class HistoryListPresenter<V extends HistoryListMvpView> extends BasePres
                     }
                 }));
     }
+
 }

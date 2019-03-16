@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.fatkhun.agriculture.mvp.R;
@@ -20,11 +21,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class HistoryListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     public static final int VIEW_TYPE_EMPTY = 0;
     public static final int VIEW_TYPE_NORMAL = 1;
+
 
     HistoryListAdapter.Callback mCallback;
     private List<SensorResponse> mData;
@@ -54,6 +58,8 @@ public class HistoryListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 return new HistoryListAdapter.ViewHolder(
                         LayoutInflater.from(parent.getContext()).inflate(R.layout.item_data_view, parent, false));
             case VIEW_TYPE_EMPTY:
+                return new HistoryListAdapter.EmptyViewHolder(
+                        LayoutInflater.from(parent.getContext()).inflate(R.layout.item_empty_view, parent, false));
             default:
                 return new HistoryListAdapter.EmptyViewHolder(
                         LayoutInflater.from(parent.getContext()).inflate(R.layout.item_empty_view, parent, false));
@@ -98,7 +104,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 //    }
 
     public interface Callback {
-        void onItemLocationListClick(int position);
+        void onBlogEmptyViewRetryClick();
     }
 
     public class ViewHolder extends BaseViewHolder {
@@ -147,10 +153,17 @@ public class HistoryListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     public class EmptyViewHolder extends BaseViewHolder {
 
+        @BindView(R.id.btn_retry)
+        Button btnRetry;
 
         public EmptyViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
+            btnRetry.setOnClickListener(v -> {
+                if (mCallback != null)
+                    mCallback.onBlogEmptyViewRetryClick();
+            });
         }
 
         @Override
@@ -159,6 +172,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         }
 
     }
+
 
     private void setTextOrnull(TextView textView, String text, String option) {
         if (option.equals(",")){

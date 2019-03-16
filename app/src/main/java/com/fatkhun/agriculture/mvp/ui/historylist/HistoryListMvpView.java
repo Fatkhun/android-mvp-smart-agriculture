@@ -8,4 +8,5 @@ import java.util.List;
 public interface HistoryListMvpView extends MvpView {
 
     void updateData(List<SensorResponse> dataResponseList);
+
 }
