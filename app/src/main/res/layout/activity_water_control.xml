@@ -15,6 +15,4 @@
         android:src="@drawable/ic_wifi_tethering_white_24dp"
         app:cb_color="@color/colorPrimaryDark"
         app:cb_pressedRingWidth="8dip" />
-
-
 </FrameLayout>

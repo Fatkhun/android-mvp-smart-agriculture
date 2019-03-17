@@ -28,10 +28,17 @@ import com.fatkhun.agriculture.mvp.di.PerActivity;
 import com.fatkhun.agriculture.mvp.ui.about.AboutMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.about.AboutMvpView;
 import com.fatkhun.agriculture.mvp.ui.about.AboutPresenter;
+import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragment;
+import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragmentMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragmentMvpView;
+import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragmentPresenter;
 import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListAdapter;
 import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListMvpView;
 import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListPresenter;
+import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationMvpView;
+import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationPresenter;
 import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlMvpView;
 import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlPresenter;
@@ -184,6 +191,12 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
+    MainNavigationMvpPresenter<MainNavigationMvpView> provideMainNavigationPresenter(MainNavigationPresenter<MainNavigationMvpView> presenter){
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
     HistoryListMvpPresenter<HistoryListMvpView> provideHistoryListPresenter(HistoryListPresenter<HistoryListMvpView> presenter){
         return presenter;
     }
@@ -209,6 +222,11 @@ public class ActivityModule {
     @Provides
     BlogMvpPresenter<BlogMvpView> provideBlogMvpPresenter(
             BlogPresenter<BlogMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    DataFragmentMvpPresenter<DataFragmentMvpView> provideDataFragmentPresenter(DataFragmentPresenter<DataFragmentMvpView> presenter){
         return presenter;
     }
 

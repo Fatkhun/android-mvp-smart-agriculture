@@ -1,69 +1,26 @@
-/*
- * Copyright (C) 2017 MINDORKS NEXTGEN PRIVATE LIMITED
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://mindorks.com/license/apache-v2
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License
- */
-
-package com.fatkhun.agriculture.mvp.ui.main;
+package com.fatkhun.agriculture.mvp.ui.fragmentsdata;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.drawable.Animatable;
-import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
 
-
 import com.dinuscxj.progressbar.CircleProgressBar;
-import com.fatkhun.agriculture.mvp.BuildConfig;
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.network.model.AverageDataResponse;
-import com.fatkhun.agriculture.mvp.ui.about.AboutFragment;
-import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
-import com.fatkhun.agriculture.mvp.ui.custom.RoundedImageView;
-import com.fatkhun.agriculture.mvp.ui.feed.FeedActivity;
-import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListActivity;
-import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
-import com.fatkhun.agriculture.mvp.ui.main.rating.RateUsDialog;
-import com.fatkhun.agriculture.mvp.ui.reminder.RemindActivity;
-import com.fatkhun.agriculture.mvp.ui.remindpreference.RemindPreferenceActivity;
-import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlActivity;
-import com.fatkhun.agriculture.mvp.utils.ScreenUtils;
-import com.mindorks.placeholderview.SwipeDecor;
-import com.mindorks.placeholderview.SwipePlaceHolderView;
-import com.mindorks.placeholderview.listeners.ItemRemovedListener;
+import com.fatkhun.agriculture.mvp.di.component.ActivityComponent;
+import com.fatkhun.agriculture.mvp.ui.base.BaseFragment;
+import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceFragment;
+import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceMvpView;
 
 import org.eazegraph.lib.charts.ValueLineChart;
 import org.eazegraph.lib.models.ValueLinePoint;
@@ -81,26 +38,11 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * Created by janisharali on 27/01/17.
- */
 
-public class MainActivity extends BaseActivity implements MainMvpView, SwipeRefreshLayout.OnRefreshListener {
+public class DataFragment extends BaseFragment implements DataFragmentMvpView {
 
     @Inject
-    MainMvpPresenter<MainMvpView> mPresenter;
-
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
-
-    @BindView(R.id.drawer_view)
-    DrawerLayout mDrawer;
-
-    @BindView(R.id.navigation_view)
-    NavigationView mNavigationView;
-
-    @BindView(R.id.tv_app_version)
-    TextView mAppVersionTextView;
+    DataFragmentMvpPresenter<DataFragmentMvpView> mPresenter;
 
     @BindView(R.id.tv_temperature)
     TextView tvTemp;
@@ -126,122 +68,38 @@ public class MainActivity extends BaseActivity implements MainMvpView, SwipeRefr
     @BindView(R.id.line_chart_water)
     ValueLineChart lineChartWater;
 
-    @BindView(R.id.swipe_container)
-    SwipeRefreshLayout swipeRefreshLayout;
 
-    private TextView mNameTextView;
-
-    private TextView mEmailTextView;
-
-    private RoundedImageView mProfileImageView;
-
-    private ActionBarDrawerToggle mDrawerToggle;
-
-
-    public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, MainActivity.class);
-        return intent;
+    public static DataFragment newInstance() {
+        Bundle args = new Bundle();
+        DataFragment fragment = new DataFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_data, container, false);
 
-        getActivityComponent().inject(this);
-
-        setUnBinder(ButterKnife.bind(this));
-
-        mPresenter.onAttach(this);
-
-        setUp();
-    }
-
-    @Override
-    public void onBackPressed() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        Fragment fragment = fragmentManager.findFragmentByTag(AboutFragment.TAG);
-        if (fragment == null) {
-            super.onBackPressed();
-        } else {
-            onFragmentDetached(AboutFragment.TAG);
+        ActivityComponent component = getActivityComponent();
+        if (component != null) {
+            component.inject(this);
+            setUnBinder(ButterKnife.bind(this, view));
+            mPresenter.onAttach(this);
         }
+        return view;
     }
 
     @Override
-    public void updateAppVersion() {
-        String version = getString(R.string.version) + " " + BuildConfig.VERSION_NAME;
-        mAppVersionTextView.setText(version);
+    protected void setUp(View view) {
+        mPresenter.getAverageDataAll();
     }
 
     @Override
-    public void updateUserName(String currentUserName) {
-        mNameTextView.setText(currentUserName);
-    }
-
-    @Override
-    public void updateUserEmail(String currentUserEmail) {
-        mEmailTextView.setText(currentUserEmail);
-    }
-
-    @Override
-    public void updateUserProfilePic(String currentUserProfilePicUrl) {
-        //load profile pic url into ANImageView
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (mDrawer != null)
-            mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-    }
-
-    @Override
-    protected void onDestroy() {
+    public void onDestroyView() {
         mPresenter.onDetach();
-        super.onDestroy();
-    }
-
-    @Override
-    public void onFragmentAttached() {
-    }
-
-    @Override
-    public void onFragmentDetached(String tag) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        Fragment fragment = fragmentManager.findFragmentByTag(tag);
-        if (fragment != null) {
-            fragmentManager
-                    .beginTransaction()
-                    .disallowAddToBackStack()
-                    .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
-                    .remove(fragment)
-                    .commitNow();
-            unlockDrawer();
-        }
-    }
-
-    @Override
-    public void showAboutFragment() {
-        lockDrawer();
-        getSupportFragmentManager()
-                .beginTransaction()
-                .disallowAddToBackStack()
-                .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
-                .add(R.id.cl_root_view, AboutFragment.newInstance(), AboutFragment.TAG)
-                .commit();
-    }
-
-    @Override
-    public void lockDrawer() {
-        if (mDrawer != null)
-            mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-    }
-
-    @Override
-    public void unlockDrawer() {
-        if (mDrawer != null)
-            mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        super.onDestroyView();
     }
 
     @Override
@@ -323,105 +181,11 @@ public class MainActivity extends BaseActivity implements MainMvpView, SwipeRefr
         tvTemp.setText(String.valueOf(temp.get(0)));
         tvWater.setText(String.valueOf(water.get(0)));
 
-        swipeRefreshLayout.setRefreshing(false);
-
         Log.d("HUMIDITY", "VALUE" + averageDataResponse.get(0).getAvgHumidity());
 
         resultSensor(humidity, soilMoisture);
         chartSensor(time, humidity, soilMoisture, temp, water);
     }
-
-    private String dateConverter(String dateInput){
-        try {
-            SimpleDateFormat spf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            spf.setTimeZone(TimeZone.getTimeZone("UTC"));
-            Date newDate = null;
-            newDate = spf.parse(dateInput);
-            spf= new SimpleDateFormat("HH:mm");
-            String returnDate = spf.format(newDate);
-            return returnDate;
-
-        }catch (ParseException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        super.onCreateOptionsMenu(menu);
-//        getMenuInflater().inflate(R.menu.main, menu);
-//        return true;
-//    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        Drawable drawable = item.getIcon();
-//        if (drawable instanceof Animatable) {
-//            ((Animatable) drawable).start();
-//        }
-//        switch (item.getItemId()) {
-//            case R.id.action_cut:
-//                return true;
-//            case R.id.action_copy:
-//                return true;
-//            case R.id.action_share:
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
-
-    @Override
-    protected void setUp() {
-        mToolbar.setTitle("Agriculture");
-        setSupportActionBar(mToolbar);
-        mDrawerToggle = new ActionBarDrawerToggle(
-                this,
-                mDrawer,
-                mToolbar,
-                R.string.open_drawer,
-                R.string.close_drawer) {
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-                hideKeyboard();
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-            }
-        };
-        mDrawer.addDrawerListener(mDrawerToggle);
-        mDrawerToggle.syncState();
-        setupNavMenu();
-        mPresenter.onNavMenuCreated();
-
-        swipeRefreshLayout.setOnRefreshListener(this);
-        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent,
-                android.R.color.holo_green_dark,
-                android.R.color.holo_orange_dark,
-                android.R.color.holo_blue_dark);
-
-        /**
-         * Showing Swipe Refresh animation on activity create
-         * As animation won't start on onCreate, post runnable is used
-         */
-        swipeRefreshLayout.post(new Runnable() {
-
-            @Override
-            public void run() {
-
-                if(swipeRefreshLayout != null) {
-                    swipeRefreshLayout.setRefreshing(true);
-                }
-                // TODO Fetching data from server
-                mPresenter.getAverageDataAll();
-            }
-        });
-    }
-
 
     private void chartSensor(List<String> times, List<Integer> humiditys, List<Integer> soilMoistures,
                              List<Integer> temps, List<Integer> waters){
@@ -542,76 +306,19 @@ public class MainActivity extends BaseActivity implements MainMvpView, SwipeRefr
         soilMoistures.start();
     }
 
-    void setupNavMenu() {
-        View headerLayout = mNavigationView.getHeaderView(0);
-        mProfileImageView = (RoundedImageView) headerLayout.findViewById(R.id.iv_profile_pic);
-        mNameTextView = (TextView) headerLayout.findViewById(R.id.tv_name);
-        mEmailTextView = (TextView) headerLayout.findViewById(R.id.tv_email);
+    private String dateConverter(String dateInput){
+        try {
+            SimpleDateFormat spf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            spf.setTimeZone(TimeZone.getTimeZone("UTC"));
+            Date newDate = null;
+            newDate = spf.parse(dateInput);
+            spf= new SimpleDateFormat("HH:mm");
+            String returnDate = spf.format(newDate);
+            return returnDate;
 
-        mNavigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        mDrawer.closeDrawer(GravityCompat.START);
-                        switch (item.getItemId()) {
-                            case R.id.nav_item_history:
-                                mPresenter.onDrawerHistoryClick();
-                                return true;
-                            case R.id.nav_item_watering:
-                                mPresenter.onDrawerWaterControlClick();
-                                return true;
-                            case R.id.nav_item_reminder:
-                                mPresenter.onDrawerReminderClick();
-                                return true;
-                            case R.id.nav_item_setting:
-                                mPresenter.onDrawerSettingClick();
-                                return true;
-                            case R.id.nav_item_logout:
-                                mPresenter.onDrawerOptionLogoutClick();
-                                return true;
-                            default:
-                                return false;
-                        }
-                    }
-                });
-    }
-
-    @Override
-    public void openLoginActivity() {
-        startActivity(LoginActivity.getStartIntent(this));
-        finish();
-    }
-
-    @Override
-    public void openWaterControlActivity() {
-        startActivity(WaterControlActivity.getStartIntent(this));
-    }
-
-    @Override
-    public void openReminderActivity() {
-        startActivity(RemindActivity.getStartIntent(this));
-    }
-
-    @Override
-    public void openSettingActivity() {
-        startActivity(RemindPreferenceActivity.getStartIntent(this));
-    }
-
-    @Override
-    public void openHistoryActivity() {
-        startActivity(HistoryListActivity.getStartIntent(this));
-    }
-
-    @Override
-    public void closeNavigationDrawer() {
-        if (mDrawer != null) {
-            mDrawer.closeDrawer(Gravity.START);
+        }catch (ParseException e) {
+            e.printStackTrace();
+            return null;
         }
-    }
-
-
-    @Override
-    public void onRefresh() {
-        mPresenter.getAverageDataAll();
     }
 }

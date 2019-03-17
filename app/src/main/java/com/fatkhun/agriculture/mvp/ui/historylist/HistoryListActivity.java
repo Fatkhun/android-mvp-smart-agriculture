@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.AbsListView;
 import android.widget.LinearLayout;
 
@@ -73,6 +74,12 @@ public class HistoryListActivity extends BaseActivity implements HistoryListMvpV
         toolbar.setTitle(R.string.history);
         setSupportActionBar(toolbar);
         if (toolbar != null) toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         if (getActionBar() != null) getActionBar().setDisplayHomeAsUpEnabled(true);
 
 

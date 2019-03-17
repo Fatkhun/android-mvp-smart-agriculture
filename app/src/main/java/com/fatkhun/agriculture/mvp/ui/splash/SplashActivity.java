@@ -24,6 +24,7 @@ import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
 import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
 import com.fatkhun.agriculture.mvp.ui.main.MainActivity;
+import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationActivity;
 
 import javax.inject.Inject;
 
@@ -70,7 +71,7 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
 
     @Override
     public void openMainActivity() {
-        Intent intent = MainActivity.getStartIntent(SplashActivity.this);
+        Intent intent = MainNavigationActivity.getStartIntent(SplashActivity.this);
         startActivity(intent);
         finish();
     }
