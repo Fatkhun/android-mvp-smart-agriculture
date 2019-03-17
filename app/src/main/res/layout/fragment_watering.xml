@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragmentswatering.WateringFragment">
+
+    <com.gigamole.library.PulseView
+        android:id="@+id/pv_watering"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:pv_alpha="70"
+        app:pv_color="@color/light_blue"
+        app:pv_count="3"
+        app:pv_icon="@drawable/ic_faucet"
+        app:pv_icon_height="150dp"
+        app:pv_icon_width="150dp"
+        app:pv_interpolator="@android:anim/linear_interpolator"
+        app:pv_measure="height"
+        app:pv_spawn_period="500" />
+
+    <at.markushi.ui.CircleButton
+        android:id="@+id/cb_start_watering"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginBottom="108dp"
+        android:src="@drawable/ic_open_in_browser_white_24dp"
+        app:cb_color="@color/colorPrimaryDark"
+        app:cb_pressedRingWidth="8dip"
+        app:layout_constraintBottom_toBottomOf="@+id/pv_watering"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <at.markushi.ui.CircleButton
+        android:id="@+id/cb_finish_watering"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/ic_close_white_24dp"
+        app:cb_color="@color/colorPrimaryDark"
+        app:cb_pressedRingWidth="8dip"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_start_watering"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cb_start_watering"
+        app:layout_constraintTop_toTopOf="@+id/cb_start_watering" />
+
+</android.support.constraint.ConstraintLayout>

@@ -26,6 +26,7 @@ import android.widget.TextView;
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
 import com.fatkhun.agriculture.mvp.ui.main.MainActivity;
+import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationActivity;
 import com.fatkhun.agriculture.mvp.ui.register.RegisterActivity;
 
 import javax.inject.Inject;
@@ -80,7 +81,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
 
     @Override
     public void openMainActivity() {
-        Intent intent = MainActivity.getStartIntent(LoginActivity.this);
+        Intent intent = MainNavigationActivity.getStartIntent(LoginActivity.this);
         startActivity(intent);
         finish();
     }

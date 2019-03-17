@@ -6,4 +6,8 @@ import com.fatkhun.agriculture.mvp.ui.main.MainMvpView;
 
 @PerActivity
 public interface MainNavigationMvpPresenter<V extends MainNavigationMvpView> extends MvpPresenter<V> {
+
+    void onSettingClick();
+
+    void onLogoutClick();
 }

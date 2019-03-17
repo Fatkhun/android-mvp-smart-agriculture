@@ -32,6 +32,13 @@ import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragment;
 import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragmentMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragmentMvpView;
 import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragmentPresenter;
+import com.fatkhun.agriculture.mvp.ui.fragmentshistory.HistoryFragmentAdapter;
+import com.fatkhun.agriculture.mvp.ui.fragmentshistory.HistoryFragmentMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.fragmentshistory.HistoryFragmentMvpView;
+import com.fatkhun.agriculture.mvp.ui.fragmentshistory.HistoryFragmentPresenter;
+import com.fatkhun.agriculture.mvp.ui.fragmentswatering.WateringFragmentMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.fragmentswatering.WateringFragmentMvpView;
+import com.fatkhun.agriculture.mvp.ui.fragmentswatering.WateringFragmentPresenter;
 import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListAdapter;
 import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListMvpView;
@@ -228,6 +235,21 @@ public class ActivityModule {
     @Provides
     DataFragmentMvpPresenter<DataFragmentMvpView> provideDataFragmentPresenter(DataFragmentPresenter<DataFragmentMvpView> presenter){
         return presenter;
+    }
+
+    @Provides
+    HistoryFragmentMvpPresenter<HistoryFragmentMvpView> provideHistoryFragmentPresenter(HistoryFragmentPresenter<HistoryFragmentMvpView> presenter){
+        return presenter;
+    }
+
+    @Provides
+    WateringFragmentMvpPresenter<WateringFragmentMvpView> provideWaterFragmentPresenter(WateringFragmentPresenter<WateringFragmentMvpView> presenter){
+        return presenter;
+    }
+
+    @Provides
+    HistoryFragmentAdapter provideHistoryFragmentAdapter(){
+        return new HistoryFragmentAdapter(new ArrayList<>(), context);
     }
 
     @Provides
