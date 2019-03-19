@@ -26,7 +26,7 @@ public final class AppConstants {
 
     public static final int API_STATUS_CODE_LOCAL_ERROR = 0;
 
-    public static final String BASE_URL_API = "http://192.168.1.14:8080/";
+    public static final String BASE_URL_API = "http://192.168.43.36:8080/";
 
     public static final String DB_NAME = "agriculture_mvp.db";
     public static final String PREF_NAME = "agriculture_pref";

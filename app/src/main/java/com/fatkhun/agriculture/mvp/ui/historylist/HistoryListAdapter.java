@@ -10,20 +10,18 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.fatkhun.agriculture.mvp.R;
-import com.fatkhun.agriculture.mvp.data.network.model.SensorResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.ui.base.BaseViewHolder;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class HistoryListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     public static final int VIEW_TYPE_EMPTY = 0;
@@ -31,12 +29,12 @@ public class HistoryListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
 
     HistoryListAdapter.Callback mCallback;
-    private List<SensorResponse> mData;
-    List<SensorResponse> mDataDefault;
+    private List<DataResponse> mData;
+    List<DataResponse> mDataDefault;
     private String mType;
     Context context;
 
-    public HistoryListAdapter(List<SensorResponse> dataResponseList, Context context) {
+    public HistoryListAdapter(List<DataResponse> dataResponseList, Context context) {
         mData = dataResponseList;
         this.context = context;
     }
@@ -84,7 +82,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         }
     }
 
-    public void addItems(List<SensorResponse> dataResponses) {
+    public void addItems(List<DataResponse> dataResponses) {
         mData.clear();
         mData.addAll(dataResponses);
         mDataDefault = dataResponses;
@@ -134,7 +132,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public void onBind(int position) {
             super.onBind(position);
 
-            SensorResponse item = mData.get(position);
+            DataResponse item = mData.get(position);
             Log.d("DEBUG", mData.toString());
 
 

@@ -68,13 +68,13 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
                 .loginUser(email, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(LoginResponse -> {
+                .subscribe(loginResponse -> {
                     getDataManager().updateUserInfo(
-                            LoginResponse.getApiToken(),
-                            LoginResponse.getUser().getId(),
+                            loginResponse.getApiToken(),
+                            loginResponse.getUser().getId(),
                             DataManager.LoggedInMode.LOGGED_IN_MODE_SERVER,
-                            LoginResponse.getUser().getName(),
-                            LoginResponse.getUser().getEmail());
+                            loginResponse.getUser().getName(),
+                            loginResponse.getUser().getEmail());
 
                     if (!isViewAttached()) {
                         return;

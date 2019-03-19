@@ -2,10 +2,7 @@ package com.fatkhun.agriculture.mvp.ui.historylist;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,11 +10,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.LinearLayout;
 
 import com.fatkhun.agriculture.mvp.R;
-import com.fatkhun.agriculture.mvp.data.network.model.SensorResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
 
 import java.util.ArrayList;
@@ -48,7 +43,7 @@ public class HistoryListActivity extends BaseActivity implements HistoryListMvpV
     @BindView(R.id.swipe_container)
     SwipeRefreshLayout swipeRefreshLayout;
 
-    List<SensorResponse> dataResponseList;
+    List<DataResponse> dataResponseList;
 
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, HistoryListActivity.class);
@@ -117,7 +112,7 @@ public class HistoryListActivity extends BaseActivity implements HistoryListMvpV
     }
 
     @Override
-    public void updateData(List<SensorResponse> dataResponseLists) {
+    public void updateData(List<DataResponse> dataResponseLists) {
         mHistoryListAdapter.addItems(dataResponseLists);
         swipeRefreshLayout.setRefreshing(false);
     }

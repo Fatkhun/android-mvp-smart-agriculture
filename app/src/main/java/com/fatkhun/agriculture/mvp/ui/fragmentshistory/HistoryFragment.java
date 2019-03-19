@@ -1,11 +1,7 @@
 package com.fatkhun.agriculture.mvp.ui.fragmentshistory;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,13 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.fatkhun.agriculture.mvp.R;
-import com.fatkhun.agriculture.mvp.data.network.model.SensorResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.di.component.ActivityComponent;
 import com.fatkhun.agriculture.mvp.ui.base.BaseFragment;
-import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragment;
-import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragmentMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragmentMvpView;
-import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +79,7 @@ public class HistoryFragment extends BaseFragment implements HistoryFragmentMvpV
     }
 
     @Override
-    public void updateData(List<SensorResponse> dataResponseList) {
+    public void updateData(List<DataResponse> dataResponseList) {
         mHistoryFragmentAdapter.addItems(dataResponseList);
     }
 

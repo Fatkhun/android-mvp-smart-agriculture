@@ -10,8 +10,10 @@ import com.fatkhun.agriculture.mvp.utils.rx.SchedulerProvider;
 
 import javax.inject.Inject;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class MainNavigationPresenter<V extends MainNavigationMvpView> extends BasePresenter<V>
         implements MainNavigationMvpPresenter<V> {
@@ -29,36 +31,36 @@ public class MainNavigationPresenter<V extends MainNavigationMvpView> extends Ba
     @Override
     public void onLogoutClick() {
         getMvpView().showLoading();
-
-        getCompositeDisposable().add(getDataManager().doLogoutApiCall()
-                .subscribeOn(getSchedulerProvider().io())
-                .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<LogoutResponse>() {
-                    @Override
-                    public void accept(LogoutResponse response) throws Exception {
-                        if (!isViewAttached()) {
-                            return;
-                        }
-
-                        getDataManager().setUserAsLoggedOut();
-                        getMvpView().hideLoading();
-                        getMvpView().openLoginActivity();
+        String userId = getUserId();
+        getCompositeDisposable().add(getDataManager()
+                .doLogoutApiCall(userId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(logoutResponse ->  {
+                    if (!isViewAttached()) {
+                        return;
                     }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        if (!isViewAttached()) {
-                            return;
-                        }
 
-                        getMvpView().hideLoading();
+                    getDataManager().setUserAsLoggedOut();
+                    getMvpView().hideLoading();
+                    getMvpView().openLoginActivity();
+                }, throwable ->  {
+                    if (!isViewAttached()) {
+                        return;
+                    }
 
-                        // handle the login error here
-                        if (throwable instanceof ANError) {
-                            ANError anError = (ANError) throwable;
-                            baseHandleError(anError);
-                        }
+                    getMvpView().hideLoading();
+
+                    // handle the login error here
+                    if (throwable instanceof ANError) {
+                        ANError anError = (ANError) throwable;
+                        baseHandleError(anError);
                     }
                 }));
+    }
+
+    @Override
+    public String getUserId() {
+        return getDataManager().getCurrentUserId();
     }
 }

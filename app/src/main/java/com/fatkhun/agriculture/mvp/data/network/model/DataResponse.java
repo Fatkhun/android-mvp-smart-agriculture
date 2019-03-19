@@ -3,7 +3,7 @@ package com.fatkhun.agriculture.mvp.data.network.model;
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
-public class SensorResponse{
+public class DataResponse {
 
 	@SerializedName("temp")
 	private int temp;
@@ -85,7 +85,7 @@ public class SensorResponse{
 	@Override
  	public String toString(){
 		return 
-			"SensorResponse{" + 
+			"DataResponse{" +
 			"temp = '" + temp + '\'' + 
 			",waterVolume = '" + waterVolume + '\'' + 
 			",soilMoisture = '" + soilMoisture + '\'' + 

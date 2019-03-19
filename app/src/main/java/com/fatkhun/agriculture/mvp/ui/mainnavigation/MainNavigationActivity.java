@@ -99,6 +99,7 @@ public class MainNavigationActivity extends BaseActivity implements MainNavigati
                     loadFragment(fragment);
                     return true;
                 case R.id.nav_item_watering:
+                    mToolbar.setTitle("Watering");
                     fragment = new WateringFragment();
                     loadFragment(fragment);
                     return true;

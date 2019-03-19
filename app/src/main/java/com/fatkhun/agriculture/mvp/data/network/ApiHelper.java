@@ -20,12 +20,10 @@ import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
-import com.fatkhun.agriculture.mvp.data.network.model.SensorResponse;
-import com.fatkhun.agriculture.mvp.data.network.model.User;
+import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 
 import java.util.List;
 
-import io.reactivex.Observable;
 import io.reactivex.Single;
 
 /**
@@ -40,11 +38,11 @@ public interface ApiHelper {
 
     Single<LoginResponse> loginUser(String email, String password);
 
-    Single<List<SensorResponse>> getDataAll();
+    Single<List<DataResponse>> getDataAll();
 
     Single<List<AverageDataResponse>> getAverageDataAll();
 
-    Single<LogoutResponse> doLogoutApiCall();
+    Single<LogoutResponse> doLogoutApiCall(String userId);
 
     Single<BlogResponse> getBlogApiCall();
 

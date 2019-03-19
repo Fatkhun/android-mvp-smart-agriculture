@@ -22,13 +22,12 @@ import android.support.v7.widget.LinearLayoutManager;
 
 import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
-import com.fatkhun.agriculture.mvp.data.network.model.SensorResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.di.ActivityContext;
 import com.fatkhun.agriculture.mvp.di.PerActivity;
 import com.fatkhun.agriculture.mvp.ui.about.AboutMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.about.AboutMvpView;
 import com.fatkhun.agriculture.mvp.ui.about.AboutPresenter;
-import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragment;
 import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragmentMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragmentMvpView;
 import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragmentPresenter;
@@ -269,7 +268,7 @@ public class ActivityModule {
 
     @Provides
     HistoryListAdapter provideHistoryListAdapter(){
-        return new HistoryListAdapter(new ArrayList<SensorResponse>(), context);
+        return new HistoryListAdapter(new ArrayList<DataResponse>(), context);
     }
 
     @Provides

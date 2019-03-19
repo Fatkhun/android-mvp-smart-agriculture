@@ -17,11 +17,10 @@ package com.fatkhun.agriculture.mvp.data.network;
 
 import com.fatkhun.agriculture.mvp.data.network.model.AverageDataResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
-import com.fatkhun.agriculture.mvp.data.network.model.SensorResponse;
-import com.fatkhun.agriculture.mvp.data.network.model.User;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import java.util.List;
@@ -29,7 +28,6 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import io.reactivex.Observable;
 import io.reactivex.Single;
 
 /**
@@ -73,11 +71,11 @@ public class AppApiHelper implements ApiHelper {
     }
 
     @Override
-    public Single<List<SensorResponse>> getDataAll() {
+    public Single<List<DataResponse>> getDataAll() {
         return  Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_DATA_ALL)
                 .addHeaders(mApiHeader.getProtectedApiHeader())
                 .build()
-                .getObjectListSingle(SensorResponse.class);
+                .getObjectListSingle(DataResponse.class);
     }
 
     @Override
@@ -89,8 +87,8 @@ public class AppApiHelper implements ApiHelper {
     }
 
     @Override
-    public Single<LogoutResponse> doLogoutApiCall() {
-        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_LOGOUT)
+    public Single<LogoutResponse> doLogoutApiCall(String userId) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_LOGOUT_USER + userId)
                 .addHeaders(mApiHeader.getProtectedApiHeader())
                 .build()
                 .getObjectSingle(LogoutResponse.class);

@@ -49,6 +49,9 @@ public final class ApiEndPoint {
     public static final String ENDPOINT_REGISTER_USER = AppConstants.BASE_URL_API
             + "users/register";
 
+    public static final String ENDPOINT_LOGOUT_USER = AppConstants.BASE_URL_API
+            + "users/logout/";
+
     public static final String ENDPOINT_DATA_ALL = AppConstants.BASE_URL_API
             + "data/index/all";
 

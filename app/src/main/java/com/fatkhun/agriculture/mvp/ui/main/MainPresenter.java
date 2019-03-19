@@ -64,8 +64,8 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V>
     @Override
     public void onDrawerOptionLogoutClick() {
         getMvpView().showLoading();
-
-        getCompositeDisposable().add(getDataManager().doLogoutApiCall()
+        String userId = getDataManager().getCurrentUserId();
+        getCompositeDisposable().add(getDataManager().doLogoutApiCall(userId)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<LogoutResponse>() {

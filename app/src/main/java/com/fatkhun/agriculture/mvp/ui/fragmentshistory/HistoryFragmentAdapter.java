@@ -10,11 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.fatkhun.agriculture.mvp.R;
-import com.fatkhun.agriculture.mvp.data.network.model.SensorResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.ui.base.BaseViewHolder;
-import com.fatkhun.agriculture.mvp.ui.fragmentshistory.HistoryFragmentAdapter;
 
-import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,12 +28,12 @@ public class HistoryFragmentAdapter extends RecyclerView.Adapter<BaseViewHolder>
 
 
     HistoryFragmentAdapter.Callback mCallback;
-    private List<SensorResponse> mData;
-    List<SensorResponse> mDataDefault;
+    private List<DataResponse> mData;
+    List<DataResponse> mDataDefault;
     private String mType;
     Context context;
 
-    public HistoryFragmentAdapter(List<SensorResponse> dataResponseList, Context context) {
+    public HistoryFragmentAdapter(List<DataResponse> dataResponseList, Context context) {
         mData = dataResponseList;
         this.context = context;
     }
@@ -83,7 +81,7 @@ public class HistoryFragmentAdapter extends RecyclerView.Adapter<BaseViewHolder>
         }
     }
 
-    public void addItems(List<SensorResponse> dataResponses) {
+    public void addItems(List<DataResponse> dataResponses) {
         mData.clear();
         mData.addAll(dataResponses);
         mDataDefault = dataResponses;
@@ -133,7 +131,7 @@ public class HistoryFragmentAdapter extends RecyclerView.Adapter<BaseViewHolder>
         public void onBind(int position) {
             super.onBind(position);
 
-            SensorResponse item = mData.get(position);
+            DataResponse item = mData.get(position);
             Log.d("DEBUG", mData.toString());
 
 

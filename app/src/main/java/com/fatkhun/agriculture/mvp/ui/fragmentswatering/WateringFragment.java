@@ -63,7 +63,7 @@ public class WateringFragment extends BaseFragment implements WateringFragmentMv
 
     @Override
     protected void setUp(View view) {
-        if (isFinish){
+        if (isFinish == true){
             Toast.makeText(getActivity(), "Dont forget Turn Off Water", Toast.LENGTH_SHORT).show();
         }
     }

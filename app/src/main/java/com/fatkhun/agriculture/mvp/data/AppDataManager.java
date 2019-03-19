@@ -19,11 +19,7 @@ package com.fatkhun.agriculture.mvp.data;
 import android.content.Context;
 
 import com.fatkhun.agriculture.mvp.data.network.model.AverageDataResponse;
-import com.fatkhun.agriculture.mvp.data.network.model.SensorResponse;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.internal.$Gson$Types;
-import com.google.gson.reflect.TypeToken;
+import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.data.network.ApiHeader;
 import com.fatkhun.agriculture.mvp.data.network.ApiHelper;
 import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
@@ -32,19 +28,13 @@ import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
 import com.fatkhun.agriculture.mvp.data.prefs.PreferencesHelper;
 import com.fatkhun.agriculture.mvp.di.ApplicationContext;
-import com.fatkhun.agriculture.mvp.utils.AppConstants;
-import com.fatkhun.agriculture.mvp.utils.CommonUtils;
 
-import java.lang.reflect.Type;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
 import io.reactivex.Single;
-import io.reactivex.functions.Function;
 
 /**
  * Created by janisharali on 27/01/17.
@@ -95,7 +85,7 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<List<SensorResponse>> getDataAll() {
+    public Single<List<DataResponse>> getDataAll() {
         return mApiHelper.getDataAll();
     }
 
@@ -105,8 +95,8 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<LogoutResponse> doLogoutApiCall() {
-        return mApiHelper.doLogoutApiCall();
+    public Single<LogoutResponse> doLogoutApiCall(String userId) {
+        return mApiHelper.doLogoutApiCall(userId);
     }
 
     @Override

@@ -10,4 +10,6 @@ public interface MainNavigationMvpPresenter<V extends MainNavigationMvpView> ext
     void onSettingClick();
 
     void onLogoutClick();
+
+    String getUserId();
 }
