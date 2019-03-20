@@ -31,7 +31,7 @@ public class LoginResponse {
     private User user;
 
     @SerializedName("status")
-    private String status;
+    private Boolean status;
 
     @SerializedName("api_token")
     private String apiToken;
@@ -52,11 +52,11 @@ public class LoginResponse {
         return user;
     }
 
-    public void setStatus(String status){
+    public void setStatus(Boolean status){
         this.status = status;
     }
 
-    public String getStatus(){
+    public Boolean getStatus(){
         return status;
     }
 

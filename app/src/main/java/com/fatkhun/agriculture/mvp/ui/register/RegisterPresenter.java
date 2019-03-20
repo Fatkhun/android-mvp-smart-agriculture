@@ -12,8 +12,10 @@ import com.fatkhun.agriculture.mvp.utils.rx.SchedulerProvider;
 
 import javax.inject.Inject;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class RegisterPresenter<V extends RegisterMvpView> extends BasePresenter<V>
         implements RegisterMvpPresenter<V> {
@@ -27,7 +29,7 @@ public class RegisterPresenter<V extends RegisterMvpView> extends BasePresenter<
     public void registerUser(String name, String email, String password) {
         //validate email and password
         if (name == null || name.isEmpty()){
-            getMvpView().onError("name required");
+            getMvpView().onError("Please provide a non empty name");
             return;
         }
         if (email == null || email.isEmpty()) {
@@ -45,14 +47,19 @@ public class RegisterPresenter<V extends RegisterMvpView> extends BasePresenter<
         getMvpView().showLoading();
         getCompositeDisposable().add(getDataManager()
                 .registerUser(name, email, password)
-                .subscribeOn(getSchedulerProvider().io())
-                .observeOn(getSchedulerProvider().ui())
-                .subscribe(LoginResponse -> {
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(loginResponse -> {
                     if (!isViewAttached()) {
                         return;
                     }
                     getMvpView().hideLoading();
-                    getMvpView().openMainActivity();
+                    if (loginResponse.getStatus() == false){
+                        getMvpView().showMessage(loginResponse.getMessage());
+                    }else {
+                        getMvpView().openMainActivity();
+                        getMvpView().showMessage(loginResponse.getMessage());
+                    }
                 }, throwable ->  {
                     if (!isViewAttached()) {
                         return;

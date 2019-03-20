@@ -69,19 +69,24 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(loginResponse -> {
-                    getDataManager().updateUserInfo(
-                            loginResponse.getApiToken(),
-                            loginResponse.getUser().getId(),
-                            DataManager.LoggedInMode.LOGGED_IN_MODE_SERVER,
-                            loginResponse.getUser().getName(),
-                            loginResponse.getUser().getEmail());
-
                     if (!isViewAttached()) {
                         return;
                     }
 
                     getMvpView().hideLoading();
-                    getMvpView().openMainActivity();
+                    if (loginResponse.getUser() == null && loginResponse.getStatus() == false){
+                        getMvpView().showMessage(loginResponse.getMessage());
+                    }else {
+                        getDataManager().updateUserInfo(
+                                loginResponse.getApiToken(),
+                                loginResponse.getUser().getId(),
+                                DataManager.LoggedInMode.LOGGED_IN_MODE_SERVER,
+                                loginResponse.getUser().getName(),
+                                loginResponse.getUser().getEmail());
+
+                        getMvpView().openMainActivity();
+                        getMvpView().showMessage(loginResponse.getMessage());
+                    }
                 }, throwable ->  {
                     if (!isViewAttached()) {
                         return;

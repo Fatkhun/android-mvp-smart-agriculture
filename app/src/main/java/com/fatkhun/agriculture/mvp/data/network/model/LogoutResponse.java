@@ -25,19 +25,19 @@ import com.google.gson.annotations.SerializedName;
 public class LogoutResponse {
 
     @Expose
-    @SerializedName("status_code")
-    private String statusCode;
+    @SerializedName("status")
+    private Boolean status;
 
     @Expose
     @SerializedName("message")
     private String message;
 
-    public String getStatusCode() {
-        return statusCode;
+    public Boolean getStatus() {
+        return status;
     }
 
-    public void setStatusCode(String statusCode) {
-        this.statusCode = statusCode;
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     public String getMessage() {
@@ -49,22 +49,10 @@ public class LogoutResponse {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-
-        LogoutResponse that = (LogoutResponse) object;
-
-        if (statusCode != null ? !statusCode.equals(that.statusCode) : that.statusCode != null)
-            return false;
-        return message != null ? message.equals(that.message) : that.message == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = statusCode != null ? statusCode.hashCode() : 0;
-        result = 31 * result + (message != null ? message.hashCode() : 0);
-        return result;
+    public String toString() {
+        return "LogoutResponse{" +
+                "status=" + status +
+                ", message='" + message + '\'' +
+                '}';
     }
 }

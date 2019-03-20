@@ -40,10 +40,14 @@ public class MainNavigationPresenter<V extends MainNavigationMvpView> extends Ba
                     if (!isViewAttached()) {
                         return;
                     }
-
-                    getDataManager().setUserAsLoggedOut();
-                    getMvpView().hideLoading();
-                    getMvpView().openLoginActivity();
+                    if (logoutResponse.getStatus() == false){
+                        getMvpView().showMessage(logoutResponse.getMessage());
+                    }else {
+                        getDataManager().setUserAsLoggedOut();
+                        getMvpView().hideLoading();
+                        getMvpView().openLoginActivity();
+                        getMvpView().showMessage(logoutResponse.getMessage());
+                    }
                 }, throwable ->  {
                     if (!isViewAttached()) {
                         return;
