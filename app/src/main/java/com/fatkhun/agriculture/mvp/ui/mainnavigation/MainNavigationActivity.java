@@ -1,19 +1,25 @@
 package com.fatkhun.agriculture.mvp.ui.mainnavigation;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
@@ -66,7 +72,7 @@ public class MainNavigationActivity extends BaseActivity implements MainNavigati
 
     @Override
     protected void setUp() {
-        mToolbar.setTitle("Agriculture");
+        mToolbar.setTitle("Hai, " + mPresenter.updateUserName());
         setSupportActionBar(mToolbar);
 
         navigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -77,7 +83,7 @@ public class MainNavigationActivity extends BaseActivity implements MainNavigati
         layoutParams.setBehavior(new BottomNavigationBehavior());
 
         // initial load
-        mToolbar.setTitle("Home");
+        mToolbar.setTitle("Hai, " + mPresenter.updateUserName());
         loadFragment(new DataFragment());
     }
 
@@ -89,7 +95,7 @@ public class MainNavigationActivity extends BaseActivity implements MainNavigati
             Fragment fragment;
             switch (item.getItemId()) {
                 case R.id.nav_item_data:
-                    mToolbar.setTitle("Home");
+                    mToolbar.setTitle("Hai, " + mPresenter.updateUserName());
                     fragment = new DataFragment();
                     loadFragment(fragment);
                     return true;
@@ -146,16 +152,6 @@ public class MainNavigationActivity extends BaseActivity implements MainNavigati
     public void openLoginActivity() {
         startActivity(LoginActivity.getStartIntent(this));
         finish();
-    }
-
-    @Override
-    public void updateUserName(String currentUserName) {
-
-    }
-
-    @Override
-    public void updateUserEmail(String currentUserEmail) {
-
     }
 
     @Override

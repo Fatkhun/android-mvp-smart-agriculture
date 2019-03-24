@@ -34,10 +34,17 @@ import com.fatkhun.agriculture.mvp.di.DatabaseInfo;
 import com.fatkhun.agriculture.mvp.di.PreferenceInfo;
 import com.fatkhun.agriculture.mvp.utils.AppConstants;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
@@ -114,8 +121,6 @@ public class ApplicationModule {
     @Singleton
     CalligraphyConfig provideCalligraphyDefaultConfig() {
         return new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/source-sans-pro/SourceSansPro-Regular.ttf")
-                .setFontAttrId(R.attr.fontPath)
                 .build();
     }
 }

@@ -38,7 +38,7 @@ public interface ApiHelper {
 
     Single<LoginResponse> loginUser(String email, String password);
 
-    Single<List<DataResponse>> getDataAll();
+    Single<List<DataResponse>> getDataAll(int page);
 
     Single<List<AverageDataResponse>> getAverageDataAll();
 

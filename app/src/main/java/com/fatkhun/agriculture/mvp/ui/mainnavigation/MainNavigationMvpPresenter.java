@@ -11,5 +11,7 @@ public interface MainNavigationMvpPresenter<V extends MainNavigationMvpView> ext
 
     void onLogoutClick();
 
+    String updateUserName();
+
     String getUserId();
 }

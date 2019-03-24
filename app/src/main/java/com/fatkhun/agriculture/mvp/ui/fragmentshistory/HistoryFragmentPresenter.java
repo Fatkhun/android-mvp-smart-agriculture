@@ -24,10 +24,10 @@ public class HistoryFragmentPresenter<V extends HistoryFragmentMvpView> extends 
     }
 
     @Override
-    public void getDataAll() {
+    public void getDataAll(int page) {
         getMvpView().showLoading();
         getCompositeDisposable().add(getDataManager()
-                .getDataAll()
+                .getDataAll(page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(dataResponseList ->  {

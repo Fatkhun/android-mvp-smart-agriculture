@@ -21,9 +21,12 @@ import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
+import com.fatkhun.agriculture.mvp.data.prefs.PreferencesHelper;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -38,6 +41,10 @@ import io.reactivex.Single;
 public class AppApiHelper implements ApiHelper {
 
     private ApiHeader mApiHeader;
+    private Map<String, String> mHeader;
+
+    @Inject
+    PreferencesHelper preferencesHelper;
 
     @Inject
     public AppApiHelper(ApiHeader apiHeader) {
@@ -52,7 +59,7 @@ public class AppApiHelper implements ApiHelper {
     @Override
     public Single<LoginResponse> registerUser(String name, String email, String password) {
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_REGISTER_USER)
-                .addHeaders(mApiHeader.getPublicApiHeader())
+                .addHeaders(mApiHeader.getProtectedApiHeader())
                 .addBodyParameter("name",name)
                 .addBodyParameter("email",email)
                 .addBodyParameter("password",password)
@@ -71,8 +78,8 @@ public class AppApiHelper implements ApiHelper {
     }
 
     @Override
-    public Single<List<DataResponse>> getDataAll() {
-        return  Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_DATA_ALL)
+    public Single<List<DataResponse>> getDataAll(int page) {
+        return  Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_DATA_ALL + page)
                 .addHeaders(mApiHeader.getProtectedApiHeader())
                 .build()
                 .getObjectListSingle(DataResponse.class);
@@ -89,7 +96,7 @@ public class AppApiHelper implements ApiHelper {
     @Override
     public Single<LogoutResponse> doLogoutApiCall(String userId) {
         return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_LOGOUT_USER + userId)
-                .addHeaders(mApiHeader.getProtectedApiHeader())
+                .addHeaders(getHeader())
                 .build()
                 .getObjectSingle(LogoutResponse.class);
     }
@@ -108,6 +115,14 @@ public class AppApiHelper implements ApiHelper {
                 .addHeaders(mApiHeader.getProtectedApiHeader())
                 .build()
                 .getObjectSingle(OpenSourceResponse.class);
+    }
+
+    private Map<String, String> getHeader(){
+        if (mHeader == null){
+            mHeader = new HashMap<>();
+            mHeader.put("x-access-token", mApiHeader.getProtectedApiHeader().getAccessToken());
+        }
+        return mHeader;
     }
 }
 

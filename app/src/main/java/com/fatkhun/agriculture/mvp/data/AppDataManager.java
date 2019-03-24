@@ -85,8 +85,8 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<List<DataResponse>> getDataAll() {
-        return mApiHelper.getDataAll();
+    public Single<List<DataResponse>> getDataAll(int page) {
+        return mApiHelper.getDataAll(page);
     }
 
     @Override

@@ -64,6 +64,11 @@ public class MainNavigationPresenter<V extends MainNavigationMvpView> extends Ba
     }
 
     @Override
+    public String updateUserName() {
+        return getDataManager().getCurrentUserName();
+    }
+
+    @Override
     public String getUserId() {
         return getDataManager().getCurrentUserId();
     }

@@ -6,9 +6,5 @@ public interface MainNavigationMvpView extends MvpView {
 
     void openLoginActivity();
 
-    void updateUserName(String currentUserName);
-
-    void updateUserEmail(String currentUserEmail);
-
     void openSettingActivity();
 }

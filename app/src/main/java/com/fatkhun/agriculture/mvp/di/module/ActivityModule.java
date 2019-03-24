@@ -38,10 +38,6 @@ import com.fatkhun.agriculture.mvp.ui.fragmentshistory.HistoryFragmentPresenter;
 import com.fatkhun.agriculture.mvp.ui.fragmentswatering.WateringFragmentMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.fragmentswatering.WateringFragmentMvpView;
 import com.fatkhun.agriculture.mvp.ui.fragmentswatering.WateringFragmentPresenter;
-import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListAdapter;
-import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListMvpView;
-import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListPresenter;
 import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationMvpView;
 import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationPresenter;
@@ -202,12 +198,6 @@ public class ActivityModule {
     }
 
     @Provides
-    @PerActivity
-    HistoryListMvpPresenter<HistoryListMvpView> provideHistoryListPresenter(HistoryListPresenter<HistoryListMvpView> presenter){
-        return presenter;
-    }
-
-    @Provides
     RatingDialogMvpPresenter<RatingDialogMvpView> provideRateUsPresenter(
             RatingDialogPresenter<RatingDialogMvpView> presenter) {
         return presenter;
@@ -264,11 +254,6 @@ public class ActivityModule {
     @Provides
     BlogAdapter provideBlogAdapter() {
         return new BlogAdapter(new ArrayList<BlogResponse.Blog>());
-    }
-
-    @Provides
-    HistoryListAdapter provideHistoryListAdapter(){
-        return new HistoryListAdapter(new ArrayList<DataResponse>(), context);
     }
 
     @Provides

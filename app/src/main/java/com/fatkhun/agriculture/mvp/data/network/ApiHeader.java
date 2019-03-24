@@ -15,9 +15,13 @@
 
 package com.fatkhun.agriculture.mvp.data.network;
 
+import com.fatkhun.agriculture.mvp.data.prefs.PreferencesHelper;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.fatkhun.agriculture.mvp.di.ApiInfo;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

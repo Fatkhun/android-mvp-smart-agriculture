@@ -13,6 +13,7 @@ import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.di.component.ActivityComponent;
 import com.fatkhun.agriculture.mvp.ui.base.BaseFragment;
+import com.fatkhun.agriculture.mvp.utils.EndlessRecyclerViewScrollListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,8 @@ public class HistoryFragment extends BaseFragment implements HistoryFragmentMvpV
 
     @BindView(R.id.rv_data_all)
     RecyclerView rvDataAll;
+
+    int initlimit = 5;
 
     public static HistoryFragment newInstance() {
         Bundle args = new Bundle();
@@ -69,7 +72,21 @@ public class HistoryFragment extends BaseFragment implements HistoryFragmentMvpV
         rvDataAll.setItemAnimator(new DefaultItemAnimator());
         rvDataAll.setAdapter(mHistoryFragmentAdapter);
 
-        mPresenter.getDataAll();
+        EndlessRecyclerViewScrollListener scrollListener = new EndlessRecyclerViewScrollListener(mLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                page++;
+                loadNextDataFromApi(page);
+            }
+        };
+
+        rvDataAll.addOnScrollListener(scrollListener);
+
+
+    }
+
+    public void loadNextDataFromApi(int offset) {
+        mPresenter.getDataAll(offset);
     }
 
     @Override
@@ -85,6 +102,6 @@ public class HistoryFragment extends BaseFragment implements HistoryFragmentMvpV
 
     @Override
     public void onBlogEmptyViewRetryClick() {
-        mPresenter.getDataAll();
+        mPresenter.getDataAll(initlimit);
     }
 }

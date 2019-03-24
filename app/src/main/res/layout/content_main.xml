@@ -231,7 +231,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Temperature"
+                            android:text="Temperature (°C)"
                             android:layout_marginTop="10dp"
                             android:textColor="@color/black_effective"
                             android:fontFamily="@font/roboto_medium"
@@ -327,7 +327,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Water"
+                            android:text="Water (ml)"
                             android:layout_marginTop="10dp"
                             android:textColor="@color/black_effective"
                             android:fontFamily="@font/roboto_medium"

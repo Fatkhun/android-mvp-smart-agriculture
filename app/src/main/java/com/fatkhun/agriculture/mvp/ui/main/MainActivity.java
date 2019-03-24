@@ -54,7 +54,6 @@ import com.fatkhun.agriculture.mvp.ui.about.AboutFragment;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
 import com.fatkhun.agriculture.mvp.ui.custom.RoundedImageView;
 import com.fatkhun.agriculture.mvp.ui.feed.FeedActivity;
-import com.fatkhun.agriculture.mvp.ui.historylist.HistoryListActivity;
 import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
 import com.fatkhun.agriculture.mvp.ui.main.rating.RateUsDialog;
 import com.fatkhun.agriculture.mvp.ui.reminder.RemindActivity;
@@ -599,7 +598,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, SwipeRefr
 
     @Override
     public void openHistoryActivity() {
-        startActivity(HistoryListActivity.getStartIntent(this));
+        startActivity(RemindPreferenceActivity.getStartIntent(this));
     }
 
     @Override
