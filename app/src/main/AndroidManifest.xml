@@ -17,7 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.mainnavigation.MainNavigationActivity"></activity>
-        <activity android:name=".ui.historylist.HistoryListActivity" />
         <activity
             android:name=".ui.splash.SplashActivity"
             android:launchMode="singleTop"
@@ -84,12 +83,14 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
-        <service android:name=".data.firebase.MyFirebaseInstanceIdService">
+        <service android:name=".data.firebase.MyFirebaseInstanceIdService"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".data.firebase.MyFirebaseMessagingService">
+        <service android:name=".data.firebase.MyFirebaseMessagingService"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

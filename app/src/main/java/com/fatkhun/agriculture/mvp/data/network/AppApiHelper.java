@@ -21,6 +21,7 @@ import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.RelayResponse;
 import com.fatkhun.agriculture.mvp.data.prefs.PreferencesHelper;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
@@ -99,6 +100,24 @@ public class AppApiHelper implements ApiHelper {
                 .addHeaders(getHeader())
                 .build()
                 .getObjectSingle(LogoutResponse.class);
+    }
+
+    @Override
+    public Single<RelayResponse> updateRelay(String deviceId, String pumpOn, String autoPumpOn) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_RELAY_ON_OFF + deviceId)
+                .addHeaders(mApiHeader.getProtectedApiHeader())
+                .addBodyParameter("pumpOn", pumpOn)
+                .addBodyParameter("autoPumpOn", autoPumpOn)
+                .build()
+                .getObjectSingle(RelayResponse.class);
+    }
+
+    @Override
+    public Single<RelayResponse> getRelay(String deviceId) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_RELAY_CONFIG + deviceId)
+                .addHeaders(mApiHeader.getProtectedApiHeader())
+                .build()
+                .getObjectSingle(RelayResponse.class);
     }
 
     @Override

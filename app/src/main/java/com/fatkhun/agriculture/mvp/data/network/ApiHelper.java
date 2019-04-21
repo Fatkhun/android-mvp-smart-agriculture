@@ -21,6 +21,7 @@ import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.RelayResponse;
 
 import java.util.List;
 
@@ -43,6 +44,10 @@ public interface ApiHelper {
     Single<List<AverageDataResponse>> getAverageDataAll();
 
     Single<LogoutResponse> doLogoutApiCall(String userId);
+
+    Single<RelayResponse> updateRelay(String deviceId, String pumpOn, String autoPumpOn);
+
+    Single<RelayResponse> getRelay(String deviceId);
 
     Single<BlogResponse> getBlogApiCall();
 

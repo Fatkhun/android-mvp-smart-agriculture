@@ -5,4 +5,9 @@ import com.fatkhun.agriculture.mvp.ui.fragmentshistory.HistoryFragmentMvpView;
 
 public interface WateringFragmentMvpPresenter<V extends WateringFragmentMvpView>
         extends MvpPresenter<V> {
+    void updateRelay(String pumpOn, String autoPumpOn);
+
+    void getRelay();
+
+    String getDeviceId();
 }

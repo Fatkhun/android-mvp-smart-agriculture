@@ -11,6 +11,12 @@ public interface MainNavigationMvpPresenter<V extends MainNavigationMvpView> ext
 
     void onLogoutClick();
 
+    void getCheckRelay();
+
+    void getRefreshRelay();
+
+    String getDeviceId();
+
     String updateUserName();
 
     String getUserId();

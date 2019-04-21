@@ -58,6 +58,12 @@ public final class ApiEndPoint {
     public static final String ENDPOINT_AVERAGE_DATA_ALL = AppConstants.BASE_URL_API
             + "data/average/all";
 
+    public static final String ENDPOINT_RELAY_ON_OFF = AppConstants.BASE_URL_API
+            + "relay/update/";
+
+    public static final String ENDPOINT_RELAY_CONFIG = AppConstants.BASE_URL_API
+            + "relay/config/";
+
     private ApiEndPoint() {
         // This class is not publicly instantiable
     }

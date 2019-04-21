@@ -6,19 +6,19 @@ import com.google.gson.annotations.SerializedName;
 public class DataResponse {
 
 	@SerializedName("temp")
-	private int temp;
+	private float temp;
 
 	@SerializedName("waterVolume")
-	private int waterVolume;
+	private float waterVolume;
 
 	@SerializedName("soilMoisture")
-	private int soilMoisture;
+	private float soilMoisture;
 
 	@SerializedName("__v")
 	private int V;
 
 	@SerializedName("humidity")
-	private int humidity;
+	private float humidity;
 
 	@SerializedName("_id")
 	private String id;
@@ -26,27 +26,27 @@ public class DataResponse {
 	@SerializedName("time")
 	private String time;
 
-	public void setTemp(int temp){
+	public void setTemp(float temp){
 		this.temp = temp;
 	}
 
-	public int getTemp(){
+	public float getTemp(){
 		return temp;
 	}
 
-	public void setWaterVolume(int waterVolume){
+	public void setWaterVolume(float waterVolume){
 		this.waterVolume = waterVolume;
 	}
 
-	public int getWaterVolume(){
+	public float getWaterVolume(){
 		return waterVolume;
 	}
 
-	public void setSoilMoisture(int soilMoisture){
+	public void setSoilMoisture(float soilMoisture){
 		this.soilMoisture = soilMoisture;
 	}
 
-	public int getSoilMoisture(){
+	public float getSoilMoisture(){
 		return soilMoisture;
 	}
 
@@ -58,11 +58,11 @@ public class DataResponse {
 		return V;
 	}
 
-	public void setHumidity(int humidity){
+	public void setHumidity(float humidity){
 		this.humidity = humidity;
 	}
 
-	public int getHumidity(){
+	public float getHumidity(){
 		return humidity;
 	}
 

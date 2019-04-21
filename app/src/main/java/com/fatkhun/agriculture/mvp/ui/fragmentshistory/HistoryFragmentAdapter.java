@@ -15,6 +15,7 @@ import com.fatkhun.agriculture.mvp.ui.base.BaseViewHolder;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
@@ -134,7 +135,6 @@ public class HistoryFragmentAdapter extends RecyclerView.Adapter<BaseViewHolder>
             DataResponse item = mData.get(position);
             Log.d("DEBUG", mData.toString());
 
-
             humidity.setText(String.valueOf(item.getHumidity()));
             soilMoisture.setText(String.valueOf(item.getSoilMoisture()));
             temperature.setText(String.valueOf(item.getTemp()));
@@ -176,7 +176,7 @@ public class HistoryFragmentAdapter extends RecyclerView.Adapter<BaseViewHolder>
             spf.setTimeZone(TimeZone.getTimeZone("UTC"));
             Date newDate = null;
             newDate = spf.parse(dateInput);
-            spf= new SimpleDateFormat("dd MM yyyy HH:mm:ss");
+            spf= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             String returnDate = spf.format(newDate);
             return returnDate;
 

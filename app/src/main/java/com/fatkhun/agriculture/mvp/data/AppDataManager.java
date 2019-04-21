@@ -26,6 +26,7 @@ import com.fatkhun.agriculture.mvp.data.network.model.BlogResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.RelayResponse;
 import com.fatkhun.agriculture.mvp.data.prefs.PreferencesHelper;
 import com.fatkhun.agriculture.mvp.di.ApplicationContext;
 
@@ -97,6 +98,16 @@ public class AppDataManager implements DataManager {
     @Override
     public Single<LogoutResponse> doLogoutApiCall(String userId) {
         return mApiHelper.doLogoutApiCall(userId);
+    }
+
+    @Override
+    public Single<RelayResponse> updateRelay(String deviceId, String pumpOn, String autoPumpOn) {
+        return mApiHelper.updateRelay(deviceId, pumpOn, autoPumpOn);
+    }
+
+    @Override
+    public Single<RelayResponse> getRelay(String deviceId) {
+        return mApiHelper.getRelay(deviceId);
     }
 
     @Override

@@ -1,11 +1,15 @@
 package com.fatkhun.agriculture.mvp.ui.mainnavigation;
 
+import android.util.Log;
+
 import com.androidnetworking.error.ANError;
 import com.fatkhun.agriculture.mvp.data.DataManager;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.ui.base.BasePresenter;
+import com.fatkhun.agriculture.mvp.ui.fragmentswatering.PumpState;
 import com.fatkhun.agriculture.mvp.ui.main.MainMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.main.MainMvpView;
+import com.fatkhun.agriculture.mvp.utils.AppConstants;
 import com.fatkhun.agriculture.mvp.utils.rx.SchedulerProvider;
 
 import javax.inject.Inject;
@@ -61,6 +65,76 @@ public class MainNavigationPresenter<V extends MainNavigationMvpView> extends Ba
                         baseHandleError(anError);
                     }
                 }));
+    }
+
+    @Override
+    public void getCheckRelay() {
+        getMvpView().showLoading();
+        String deviceId = getDeviceId();
+        getCompositeDisposable().add(getDataManager()
+                .getRelay(deviceId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(getRelay ->  {
+                    if (!isViewAttached()){
+                        return;
+                    }
+                    if (getRelay != null && !getRelay.equals(0)){
+                        if (getRelay.getisPumpOn().equals("ON")){
+                            getMvpView().setRelayState(PumpState.PUMP_ON);
+                        }else{
+                            getMvpView().setRelayState(PumpState.PUMP_OFF);
+                        }
+                        getMvpView().getRelays(getRelay);
+                    }
+                    getMvpView().hideLoading();
+                    Log.d("Debug",getRelay.toString());
+                }, throwable ->  {
+                    if (!isViewAttached()) {
+                        return;
+                    }
+
+                    getMvpView().hideLoading();
+
+                    // handle the error here
+                    if (throwable instanceof ANError) {
+                        ANError anError = (ANError) throwable;
+                        baseHandleError(anError);
+                    }
+                }));
+    }
+
+    @Override
+    public void getRefreshRelay() {
+        String deviceId = getDeviceId();
+        getCompositeDisposable().add(getDataManager()
+                .getRelay(deviceId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(getRelay ->  {
+                    if (!isViewAttached()){
+                        return;
+                    }
+                    if (getRelay != null && !getRelay.equals(0)){
+                        getMvpView().getRelays(getRelay);
+                    }
+                    Log.d("Debug",getRelay.toString());
+                }, throwable ->  {
+                    if (!isViewAttached()) {
+                        return;
+                    }
+
+                    // handle the error here
+                    if (throwable instanceof ANError) {
+                        ANError anError = (ANError) throwable;
+                        baseHandleError(anError);
+                    }
+                }));
+    }
+
+    @Override
+    public String getDeviceId() {
+        return AppConstants.DEVICEID;
     }
 
     @Override
