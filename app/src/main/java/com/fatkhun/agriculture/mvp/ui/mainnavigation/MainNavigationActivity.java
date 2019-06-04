@@ -35,6 +35,7 @@ import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
 import com.fatkhun.agriculture.mvp.ui.main.MainActivity;
 import com.fatkhun.agriculture.mvp.ui.main.MainMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.main.MainMvpView;
+import com.fatkhun.agriculture.mvp.ui.reminder.RemindActivity;
 import com.fatkhun.agriculture.mvp.ui.remindpreference.RemindPreferenceActivity;
 import com.fatkhun.agriculture.mvp.utils.BottomNavigationBehavior;
 import com.fatkhun.agriculture.mvp.utils.BottomNavigationViewHelper;
@@ -155,8 +156,14 @@ public class MainNavigationActivity extends BaseActivity implements MainNavigati
             case R.id.nav_item_setting:
                 mPresenter.onSettingClick();
                 return true;
+            case R.id.nav_item_auto_pump:
+                mPresenter.updateRelay(PumpState.PUMP_OFF.getText(), PumpState.AUTO_OFF.getText());
+                return true;
             case R.id.nav_item_logout:
                 mPresenter.onLogoutClick();
+                return true;
+            case R.id.nav_item_reminder:
+                openReminder();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -169,6 +176,11 @@ public class MainNavigationActivity extends BaseActivity implements MainNavigati
         transaction.replace(R.id.frame_container, fragment);
         transaction.disallowAddToBackStack();
         transaction.commit();
+    }
+
+    private void openReminder(){
+        startActivity(RemindActivity.getStartIntent(this));
+        finish();
     }
 
     @Override
@@ -191,6 +203,11 @@ public class MainNavigationActivity extends BaseActivity implements MainNavigati
     public void setRelayState(PumpState pumpState) {
         this.mPumpState = pumpState;
         setRelayStatus(pumpState);
+    }
+
+    @Override
+    public void setupUpdateRelay(RelayResponse relayResponse) {
+
     }
 
     private void setRelayStatus(PumpState pumpState) {

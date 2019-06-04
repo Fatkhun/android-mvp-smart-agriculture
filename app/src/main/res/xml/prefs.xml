@@ -32,10 +32,6 @@
             android:key="checkBoxNagging"
             android:title="@string/nagging_reminder"
             android:summary="@string/nagging_detail"/>
-        <SwitchPreference
-            android:key="switchPumpAuto"
-            android:title="Water Pump"
-            android:summary="Set water pump to automatically"/>
         <com.fatkhun.agriculture.mvp.data.dialogs.PreferenceNagTimePicker
             android:key="nagInterval"
             android:title="@string/nagging_interval"/>

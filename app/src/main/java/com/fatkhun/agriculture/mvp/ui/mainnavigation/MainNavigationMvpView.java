@@ -13,4 +13,6 @@ public interface MainNavigationMvpView extends MvpView {
     void getRelays(RelayResponse relayResponse);
 
     void setRelayState(PumpState pumpState);
+
+    void setupUpdateRelay(RelayResponse relayResponse);
 }

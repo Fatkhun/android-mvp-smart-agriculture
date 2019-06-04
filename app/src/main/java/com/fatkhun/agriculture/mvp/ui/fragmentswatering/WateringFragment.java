@@ -95,6 +95,16 @@ public class WateringFragment extends BaseFragment implements WateringFragmentMv
     }
 
     @Override
+    public void setupUpdateRelayPump(RelayResponse relayResponse) {
+
+    }
+
+    @Override
+    public void setupUpdateRelayAutoPump(RelayResponse relayResponse) {
+
+    }
+
+    @Override
     public void getRelays(RelayResponse relayResponse) {
 
     }

@@ -23,7 +23,7 @@ public class DataResponse {
 	@SerializedName("_id")
 	private String id;
 
-	@SerializedName("time")
+	@SerializedName("createdAt")
 	private String time;
 
 	public void setTemp(float temp){

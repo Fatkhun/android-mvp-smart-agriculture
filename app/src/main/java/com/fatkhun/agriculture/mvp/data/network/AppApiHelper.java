@@ -97,7 +97,7 @@ public class AppApiHelper implements ApiHelper {
     @Override
     public Single<LogoutResponse> doLogoutApiCall(String userId) {
         return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_LOGOUT_USER + userId)
-                .addHeaders(getHeader())
+                .addHeaders(mApiHeader.getProtectedApiHeader())
                 .build()
                 .getObjectSingle(LogoutResponse.class);
     }
@@ -107,6 +107,24 @@ public class AppApiHelper implements ApiHelper {
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_RELAY_ON_OFF + deviceId)
                 .addHeaders(mApiHeader.getProtectedApiHeader())
                 .addBodyParameter("pumpOn", pumpOn)
+                .addBodyParameter("autoPumpOn", autoPumpOn)
+                .build()
+                .getObjectSingle(RelayResponse.class);
+    }
+
+    @Override
+    public Single<RelayResponse> updateRelayPump(String deviceId, String pumpOn) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_RELAY_PUMP + deviceId)
+                .addHeaders(mApiHeader.getProtectedApiHeader())
+                .addBodyParameter("pumpOn", pumpOn)
+                .build()
+                .getObjectSingle(RelayResponse.class);
+    }
+
+    @Override
+    public Single<RelayResponse> updateRelayAutoPump(String deviceId, String autoPumpOn) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_RELAY_AUTOPUMP + deviceId)
+                .addHeaders(mApiHeader.getProtectedApiHeader())
                 .addBodyParameter("autoPumpOn", autoPumpOn)
                 .build()
                 .getObjectSingle(RelayResponse.class);

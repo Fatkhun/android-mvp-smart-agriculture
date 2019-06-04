@@ -44,7 +44,7 @@ public class MainNavigationPresenter<V extends MainNavigationMvpView> extends Ba
                     if (!isViewAttached()) {
                         return;
                     }
-                    if (logoutResponse.getStatus() == false){
+                    if (!logoutResponse.getStatus()){
                         getMvpView().showMessage(logoutResponse.getMessage());
                     }else {
                         getDataManager().setUserAsLoggedOut();
@@ -123,6 +123,39 @@ public class MainNavigationPresenter<V extends MainNavigationMvpView> extends Ba
                     if (!isViewAttached()) {
                         return;
                     }
+
+                    // handle the error here
+                    if (throwable instanceof ANError) {
+                        ANError anError = (ANError) throwable;
+                        baseHandleError(anError);
+                    }
+                }));
+    }
+
+    @Override
+    public void updateRelay(String pumpOn, String autoPumpOn) {
+        getMvpView().showLoading();
+        String deviceId = getDeviceId();
+        getCompositeDisposable().add(getDataManager()
+                .updateRelay(deviceId, pumpOn, autoPumpOn)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(updateRelay ->  {
+                    if (!isViewAttached()){
+                        return;
+                    }
+                    if (updateRelay != null && !updateRelay.equals(0)){
+                        getMvpView().setupUpdateRelay(updateRelay);
+                    }
+                    getMvpView().hideLoading();
+                    getMvpView().showMessage("Auto Pump Off");
+                    Log.d("Debug",updateRelay.toString());
+                }, throwable ->  {
+                    if (!isViewAttached()) {
+                        return;
+                    }
+
+                    getMvpView().hideLoading();
 
                     // handle the error here
                     if (throwable instanceof ANError) {

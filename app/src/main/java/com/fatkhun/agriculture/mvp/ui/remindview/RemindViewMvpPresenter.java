@@ -5,4 +5,5 @@ import com.fatkhun.agriculture.mvp.ui.base.MvpPresenter;
 
 @PerActivity
 public interface RemindViewMvpPresenter<V extends RemindViewMvpView> extends MvpPresenter<V> {
+
 }

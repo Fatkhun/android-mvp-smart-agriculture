@@ -26,7 +26,7 @@ public final class AppConstants {
 
     public static final int API_STATUS_CODE_LOCAL_ERROR = 0;
 
-    public static final String BASE_URL_API = "http://192.168.43.36:8080/";
+    public static final String BASE_URL_API = "http://168.63.232.214:8080/";
 
     public static final String DB_NAME = "agriculture_mvp.db";
     public static final String PREF_NAME = "agriculture_pref";
@@ -38,8 +38,8 @@ public final class AppConstants {
 
     public static final String TIMESTAMP_FORMAT = "yyyyMMdd_HHmmss";
 
-    public static final String CHANNEL_ID = "my_channel_01";
-    public static final String CHANNEL_NAME = "Agriculture Notification";
+    public static final String CHANNEL_ID = "channel_1";
+    public static final String CHANNEL_NAME = "Channel Name";
     public static final String CHANNEL_DESCRIPTION = "www.smart.id";
 
     public static final String DEVICEID = "5c7ebb4267722562b4cc4395";

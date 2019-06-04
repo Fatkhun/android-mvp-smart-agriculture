@@ -19,5 +19,7 @@ public interface MainNavigationMvpPresenter<V extends MainNavigationMvpView> ext
 
     String updateUserName();
 
+    void updateRelay(String pumpOn, String autoPumpOn);
+
     String getUserId();
 }

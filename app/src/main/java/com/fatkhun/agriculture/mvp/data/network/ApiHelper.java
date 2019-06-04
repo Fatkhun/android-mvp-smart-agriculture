@@ -47,6 +47,10 @@ public interface ApiHelper {
 
     Single<RelayResponse> updateRelay(String deviceId, String pumpOn, String autoPumpOn);
 
+    Single<RelayResponse> updateRelayPump(String deviceId, String pumpOn);
+
+    Single<RelayResponse> updateRelayAutoPump(String deviceId, String autoPumpOn);
+
     Single<RelayResponse> getRelay(String deviceId);
 
     Single<BlogResponse> getBlogApiCall();

@@ -58,6 +58,72 @@ public class WateringFragmentPresenter<V extends WateringFragmentMvpView> extend
     }
 
     @Override
+    public void updateRelayPump(String pumpOn) {
+        getMvpView().showLoading();
+        String deviceId = getDeviceId();
+        getCompositeDisposable().add(getDataManager()
+                .updateRelayPump(deviceId, pumpOn)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(updateRelay ->  {
+                    if (!isViewAttached()){
+                        return;
+                    }
+                    if (updateRelay != null && !updateRelay.equals(0)){
+                        getMvpView().validateRelayState(deviceId);
+                        getMvpView().setupUpdateRelayPump(updateRelay);
+                    }
+                    getMvpView().hideLoading();
+                    Log.d("Debug",updateRelay.toString());
+                }, throwable ->  {
+                    if (!isViewAttached()) {
+                        return;
+                    }
+
+                    getMvpView().hideLoading();
+
+                    // handle the error here
+                    if (throwable instanceof ANError) {
+                        ANError anError = (ANError) throwable;
+                        baseHandleError(anError);
+                    }
+                }));
+    }
+
+    @Override
+    public void updateRelayAutoPump(String autoPumpOn) {
+        getMvpView().showLoading();
+        String deviceId = getDeviceId();
+        getCompositeDisposable().add(getDataManager()
+                .updateRelayAutoPump(deviceId, autoPumpOn)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(updateRelay ->  {
+                    if (!isViewAttached()){
+                        return;
+                    }
+                    if (updateRelay != null && !updateRelay.equals(0)){
+                        getMvpView().validateRelayState(deviceId);
+                        getMvpView().setupUpdateRelayAutoPump(updateRelay);
+                    }
+                    getMvpView().hideLoading();
+                    Log.d("Debug",updateRelay.toString());
+                }, throwable ->  {
+                    if (!isViewAttached()) {
+                        return;
+                    }
+
+                    getMvpView().hideLoading();
+
+                    // handle the error here
+                    if (throwable instanceof ANError) {
+                        ANError anError = (ANError) throwable;
+                        baseHandleError(anError);
+                    }
+                }));
+    }
+
+    @Override
     public void getRelay() {
         getMvpView().showLoading();
         String deviceId = getDeviceId();

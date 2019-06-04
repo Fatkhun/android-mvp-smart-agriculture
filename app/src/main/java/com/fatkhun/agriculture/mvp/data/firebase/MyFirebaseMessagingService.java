@@ -13,7 +13,9 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.fatkhun.agriculture.mvp.R;
+import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragment;
 import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationActivity;
+import com.fatkhun.agriculture.mvp.utils.AppConstants;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -33,12 +35,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         String title=remoteMessage.getNotification().getTitle();
         String body=remoteMessage.getNotification().getBody();
 
-        Intent intent=new Intent(this, MainNavigationActivity.class);
+        Intent intent=new Intent(this, DataFragment.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 , intent,
                 PendingIntent.FLAG_ONE_SHOT);
-        Bitmap notifyImage = BitmapFactory.decodeResource(getResources(), R.drawable.ic_notifications_black_empty);
+        Bitmap notifyImage = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
+
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, AppConstants.CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_notifications_black_empty)
                 .setLargeIcon(notifyImage)
                 .setColor(Color.parseColor("#FFE74C3C"))
@@ -49,6 +52,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setContentIntent(pendingIntent);
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(0, notificationBuilder.build());
+        if (notificationManager != null){
+            notificationManager.notify(0, notificationBuilder.build());
+        }
     }
 }

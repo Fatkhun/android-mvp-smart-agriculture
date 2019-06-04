@@ -7,6 +7,10 @@ public interface WateringFragmentMvpPresenter<V extends WateringFragmentMvpView>
         extends MvpPresenter<V> {
     void updateRelay(String pumpOn, String autoPumpOn);
 
+    void updateRelayPump(String pumpOn);
+
+    void updateRelayAutoPump(String autoPumpOn);
+
     void getRelay();
 
     String getDeviceId();

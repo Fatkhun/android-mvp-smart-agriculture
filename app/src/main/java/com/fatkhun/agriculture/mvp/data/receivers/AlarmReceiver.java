@@ -20,7 +20,8 @@ public class AlarmReceiver extends BroadcastReceiver {
         reminder.setNumberShown(reminder.getNumberShown() + 1);
         database.addNotification(reminder);
 
-        NotificationUtil.createNotification(context, reminder);
+        NotificationUtil notif = new NotificationUtil();
+        notif.createNotification(context, reminder);
 
         // Check if new alarm needs to be set
         if (reminder.getNumberToShow() > reminder.getNumberShown() || Boolean.parseBoolean(reminder.getForeverState())) {

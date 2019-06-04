@@ -61,6 +61,12 @@ public final class ApiEndPoint {
     public static final String ENDPOINT_RELAY_ON_OFF = AppConstants.BASE_URL_API
             + "relay/update/";
 
+    public static final String ENDPOINT_RELAY_PUMP = AppConstants.BASE_URL_API
+            + "relay/pump/";
+
+    public static final String ENDPOINT_RELAY_AUTOPUMP = AppConstants.BASE_URL_API
+            + "relay/autopump/";
+
     public static final String ENDPOINT_RELAY_CONFIG = AppConstants.BASE_URL_API
             + "relay/config/";
 

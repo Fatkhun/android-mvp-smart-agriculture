@@ -16,16 +16,22 @@ import android.support.v4.app.NotificationCompat;
 
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.database.model.Reminder;
+import com.fatkhun.agriculture.mvp.data.network.model.RelayResponse;
 import com.fatkhun.agriculture.mvp.data.receivers.DismissReceiver;
 import com.fatkhun.agriculture.mvp.data.receivers.NagReceiver;
 import com.fatkhun.agriculture.mvp.data.receivers.SnoozeActionReceiver;
+import com.fatkhun.agriculture.mvp.ui.fragmentswatering.PumpState;
+import com.fatkhun.agriculture.mvp.ui.fragmentswatering.WateringFragmentMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.fragmentswatering.WateringFragmentMvpView;
 import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlActivity;
 
 import java.util.Calendar;
 
-public class NotificationUtil {
+import javax.inject.Inject;
 
-    public static void createNotification(Context context, Reminder reminder) {
+public class NotificationUtil{
+
+    public void createNotification(Context context, Reminder reminder) {
         String channelId = "channel_1";
         String channelName = "Channel Name";
         int importance = NotificationManager.IMPORTANCE_HIGH;

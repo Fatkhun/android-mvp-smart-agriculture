@@ -106,6 +106,16 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
+    public Single<RelayResponse> updateRelayPump(String deviceId, String pumpOn) {
+        return mApiHelper.updateRelayPump(deviceId, pumpOn);
+    }
+
+    @Override
+    public Single<RelayResponse> updateRelayAutoPump(String deviceId, String autoPumpOn) {
+        return mApiHelper.updateRelayAutoPump(deviceId, autoPumpOn);
+    }
+
+    @Override
     public Single<RelayResponse> getRelay(String deviceId) {
         return mApiHelper.getRelay(deviceId);
     }

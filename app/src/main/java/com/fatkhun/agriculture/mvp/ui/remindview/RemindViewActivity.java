@@ -30,13 +30,16 @@ import android.widget.TextView;
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.database.DatabaseHelper;
 import com.fatkhun.agriculture.mvp.data.database.model.Reminder;
+import com.fatkhun.agriculture.mvp.data.network.model.RelayResponse;
 import com.fatkhun.agriculture.mvp.data.receivers.AlarmReceiver;
 import com.fatkhun.agriculture.mvp.data.receivers.DismissReceiver;
 import com.fatkhun.agriculture.mvp.data.receivers.SnoozeReceiver;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
+import com.fatkhun.agriculture.mvp.ui.fragmentswatering.PumpState;
 import com.fatkhun.agriculture.mvp.ui.main.MainActivity;
 import com.fatkhun.agriculture.mvp.ui.remindercrud.RemindCreateEditActivity;
 import com.fatkhun.agriculture.mvp.utils.AlarmUtil;
+import com.fatkhun.agriculture.mvp.utils.AppConstants;
 import com.fatkhun.agriculture.mvp.utils.DateAndTimeUtil;
 import com.fatkhun.agriculture.mvp.utils.NotificationUtil;
 import com.fatkhun.agriculture.mvp.utils.TextFormatUtil;
@@ -217,7 +220,8 @@ public class RemindViewActivity extends BaseActivity implements RemindViewMvpVie
     }
 
     public void actionShowNow() {
-        NotificationUtil.createNotification(this, reminder);
+        NotificationUtil notif = new NotificationUtil();
+                notif.createNotification(this, reminder);
     }
 
     public void actionDelete() {
