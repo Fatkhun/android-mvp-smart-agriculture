@@ -103,6 +103,7 @@ public class HistoryFragmentAdapter extends RecyclerView.Adapter<BaseViewHolder>
 
     public interface Callback {
         void onBlogEmptyViewRetryClick();
+        void onItemLocationListClick(int position);
     }
 
     public class ViewHolder extends BaseViewHolder {
@@ -142,7 +143,9 @@ public class HistoryFragmentAdapter extends RecyclerView.Adapter<BaseViewHolder>
             time.setText(String.valueOf(dateConverter(item.getTime())));
 
             itemView.setOnClickListener(v->{
-
+                if (mCallback != null){
+                    mCallback.onItemLocationListClick(position);
+                }
             });
 
         }

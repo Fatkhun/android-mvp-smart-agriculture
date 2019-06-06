@@ -104,4 +104,9 @@ public class HistoryFragment extends BaseFragment implements HistoryFragmentMvpV
     public void onBlogEmptyViewRetryClick() {
         mPresenter.getDataAll(initlimit);
     }
+
+    @Override
+    public void onItemLocationListClick(int position) {
+
+    }
 }
