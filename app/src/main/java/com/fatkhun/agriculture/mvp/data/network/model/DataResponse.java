@@ -23,6 +23,15 @@ public class DataResponse {
 	@SerializedName("_id")
 	private String id;
 
+	@SerializedName("ruleFuzzyTemp")
+	private String ruleTemp;
+
+	@SerializedName("ruleFuzzyHum")
+	private String ruleHum;
+
+	@SerializedName("ruleFuzzyWater")
+	private String ruleWater;
+
 	@SerializedName("createdAt")
 	private String time;
 
@@ -74,6 +83,30 @@ public class DataResponse {
 		return id;
 	}
 
+	public String getRuleTemp() {
+		return ruleTemp;
+	}
+
+	public void setRuleTemp(String ruleTemp) {
+		this.ruleTemp = ruleTemp;
+	}
+
+	public String getRuleHum() {
+		return ruleHum;
+	}
+
+	public void setRuleHum(String ruleHum) {
+		this.ruleHum = ruleHum;
+	}
+
+	public String getRuleWater() {
+		return ruleWater;
+	}
+
+	public void setRuleWater(String ruleWater) {
+		this.ruleWater = ruleWater;
+	}
+
 	public void setTime(String time){
 		this.time = time;
 	}
@@ -83,16 +116,18 @@ public class DataResponse {
 	}
 
 	@Override
- 	public String toString(){
-		return 
-			"DataResponse{" +
-			"temp = '" + temp + '\'' + 
-			",waterVolume = '" + waterVolume + '\'' + 
-			",soilMoisture = '" + soilMoisture + '\'' + 
-			",__v = '" + V + '\'' + 
-			",humidity = '" + humidity + '\'' + 
-			",_id = '" + id + '\'' + 
-			",time = '" + time + '\'' + 
-			"}";
-		}
+	public String toString() {
+		return "DataResponse{" +
+				"temp=" + temp +
+				", waterVolume=" + waterVolume +
+				", soilMoisture=" + soilMoisture +
+				", V=" + V +
+				", humidity=" + humidity +
+				", id='" + id + '\'' +
+				", ruleTemp='" + ruleTemp + '\'' +
+				", ruleHum='" + ruleHum + '\'' +
+				", ruleWater='" + ruleWater + '\'' +
+				", time='" + time + '\'' +
+				'}';
+	}
 }

@@ -28,6 +28,9 @@ import com.fatkhun.agriculture.mvp.di.PerActivity;
 import com.fatkhun.agriculture.mvp.ui.about.AboutMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.about.AboutMvpView;
 import com.fatkhun.agriculture.mvp.ui.about.AboutPresenter;
+import com.fatkhun.agriculture.mvp.ui.detailhistory.DetailHistoryMvpPresenter;
+import com.fatkhun.agriculture.mvp.ui.detailhistory.DetailHistoryMvpView;
+import com.fatkhun.agriculture.mvp.ui.detailhistory.DetailHistoryPresenter;
 import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragmentMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragmentMvpView;
 import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragmentPresenter;
@@ -194,6 +197,12 @@ public class ActivityModule {
     @Provides
     @PerActivity
     MainNavigationMvpPresenter<MainNavigationMvpView> provideMainNavigationPresenter(MainNavigationPresenter<MainNavigationMvpView> presenter){
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    DetailHistoryMvpPresenter<DetailHistoryMvpView> provideDetailHistoryPresenter(DetailHistoryPresenter<DetailHistoryMvpView> presenter){
         return presenter;
     }
 
