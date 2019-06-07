@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.ui.base.BaseViewHolder;
+import com.fatkhun.agriculture.mvp.utils.CommonUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -140,7 +141,7 @@ public class HistoryFragmentAdapter extends RecyclerView.Adapter<BaseViewHolder>
             soilMoisture.setText(String.valueOf(item.getSoilMoisture()));
             temperature.setText(String.valueOf(item.getTemp()));
             water.setText(String.valueOf(item.getWaterVolume() + " ml"));
-            time.setText(String.valueOf(dateConverter(item.getTime())));
+            time.setText(String.valueOf(CommonUtils.getDateConverter(item.getTime())));
 
             itemView.setOnClickListener(v->{
                 if (mCallback != null){
@@ -171,21 +172,5 @@ public class HistoryFragmentAdapter extends RecyclerView.Adapter<BaseViewHolder>
 
         }
 
-    }
-
-    private String dateConverter(String dateInput){
-        try {
-            SimpleDateFormat spf=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-            spf.setTimeZone(TimeZone.getTimeZone("UTC"));
-            Date newDate = null;
-            newDate = spf.parse(dateInput);
-            spf= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            String returnDate = spf.format(newDate);
-            return returnDate;
-
-        }catch (ParseException e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 }

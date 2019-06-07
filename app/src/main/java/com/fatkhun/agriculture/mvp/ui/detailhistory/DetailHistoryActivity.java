@@ -11,6 +11,7 @@ import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
 import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationActivity;
+import com.fatkhun.agriculture.mvp.utils.CommonUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -105,23 +106,7 @@ public class DetailHistoryActivity extends BaseActivity implements DetailHistory
         tvDetailRuleTemp.setText(dataResponse.getRuleTemp());
         tvDetailRuleSoil.setText(dataResponse.getRuleHum());
         tvDetailRuleHumidity.setText(dataResponse.getRuleHum());
-        tvDetailTime.setText(dateConverter(dataResponse.getTime()));
-    }
-
-    private String dateConverter(String dateInput){
-        try {
-            SimpleDateFormat spf=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-            spf.setTimeZone(TimeZone.getTimeZone("UTC"));
-            Date newDate = null;
-            newDate = spf.parse(dateInput);
-            spf= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            String returnDate = spf.format(newDate);
-            return returnDate;
-
-        }catch (ParseException e) {
-            e.printStackTrace();
-            return null;
-        }
+        tvDetailTime.setText(CommonUtils.getDateConverter(dataResponse.getTime()));
     }
 
     @Override

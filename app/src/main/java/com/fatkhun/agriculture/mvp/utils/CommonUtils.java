@@ -28,9 +28,11 @@ import com.fatkhun.agriculture.mvp.R;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -91,5 +93,21 @@ public final class CommonUtils {
 
     public static String getTimeStamp() {
         return new SimpleDateFormat(AppConstants.TIMESTAMP_FORMAT, Locale.US).format(new Date());
+    }
+
+    public static String getDateConverter(String dateInput) {
+        try {
+            SimpleDateFormat spf=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+            spf.setTimeZone(TimeZone.getTimeZone("UTC"));
+            Date newDate = null;
+            newDate = spf.parse(dateInput);
+            spf= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            String returnDate = spf.format(newDate);
+            return returnDate;
+
+        }catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
