@@ -8,8 +8,6 @@ public interface MainNavigationMvpView extends MvpView {
 
     void openLoginActivity();
 
-    void openSettingActivity();
-
     void getRelays(RelayResponse relayResponse);
 
     void setRelayState(PumpState pumpState);

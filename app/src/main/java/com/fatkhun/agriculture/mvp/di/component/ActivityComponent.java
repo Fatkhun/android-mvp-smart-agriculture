@@ -19,21 +19,12 @@ import com.fatkhun.agriculture.mvp.di.PerActivity;
 import com.fatkhun.agriculture.mvp.di.module.ActivityModule;
 import com.fatkhun.agriculture.mvp.ui.about.AboutFragment;
 import com.fatkhun.agriculture.mvp.ui.detailhistory.DetailHistoryActivity;
-import com.fatkhun.agriculture.mvp.ui.feed.FeedActivity;
-import com.fatkhun.agriculture.mvp.ui.feed.blogs.BlogFragment;
-import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceFragment;
 import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragment;
 import com.fatkhun.agriculture.mvp.ui.fragmentshistory.HistoryFragment;
 import com.fatkhun.agriculture.mvp.ui.fragmentswatering.WateringFragment;
 import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
-import com.fatkhun.agriculture.mvp.ui.main.MainActivity;
-import com.fatkhun.agriculture.mvp.ui.main.rating.RateUsDialog;
 import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationActivity;
 import com.fatkhun.agriculture.mvp.ui.register.RegisterActivity;
-import com.fatkhun.agriculture.mvp.ui.reminder.RemindActivity;
-import com.fatkhun.agriculture.mvp.ui.remindercrud.RemindCreateEditActivity;
-import com.fatkhun.agriculture.mvp.ui.remindpreference.RemindPreferenceActivity;
-import com.fatkhun.agriculture.mvp.ui.remindview.RemindViewActivity;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashActivity;
 
 import dagger.Component;
@@ -46,31 +37,13 @@ import dagger.Component;
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
 
-    void inject(MainActivity activity);
-
     void inject(LoginActivity activity);
 
     void inject(SplashActivity activity);
 
-    void inject(FeedActivity activity);
-
     void inject(AboutFragment fragment);
 
-    void inject(OpenSourceFragment fragment);
-
-    void inject(BlogFragment fragment);
-
-    void inject(RateUsDialog dialog);
-
     void inject(RegisterActivity activity);
-
-    void inject(RemindActivity activity);
-
-    void inject(RemindCreateEditActivity activity);
-
-    void inject(RemindViewActivity activity);
-
-    void inject(RemindPreferenceActivity activity);
 
     void inject(MainNavigationActivity activity);
 

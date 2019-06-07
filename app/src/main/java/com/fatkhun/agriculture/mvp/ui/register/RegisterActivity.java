@@ -12,7 +12,6 @@ import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
 import com.fatkhun.agriculture.mvp.ui.base.MvpView;
 import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
-import com.fatkhun.agriculture.mvp.ui.main.MainActivity;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashActivity;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashMvpView;

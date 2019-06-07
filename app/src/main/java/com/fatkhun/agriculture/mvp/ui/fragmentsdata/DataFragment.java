@@ -18,9 +18,6 @@ import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.network.model.AverageDataResponse;
 import com.fatkhun.agriculture.mvp.di.component.ActivityComponent;
 import com.fatkhun.agriculture.mvp.ui.base.BaseFragment;
-import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceFragment;
-import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceMvpView;
 
 import org.eazegraph.lib.charts.ValueLineChart;
 import org.eazegraph.lib.models.ValueLinePoint;

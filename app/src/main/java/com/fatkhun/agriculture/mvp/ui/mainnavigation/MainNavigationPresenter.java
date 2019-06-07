@@ -7,8 +7,6 @@ import com.fatkhun.agriculture.mvp.data.DataManager;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.ui.base.BasePresenter;
 import com.fatkhun.agriculture.mvp.ui.fragmentswatering.PumpState;
-import com.fatkhun.agriculture.mvp.ui.main.MainMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.main.MainMvpView;
 import com.fatkhun.agriculture.mvp.utils.AppConstants;
 import com.fatkhun.agriculture.mvp.utils.rx.SchedulerProvider;
 
@@ -25,11 +23,6 @@ public class MainNavigationPresenter<V extends MainNavigationMvpView> extends Ba
     @Inject
     public MainNavigationPresenter(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
         super(dataManager, schedulerProvider, compositeDisposable);
-    }
-
-    @Override
-    public void onSettingClick() {
-        getMvpView().openSettingActivity();
     }
 
     @Override

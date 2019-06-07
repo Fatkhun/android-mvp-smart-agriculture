@@ -16,9 +16,4 @@
         android:checked="true"
         android:icon="@drawable/ic_accessibility_white_24dp"
         android:title="@string/watering" />
-    <!--<item-->
-        <!--android:id="@+id/nav_item_reminder"-->
-        <!--android:checked="true"-->
-        <!--android:icon="@drawable/ic_notifications_black_empty"-->
-        <!--android:title="@string/reminder" />-->
 </menu>

@@ -23,7 +23,6 @@ import android.os.Bundle;
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
 import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
-import com.fatkhun.agriculture.mvp.ui.main.MainActivity;
 import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationActivity;
 
 import javax.inject.Inject;

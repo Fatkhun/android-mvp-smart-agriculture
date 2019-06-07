@@ -32,11 +32,6 @@ import com.fatkhun.agriculture.mvp.ui.fragmentshistory.HistoryFragment;
 import com.fatkhun.agriculture.mvp.ui.fragmentswatering.PumpState;
 import com.fatkhun.agriculture.mvp.ui.fragmentswatering.WateringFragment;
 import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
-import com.fatkhun.agriculture.mvp.ui.main.MainActivity;
-import com.fatkhun.agriculture.mvp.ui.main.MainMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.main.MainMvpView;
-import com.fatkhun.agriculture.mvp.ui.reminder.RemindActivity;
-import com.fatkhun.agriculture.mvp.ui.remindpreference.RemindPreferenceActivity;
 import com.fatkhun.agriculture.mvp.utils.BottomNavigationBehavior;
 import com.fatkhun.agriculture.mvp.utils.BottomNavigationViewHelper;
 import com.gigamole.library.PulseView;
@@ -153,17 +148,11 @@ public class MainNavigationActivity extends BaseActivity implements MainNavigati
             ((Animatable) drawable).start();
         }
         switch (item.getItemId()) {
-            case R.id.nav_item_setting:
-                mPresenter.onSettingClick();
-                return true;
             case R.id.nav_item_auto_pump:
                 mPresenter.updateRelay(PumpState.PUMP_OFF.getText(), PumpState.AUTO_OFF.getText());
                 return true;
             case R.id.nav_item_logout:
                 mPresenter.onLogoutClick();
-                return true;
-            case R.id.nav_item_reminder:
-                openReminder();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -178,20 +167,10 @@ public class MainNavigationActivity extends BaseActivity implements MainNavigati
         transaction.commit();
     }
 
-    private void openReminder(){
-        startActivity(RemindActivity.getStartIntent(this));
-        finish();
-    }
-
     @Override
     public void openLoginActivity() {
         startActivity(LoginActivity.getStartIntent(this));
         finish();
-    }
-
-    @Override
-    public void openSettingActivity() {
-        startActivity(RemindPreferenceActivity.getStartIntent(this));
     }
 
     @Override

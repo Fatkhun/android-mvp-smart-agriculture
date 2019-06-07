@@ -34,56 +34,15 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.main.MainActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.feed.FeedActivity"
-            android:launchMode="singleTop"
-            android:parentActivityName=".ui.main.MainActivity"
-            android:screenOrientation="portrait">
-
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.main.MainActivity" />
-        </activity>
+                android:value=".ui.mainnavigation.MainNavigationActivity" />
         <activity
             android:name=".ui.register.RegisterActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.watercontrol.WaterControlActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.custom.SnoozeDialog"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeTransparent" />
-        <activity
-            android:name=".ui.remindpreference.RemindPreferenceActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.remindview.RemindViewActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeLight" />
-        <activity
-            android:name=".ui.remindercrud.RemindCreateEditActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeLight" />
-        <activity
-            android:name=".ui.reminder.RemindActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
-
         <service
             android:name=".data.firebase.MyFirebaseInstanceIdService"
             android:exported="false">
@@ -99,20 +58,6 @@
             </intent-filter>
         </service>
         <service android:name=".service.SyncService" />
-
-        <receiver android:name=".data.receivers.AlarmReceiver" />
-        <receiver android:name=".data.receivers.SnoozeActionReceiver" />
-        <receiver android:name=".data.receivers.SnoozeReceiver" />
-        <receiver android:name=".data.receivers.DismissReceiver" />
-        <receiver android:name=".data.receivers.NagReceiver" />
-        <receiver
-            android:name=".data.receivers.BootReceiver"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>

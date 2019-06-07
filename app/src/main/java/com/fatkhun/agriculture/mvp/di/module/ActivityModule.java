@@ -44,45 +44,12 @@ import com.fatkhun.agriculture.mvp.ui.fragmentswatering.WateringFragmentPresente
 import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationMvpView;
 import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationPresenter;
-import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlMvpView;
-import com.fatkhun.agriculture.mvp.ui.watercontrol.WaterControlPresenter;
-import com.fatkhun.agriculture.mvp.ui.feed.FeedMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.feed.FeedMvpView;
-import com.fatkhun.agriculture.mvp.ui.feed.FeedPagerAdapter;
-import com.fatkhun.agriculture.mvp.ui.feed.FeedPresenter;
-import com.fatkhun.agriculture.mvp.ui.feed.blogs.BlogAdapter;
-import com.fatkhun.agriculture.mvp.ui.feed.blogs.BlogMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.feed.blogs.BlogMvpView;
-import com.fatkhun.agriculture.mvp.ui.feed.blogs.BlogPresenter;
-import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceAdapter;
-import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourceMvpView;
-import com.fatkhun.agriculture.mvp.ui.feed.opensource.OpenSourcePresenter;
 import com.fatkhun.agriculture.mvp.ui.login.LoginMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.login.LoginMvpView;
 import com.fatkhun.agriculture.mvp.ui.login.LoginPresenter;
-import com.fatkhun.agriculture.mvp.ui.main.MainMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.main.MainMvpView;
-import com.fatkhun.agriculture.mvp.ui.main.MainPresenter;
-import com.fatkhun.agriculture.mvp.ui.main.rating.RatingDialogMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.main.rating.RatingDialogMvpView;
-import com.fatkhun.agriculture.mvp.ui.main.rating.RatingDialogPresenter;
 import com.fatkhun.agriculture.mvp.ui.register.RegisterMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.register.RegisterMvpView;
 import com.fatkhun.agriculture.mvp.ui.register.RegisterPresenter;
-import com.fatkhun.agriculture.mvp.ui.reminder.RemindMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.reminder.RemindMvpView;
-import com.fatkhun.agriculture.mvp.ui.reminder.RemindPresenter;
-import com.fatkhun.agriculture.mvp.ui.remindercrud.RemindCreateEditMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.remindercrud.RemindCreateEditMvpView;
-import com.fatkhun.agriculture.mvp.ui.remindercrud.RemindCreateEditPresenter;
-import com.fatkhun.agriculture.mvp.ui.remindpreference.RemindPreferenceMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.remindpreference.RemindPreferenceMvpView;
-import com.fatkhun.agriculture.mvp.ui.remindpreference.RemindPreferencePresenter;
-import com.fatkhun.agriculture.mvp.ui.remindview.RemindViewMvpPresenter;
-import com.fatkhun.agriculture.mvp.ui.remindview.RemindViewMvpView;
-import com.fatkhun.agriculture.mvp.ui.remindview.RemindViewPresenter;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashMvpView;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashPresenter;
@@ -139,36 +106,6 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-    WaterControlMvpPresenter<WaterControlMvpView> provideWaterControlPresenter(WaterControlPresenter<WaterControlMvpView> presenter){
-        return presenter;
-    }
-
-    @Provides
-    @PerActivity
-    RemindMvpPresenter<RemindMvpView> provideRemindPresenter(RemindPresenter<RemindMvpView> presenter){
-        return presenter;
-    }
-
-    @Provides
-    @PerActivity
-    RemindCreateEditMvpPresenter<RemindCreateEditMvpView> provideRemindCreateEditPresenter(RemindCreateEditPresenter<RemindCreateEditMvpView> presenter){
-        return presenter;
-    }
-
-    @Provides
-    @PerActivity
-    RemindPreferenceMvpPresenter<RemindPreferenceMvpView> provideRemindPreferencePresenter(RemindPreferencePresenter<RemindPreferenceMvpView> presenter){
-        return presenter;
-    }
-
-    @Provides
-    @PerActivity
-    RemindViewMvpPresenter<RemindViewMvpView> provideRemindViewPresenter(RemindViewPresenter<RemindViewMvpView> presenter){
-        return presenter;
-    }
-
-    @Provides
-    @PerActivity
     SplashMvpPresenter<SplashMvpView> provideSplashPresenter(
             SplashPresenter<SplashMvpView> presenter) {
         return presenter;
@@ -189,13 +126,6 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-    MainMvpPresenter<MainMvpView> provideMainPresenter(
-            MainPresenter<MainMvpView> presenter) {
-        return presenter;
-    }
-
-    @Provides
-    @PerActivity
     MainNavigationMvpPresenter<MainNavigationMvpView> provideMainNavigationPresenter(MainNavigationPresenter<MainNavigationMvpView> presenter){
         return presenter;
     }
@@ -203,30 +133,6 @@ public class ActivityModule {
     @Provides
     @PerActivity
     DetailHistoryMvpPresenter<DetailHistoryMvpView> provideDetailHistoryPresenter(DetailHistoryPresenter<DetailHistoryMvpView> presenter){
-        return presenter;
-    }
-
-    @Provides
-    RatingDialogMvpPresenter<RatingDialogMvpView> provideRateUsPresenter(
-            RatingDialogPresenter<RatingDialogMvpView> presenter) {
-        return presenter;
-    }
-
-    @Provides
-    FeedMvpPresenter<FeedMvpView> provideFeedPresenter(
-            FeedPresenter<FeedMvpView> presenter) {
-        return presenter;
-    }
-
-    @Provides
-    OpenSourceMvpPresenter<OpenSourceMvpView> provideOpenSourcePresenter(
-            OpenSourcePresenter<OpenSourceMvpView> presenter) {
-        return presenter;
-    }
-
-    @Provides
-    BlogMvpPresenter<BlogMvpView> provideBlogMvpPresenter(
-            BlogPresenter<BlogMvpView> presenter) {
         return presenter;
     }
 
@@ -248,21 +154,6 @@ public class ActivityModule {
     @Provides
     HistoryFragmentAdapter provideHistoryFragmentAdapter(){
         return new HistoryFragmentAdapter(new ArrayList<>(), context);
-    }
-
-    @Provides
-    FeedPagerAdapter provideFeedPagerAdapter(AppCompatActivity activity) {
-        return new FeedPagerAdapter(activity.getSupportFragmentManager());
-    }
-
-    @Provides
-    OpenSourceAdapter provideOpenSourceAdapter() {
-        return new OpenSourceAdapter(new ArrayList<OpenSourceResponse.Repo>());
-    }
-
-    @Provides
-    BlogAdapter provideBlogAdapter() {
-        return new BlogAdapter(new ArrayList<BlogResponse.Blog>());
     }
 
     @Provides

@@ -25,7 +25,6 @@ import android.widget.TextView;
 
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
-import com.fatkhun.agriculture.mvp.ui.main.MainActivity;
 import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationActivity;
 import com.fatkhun.agriculture.mvp.ui.register.RegisterActivity;
 
