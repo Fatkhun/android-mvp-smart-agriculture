@@ -1,6 +1,8 @@
 package com.fatkhun.agriculture.mvp.ui.fragmentshistory;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +15,7 @@ import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
 import com.fatkhun.agriculture.mvp.di.component.ActivityComponent;
 import com.fatkhun.agriculture.mvp.ui.base.BaseFragment;
+import com.fatkhun.agriculture.mvp.ui.detailhistory.DetailHistoryActivity;
 import com.fatkhun.agriculture.mvp.utils.EndlessRecyclerViewScrollListener;
 
 import java.util.ArrayList;
@@ -34,6 +37,8 @@ public class HistoryFragment extends BaseFragment implements HistoryFragmentMvpV
 
     @Inject
     LinearLayoutManager mLayoutManager;
+
+    List<DataResponse> dataResponseList;
 
     @BindView(R.id.rv_data_all)
     RecyclerView rvDataAll;
@@ -96,8 +101,10 @@ public class HistoryFragment extends BaseFragment implements HistoryFragmentMvpV
     }
 
     @Override
-    public void updateData(List<DataResponse> dataResponseList) {
-        mHistoryFragmentAdapter.addItems(dataResponseList);
+    public void updateData(List<DataResponse> dataResponseLists) {
+        dataResponseList = dataResponseLists;
+        mHistoryFragmentAdapter.addItems(dataResponseLists);
+        mHistoryFragmentAdapter.setCallback(this);
     }
 
     @Override
@@ -107,6 +114,8 @@ public class HistoryFragment extends BaseFragment implements HistoryFragmentMvpV
 
     @Override
     public void onItemLocationListClick(int position) {
-
+        Intent intent = DetailHistoryActivity.getStartIntent(getActivity());
+        intent.putExtra("detail", dataResponseList.get(position));
+        startActivity(intent);
     }
 }

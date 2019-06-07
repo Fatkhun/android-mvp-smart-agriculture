@@ -3,7 +3,9 @@ package com.fatkhun.agriculture.mvp.data.network.model;
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
-public class DataResponse {
+import java.io.Serializable;
+
+public class DataResponse implements Serializable {
 
 	@SerializedName("temp")
 	private float temp;
