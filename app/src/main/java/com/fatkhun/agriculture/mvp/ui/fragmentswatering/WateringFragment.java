@@ -1,8 +1,10 @@
 package com.fatkhun.agriculture.mvp.ui.fragmentswatering;
 
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,6 +33,7 @@ import at.markushi.ui.CircleButton;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.ghyeok.stickyswitch.widget.StickySwitch;
 
 
 public class WateringFragment extends BaseFragment implements WateringFragmentMvpView {
@@ -41,15 +44,17 @@ public class WateringFragment extends BaseFragment implements WateringFragmentMv
     @BindView(R.id.pv_watering)
     PulseView pvWatering;
 
-    @BindView(R.id.cb_start_watering)
-    CircleButton cbStartWater;
-
     @BindView(R.id.cb_finish_watering)
     CircleButton cbFinishWater;
+
+    @BindView(R.id.sticky_switch)
+    StickySwitch stickySwitch;
 
     Boolean isFinish =false;
 
     PumpState mPumpState;
+
+    Handler handler = new Handler();
 
     public static WateringFragment newInstance(String state_1, String state_2) {
         Bundle args = new Bundle();
@@ -79,6 +84,15 @@ public class WateringFragment extends BaseFragment implements WateringFragmentMv
 
     @Override
     protected void setUp(View view) {
+        setPump();
+        setOffRelay();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mPresenter.getRelay();
+                handler.postDelayed(this, 10000);
+            }
+        }, 10000);
         mPresenter.getRelay();
     }
 
@@ -87,7 +101,6 @@ public class WateringFragment extends BaseFragment implements WateringFragmentMv
         mPresenter.onDetach();
         super.onDestroyView();
     }
-
 
     @Override
     public void setupUpdateRelay(RelayResponse relayResponse) {
@@ -115,6 +128,38 @@ public class WateringFragment extends BaseFragment implements WateringFragmentMv
         setRelayStatus(pumpState);
     }
 
+    private void setPump(){
+        stickySwitch.setLeftIcon(R.drawable.ic_close_white_24dp);
+        stickySwitch.setRightIcon(R.drawable.ic_flash_on_white_24dp);
+        stickySwitch.setTypeFace(Typeface.DEFAULT_BOLD);
+        stickySwitch.setOnSelectedChangeListener(new StickySwitch.OnSelectedChangeListener() {
+            @Override
+            public void onSelectedChange(StickySwitch.Direction direction, String s) {
+                if (direction == StickySwitch.Direction.LEFT) {
+                    pvWatering.finishPulse();
+                    mPresenter.updateRelay(PumpState.PUMP_OFF.getText(), PumpState.AUTO_ON.getText());
+                    Toast.makeText(getActivity(), "Pump Off & Auto Pump On", Toast.LENGTH_SHORT).show();
+                } else {
+                    pvWatering.startPulse();
+                    mPresenter.updateRelay(PumpState.PUMP_ON.getText(), PumpState.AUTO_OFF.getText());
+                    Toast.makeText(getActivity(), "Pump On", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void setOffRelay(){
+        cbFinishWater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stickySwitch.setDirection(StickySwitch.Direction.LEFT);
+                pvWatering.finishPulse();
+                mPresenter.updateRelay(PumpState.PUMP_OFF.getText(), PumpState.AUTO_OFF.getText());
+                Toast.makeText(getActivity(), "Relay Off", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     @Override
     public void validateRelayState(String deviceId) {
         String id = mPresenter.getDeviceId();
@@ -134,22 +179,10 @@ public class WateringFragment extends BaseFragment implements WateringFragmentMv
     private void setRelayStatus(PumpState pumpState) {
         switch (pumpState){
             case PUMP_ON:
-                cbStartWater.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        pvWatering.startPulse();
-                        mPresenter.updateRelay(PumpState.PUMP_ON.getText(), PumpState.AUTO_OFF.getText());
-                    }
-                });
+                Toast.makeText(getActivity(),"Pump is Running ...", Toast.LENGTH_SHORT).show();
                 break;
             case PUMP_OFF:
-                cbFinishWater.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        pvWatering.finishPulse();
-                        mPresenter.updateRelay(PumpState.PUMP_OFF.getText(), PumpState.AUTO_ON.getText());
-                    }
-                });
+                Toast.makeText(getActivity(), "Pump Off", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

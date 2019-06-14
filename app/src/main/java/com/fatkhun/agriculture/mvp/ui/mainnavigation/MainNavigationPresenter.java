@@ -141,7 +141,7 @@ public class MainNavigationPresenter<V extends MainNavigationMvpView> extends Ba
                         getMvpView().setupUpdateRelay(updateRelay);
                     }
                     getMvpView().hideLoading();
-                    getMvpView().showMessage("Auto Pump Off");
+                    getMvpView().showMessage("Relay Off");
                     Log.d("Debug",updateRelay.toString());
                 }, throwable ->  {
                     if (!isViewAttached()) {

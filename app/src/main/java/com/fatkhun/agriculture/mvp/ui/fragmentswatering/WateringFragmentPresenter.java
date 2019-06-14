@@ -125,7 +125,6 @@ public class WateringFragmentPresenter<V extends WateringFragmentMvpView> extend
 
     @Override
     public void getRelay() {
-        getMvpView().showLoading();
         String deviceId = getDeviceId();
         getCompositeDisposable().add(getDataManager()
                 .getRelay(deviceId)
@@ -137,22 +136,19 @@ public class WateringFragmentPresenter<V extends WateringFragmentMvpView> extend
                     }
                     if (getRelay != null && !getRelay.equals(0)){
                         if (getRelay.getisPumpOn().equals("ON")){
-                            getMvpView().setRelayState(PumpState.PUMP_OFF);
-                        }else{
                             getMvpView().setRelayState(PumpState.PUMP_ON);
+                        }else{
+                            getMvpView().setRelayState(PumpState.PUMP_OFF);
                         }
                         getMvpView().getRelays(getRelay);
                     }else {
                         getMvpView().validateRelayState(deviceId);
                     }
-                    getMvpView().hideLoading();
                     Log.d("Debug",getRelay.toString());
                 }, throwable ->  {
                     if (!isViewAttached()) {
                         return;
                     }
-
-                    getMvpView().hideLoading();
 
                     // handle the error here
                     if (throwable instanceof ANError) {
