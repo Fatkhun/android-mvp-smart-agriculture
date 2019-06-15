@@ -31,6 +31,9 @@ public class DataResponse implements Serializable {
 	@SerializedName("ruleFuzzyHum")
 	private String ruleHum;
 
+	@SerializedName("ruleFuzzySoil")
+	private String ruleSoil;
+
 	@SerializedName("ruleFuzzyWater")
 	private String ruleWater;
 
@@ -75,6 +78,14 @@ public class DataResponse implements Serializable {
 
 	public float getHumidity(){
 		return humidity;
+	}
+
+	public String getRuleSoil() {
+		return ruleSoil;
+	}
+
+	public void setRuleSoil(String ruleSoil) {
+		this.ruleSoil = ruleSoil;
 	}
 
 	public void setId(String id){
@@ -128,6 +139,7 @@ public class DataResponse implements Serializable {
 				", id='" + id + '\'' +
 				", ruleTemp='" + ruleTemp + '\'' +
 				", ruleHum='" + ruleHum + '\'' +
+				", ruleSoil='" + ruleSoil + '\'' +
 				", ruleWater='" + ruleWater + '\'' +
 				", time='" + time + '\'' +
 				'}';

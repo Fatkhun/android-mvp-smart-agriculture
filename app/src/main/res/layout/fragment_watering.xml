@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,66 +7,152 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragmentswatering.WateringFragment">
 
-    <com.gigamole.library.PulseView
-        android:id="@+id/pv_watering"
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:pv_alpha="70"
-        app:pv_color="@color/light_blue"
-        app:pv_count="3"
-        app:pv_icon="@drawable/ic_faucet"
-        app:pv_icon_height="150dp"
-        app:pv_icon_width="150dp"
-        app:pv_interpolator="@android:anim/linear_interpolator"
-        app:pv_measure="height"
-        app:pv_spawn_period="500" />
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:scrollbars="none">
 
-    <io.ghyeok.stickyswitch.widget.StickySwitch
-        android:id="@+id/sticky_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="104dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cb_finish_watering"
-        app:layout_constraintHorizontal_bias="0.858"
-        app:layout_constraintStart_toStartOf="parent"
-        app:ss_animationDuration="600"
-        app:ss_animationType="line"
-        app:ss_iconPadding="18dp"
-        app:ss_iconSize="22dp"
-        app:ss_leftText="OFF"
-        app:ss_rightText="ON"
-        app:ss_selectedTextSize="14sp"
-        app:ss_sliderBackgroundColor="@color/gray"
-        app:ss_switchColor="@color/colorPrimaryDark"
-        app:ss_textColor="@color/black_effective"
-        app:ss_textSize="12sp" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <at.markushi.ui.CircleButton
-        android:id="@+id/cb_finish_watering"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:src="@drawable/ic_power_settings_new_white_24dp"
-        app:cb_color="@color/colorPrimaryDark"
-        app:cb_pressedRingWidth="8dip"
-        app:layout_constraintBottom_toBottomOf="@+id/sticky_switch"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sticky_switch"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="VectorDrawableCompat" />
+            <com.gigamole.library.PulseView
+                android:id="@+id/pv_watering"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="@drawable/bg_soil_moisture"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:pv_alpha="70"
+                app:pv_color="@color/light_blue"
+                app:pv_count="3"
+                app:pv_icon="@drawable/ic_faucet"
+                app:pv_icon_height="150dp"
+                app:pv_icon_width="150dp"
+                app:pv_interpolator="@android:anim/linear_interpolator"
+                app:pv_measure="height"
+                app:pv_spawn_period="500" />
 
-</android.support.constraint.ConstraintLayout>
+            <LinearLayout
+                android:id="@+id/line_inside_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv_switch"
+                    android:layout_width="160dp"
+                    android:layout_height="190dp"
+                    android:layout_marginRight="10dp"
+                    android:clickable="true"
+                    android:elevation="10dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="15dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <io.ghyeok.stickyswitch.widget.StickySwitch
+                            android:id="@+id/sticky_switch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            app:ss_animationDuration="300"
+                            app:ss_animationType="line"
+                            app:ss_iconPadding="18dp"
+                            app:ss_iconSize="22dp"
+                            app:ss_leftText="OFF"
+                            app:ss_rightText="ON"
+                            app:ss_selectedTextSize="14sp"
+                            app:ss_sliderBackgroundColor="@color/gray"
+                            app:ss_switchColor="@color/colorPrimaryDark"
+                            app:ss_textColor="@color/black_effective"
+                            app:ss_textSize="12sp" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv_button"
+                    android:layout_width="160dp"
+                    android:layout_height="190dp"
+                    android:layout_marginLeft="10dp"
+                    android:clickable="true"
+                    android:elevation="10dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="15dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <at.markushi.ui.CircleButton
+                            android:id="@+id/cb_finish_watering"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/ic_power_settings_new_white_24dp"
+                            app:cb_color="@color/colorPrimaryDark"
+                            app:cb_pressedRingWidth="8dip"
+                            tools:ignore="VectorDrawableCompat" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="541dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Switch to control watering system"
+                        android:textAlignment="center"
+                        android:textColor="@color/black_effective" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Button to turn off relay system"
+                        android:textAlignment="center"
+                        android:textColor="@color/black_effective" />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>

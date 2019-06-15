@@ -59,7 +59,7 @@
                         android:gravity="right"
                         android:textColor="@color/black_effective"
                         android:textSize="50sp"
-                        android:text="0"/>
+                        android:text="-"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -235,11 +235,11 @@
                                                         android:layout_width="match_parent"
                                                         android:layout_height="wrap_content"
                                                         android:layout_weight="3"
-                                                        android:textSize="40sp"
+                                                        android:textSize="35sp"
                                                         android:layout_gravity="end|bottom"
                                                         android:gravity="end"
                                                         android:fontFamily="@font/roboto_medium"
-                                                        android:text="0"/>
+                                                        android:text="-"/>
 
                                                     <TextView
                                                         android:layout_width="match_parent"
@@ -262,7 +262,7 @@
                                             android:maxLines="1"
                                             android:text="-"
                                             android:textColor="@color/gray"
-                                            android:textSize="20sp"
+                                            android:textSize="18sp"
                                             android:textStyle="normal" />
                                     </LinearLayout>
                                 </LinearLayout>
@@ -281,7 +281,7 @@
                                         android:textAlignment="center"
                                         android:fontFamily="@font/roboto_bold"
                                         android:maxLines="1"
-                                        android:text="Temperature"
+                                        android:text="Temp"
                                         android:textColor="@color/orange"
                                         android:textSize="18sp"
                                         android:textStyle="normal" />
@@ -370,11 +370,11 @@
                                                     android:layout_width="match_parent"
                                                     android:layout_height="wrap_content"
                                                     android:layout_weight="3"
-                                                    android:textSize="40sp"
+                                                    android:textSize="35sp"
                                                     android:layout_gravity="end|bottom"
                                                     android:gravity="end"
                                                     android:fontFamily="@font/roboto_medium"
-                                                    android:text="0"/>
+                                                    android:text="-"/>
 
                                                 <TextView
                                                     android:layout_width="match_parent"
@@ -397,7 +397,7 @@
                                         android:maxLines="1"
                                         android:text="-"
                                         android:textColor="@color/gray"
-                                        android:textSize="20sp"
+                                        android:textSize="18sp"
                                         android:textStyle="normal" />
                                 </LinearLayout>
                             </LinearLayout>
@@ -503,11 +503,11 @@
                                                     android:layout_width="match_parent"
                                                     android:layout_height="wrap_content"
                                                     android:layout_weight="3"
-                                                    android:textSize="40sp"
+                                                    android:textSize="35sp"
                                                     android:layout_gravity="end|bottom"
                                                     android:gravity="end"
                                                     android:fontFamily="@font/roboto_medium"
-                                                    android:text="0"/>
+                                                    android:text="-"/>
 
                                                 <TextView
                                                     android:layout_width="match_parent"
@@ -530,7 +530,7 @@
                                         android:maxLines="1"
                                         android:text="-"
                                         android:textColor="@color/gray"
-                                        android:textSize="20sp"
+                                        android:textSize="18sp"
                                         android:textStyle="normal" />
                                 </LinearLayout>
                             </LinearLayout>
@@ -549,7 +549,7 @@
                                     android:textAlignment="center"
                                     android:fontFamily="@font/roboto_bold"
                                     android:maxLines="1"
-                                    android:text="Air Humidity"
+                                    android:text="Air"
                                     android:textColor="@color/light_blue"
                                     android:textSize="18sp"
                                     android:textStyle="normal" />

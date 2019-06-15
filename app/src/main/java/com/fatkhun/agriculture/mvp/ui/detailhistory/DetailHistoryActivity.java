@@ -104,7 +104,7 @@ public class DetailHistoryActivity extends BaseActivity implements DetailHistory
         tvDetailHumidity.setText(String.valueOf(dataResponse.getHumidity()));
         tvDetailRuleWater.setText(dataResponse.getRuleWater());
         tvDetailRuleTemp.setText(dataResponse.getRuleTemp());
-        tvDetailRuleSoil.setText(dataResponse.getRuleHum());
+        tvDetailRuleSoil.setText(dataResponse.getRuleSoil());
         tvDetailRuleHumidity.setText(dataResponse.getRuleHum());
         tvDetailTime.setText(CommonUtils.getDateConverter(dataResponse.getTime()));
     }
