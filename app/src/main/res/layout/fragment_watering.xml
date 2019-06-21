@@ -22,8 +22,8 @@
             <com.gigamole.library.PulseView
                 android:id="@+id/pv_watering"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:background="@drawable/bg_soil_moisture"
+                android:layout_height="350dp"
+                android:background="@drawable/border_shadow"
                 app:layout_constraintEnd_toStartOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -41,7 +41,7 @@
                 android:id="@+id/line_inside_cardview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="60dp"
+                android:layout_marginBottom="40dp"
                 android:gravity="center"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent">
@@ -51,9 +51,7 @@
                     android:layout_width="160dp"
                     android:layout_height="190dp"
                     android:layout_marginRight="10dp"
-                    android:clickable="true"
-                    android:elevation="10dp"
-                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardElevation="7dp"
                     app:cardCornerRadius="15dp"
                     app:cardUseCompatPadding="true">
 
@@ -88,9 +86,7 @@
                     android:layout_width="160dp"
                     android:layout_height="190dp"
                     android:layout_marginLeft="10dp"
-                    android:clickable="true"
-                    android:elevation="10dp"
-                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardElevation="7dp"
                     app:cardCornerRadius="15dp"
                     app:cardUseCompatPadding="true">
 
@@ -116,10 +112,11 @@
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="541dp"
+                android:layout_marginTop="480dp"
                 android:orientation="horizontal"
                 android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -133,9 +130,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_medium"
-                        android:text="Switch to control watering system"
+                        android:text="Watering System"
                         android:textAlignment="center"
-                        android:textColor="@color/black_effective" />
+                        android:textColor="@color/gray" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -148,9 +145,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_medium"
-                        android:text="Button to turn off relay system"
+                        android:text="Relay System"
                         android:textAlignment="center"
-                        android:textColor="@color/black_effective" />
+                        android:textColor="@color/gray" />
                 </LinearLayout>
             </LinearLayout>
         </android.support.constraint.ConstraintLayout>
