@@ -21,6 +21,7 @@ import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.DataManager;
 import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
 import com.fatkhun.agriculture.mvp.ui.base.BasePresenter;
+import com.fatkhun.agriculture.mvp.utils.AppConstants;
 import com.fatkhun.agriculture.mvp.utils.CommonUtils;
 import com.fatkhun.agriculture.mvp.utils.rx.SchedulerProvider;
 
@@ -99,5 +100,10 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
                         baseHandleError(anError);
                     }
                 }));
+    }
+
+    @Override
+    public String getOnline() {
+        return AppConstants.ISONLINE;
     }
 }

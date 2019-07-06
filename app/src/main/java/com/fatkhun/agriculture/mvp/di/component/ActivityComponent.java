@@ -17,7 +17,7 @@ package com.fatkhun.agriculture.mvp.di.component;
 
 import com.fatkhun.agriculture.mvp.di.PerActivity;
 import com.fatkhun.agriculture.mvp.di.module.ActivityModule;
-import com.fatkhun.agriculture.mvp.ui.about.AboutFragment;
+import com.fatkhun.agriculture.mvp.ui.about.AboutActivity;
 import com.fatkhun.agriculture.mvp.ui.detailhistory.DetailHistoryActivity;
 import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragment;
 import com.fatkhun.agriculture.mvp.ui.fragmentshistory.HistoryFragment;
@@ -41,8 +41,6 @@ public interface ActivityComponent {
 
     void inject(SplashActivity activity);
 
-    void inject(AboutFragment fragment);
-
     void inject(RegisterActivity activity);
 
     void inject(MainNavigationActivity activity);
@@ -54,4 +52,6 @@ public interface ActivityComponent {
     void inject(WateringFragment fragment);
 
     void inject(DetailHistoryActivity activity);
+
+    void inject(AboutActivity activity);
 }

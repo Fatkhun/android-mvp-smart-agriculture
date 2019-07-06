@@ -28,4 +28,6 @@ public interface LoginMvpPresenter<V extends LoginMvpView> extends MvpPresenter<
 
     void loginUser(String email, String password);
 
+    String getOnline();
+
 }

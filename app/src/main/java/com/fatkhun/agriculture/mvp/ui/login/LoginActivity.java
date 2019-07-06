@@ -17,8 +17,12 @@ package com.fatkhun.agriculture.mvp.ui.login;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -27,6 +31,8 @@ import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
 import com.fatkhun.agriculture.mvp.ui.mainnavigation.MainNavigationActivity;
 import com.fatkhun.agriculture.mvp.ui.register.RegisterActivity;
+import com.fatkhun.agriculture.mvp.utils.AppConstants;
+import com.fatkhun.agriculture.mvp.utils.ScreenUtils;
 
 import javax.inject.Inject;
 
@@ -93,6 +99,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
 
     @Override
     protected void setUp() {
+        ScreenUtils.changeStatusBarColor("#FFFFFF", this);
         tvToRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -25,6 +25,9 @@ public class User{
 	@SerializedName("status")
 	private String status;
 
+	@SerializedName("isOnline")
+	private String online;
+
 	public void setPassword(String password){
 		this.password = password;
 	}
@@ -81,16 +84,25 @@ public class User{
 		this.status = status;
 	}
 
+	public String getOnline() {
+		return online;
+	}
+
+	public void setOnline(String online) {
+		this.online = online;
+	}
+
 	@Override
 	public String toString() {
 		return "User{" +
 				"password='" + password + '\'' +
 				", V=" + V +
 				", name='" + name + '\'' +
-				", id=" + id +
+				", id='" + id + '\'' +
 				", email='" + email + '\'' +
 				", message='" + message + '\'' +
 				", status='" + status + '\'' +
+				", online='" + online + '\'' +
 				'}';
 	}
 }

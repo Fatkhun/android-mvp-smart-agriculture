@@ -21,11 +21,14 @@ import android.widget.Toast;
 
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.network.model.RelayResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.User;
 import com.fatkhun.agriculture.mvp.di.component.ActivityComponent;
 import com.fatkhun.agriculture.mvp.ui.base.BaseFragment;
 import com.fatkhun.agriculture.mvp.ui.fragmentshistory.HistoryFragmentMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.fragmentshistory.HistoryFragmentMvpView;
 import com.gigamole.library.PulseView;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -53,6 +56,8 @@ public class WateringFragment extends BaseFragment implements WateringFragmentMv
     Boolean isFinish =false;
 
     PumpState mPumpState;
+
+    String users;
 
     Handler handler = new Handler();
 
@@ -90,10 +95,11 @@ public class WateringFragment extends BaseFragment implements WateringFragmentMv
             @Override
             public void run() {
                 mPresenter.getRelay();
-                handler.postDelayed(this, 10000);
+                handler.postDelayed(this, 5000);
             }
-        }, 10000);
+        }, 5000);
         mPresenter.getRelay();
+        mPresenter.getUserAll();
     }
 
     @Override
@@ -123,9 +129,19 @@ public class WateringFragment extends BaseFragment implements WateringFragmentMv
     }
 
     @Override
+    public void updateUser(String userList) {
+        users = userList;
+    }
+
+    @Override
     public void setRelayState(PumpState pumpState) {
         mPumpState = pumpState;
-        setRelayStatus(pumpState);
+        String currentUserId = mPresenter.getUserId();
+        if (currentUserId.equals(users)){
+            setRelayStatusTwo(pumpState);
+        }else {
+            setRelayStatusTwo(pumpState);
+        }
     }
 
     private void setPump(){
@@ -165,24 +181,50 @@ public class WateringFragment extends BaseFragment implements WateringFragmentMv
         String id = mPresenter.getDeviceId();
 
         if (deviceId.equals(id) && mPumpState.equals(PumpState.PUMP_OFF)){
-            setRelayState(PumpState.PUMP_ON);
-            setRelayState(PumpState.AUTO_OFF);
-        }else if (deviceId.equals(id) && mPumpState.equals(PumpState.PUMP_ON)){
             setRelayState(PumpState.PUMP_OFF);
             setRelayState(PumpState.AUTO_ON);
+        }else if (deviceId.equals(id) && mPumpState.equals(PumpState.PUMP_ON)){
+            setRelayState(PumpState.PUMP_ON);
+            setRelayState(PumpState.AUTO_OFF);
         }else {
             setRelayState(PumpState.PUMP_OFF);
             setRelayState(PumpState.AUTO_OFF);
         }
     }
 
-    private void setRelayStatus(PumpState pumpState) {
+    private void setRelayStatusOne(PumpState pumpState) {
         switch (pumpState){
             case PUMP_ON:
                 Toast.makeText(getActivity(),"Pump is Running ...", Toast.LENGTH_SHORT).show();
                 break;
             case PUMP_OFF:
                 Toast.makeText(getActivity(), "Pump Off", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
+
+    private void setRelayStatusTwo(PumpState pumpState) {
+        String currentUserId = mPresenter.getUserId();
+        switch (pumpState){
+            case PUMP_ON:
+//                if (currentUserId.equals(users)){
+//                    stickySwitch.setDirection(StickySwitch.Direction.RIGHT);
+//                    pvWatering.startPulse();
+//                }else {
+//                    stickySwitch.setDirection(StickySwitch.Direction.LEFT);
+//                    pvWatering.startPulse();
+//                }
+                Toast.makeText(getActivity(), "Pump is Running ...", Toast.LENGTH_SHORT).show();
+                break;
+            case PUMP_OFF:
+//                if (currentUserId.equals(users)){
+//                    stickySwitch.setDirection(StickySwitch.Direction.LEFT);
+//                    pvWatering.finishPulse();
+//                }else {
+//                    stickySwitch.setDirection(StickySwitch.Direction.RIGHT);
+//                    pvWatering.finishPulse();
+//                }
+                Toast.makeText(getActivity(),"Pump Off", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

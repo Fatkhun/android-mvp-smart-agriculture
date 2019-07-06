@@ -26,6 +26,7 @@ import android.view.WindowManager;
 
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.network.model.RelayResponse;
+import com.fatkhun.agriculture.mvp.ui.about.AboutActivity;
 import com.fatkhun.agriculture.mvp.ui.base.BaseActivity;
 import com.fatkhun.agriculture.mvp.ui.fragmentsdata.DataFragment;
 import com.fatkhun.agriculture.mvp.ui.fragmentshistory.HistoryFragment;
@@ -94,7 +95,6 @@ public class MainNavigationActivity extends BaseActivity implements MainNavigati
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) navigationView.getLayoutParams();
         layoutParams.setBehavior(new BottomNavigationBehavior());
 
-        mPresenter.getCheckRelay();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -102,6 +102,7 @@ public class MainNavigationActivity extends BaseActivity implements MainNavigati
                 handler.postDelayed(this, 1000);
             }
         }, 1000);
+        mPresenter.getCheckRelay();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -148,8 +149,8 @@ public class MainNavigationActivity extends BaseActivity implements MainNavigati
             ((Animatable) drawable).start();
         }
         switch (item.getItemId()) {
-            case R.id.nav_item_auto_pump:
-                mPresenter.updateRelay(PumpState.PUMP_OFF.getText(), PumpState.AUTO_OFF.getText());
+            case R.id.nav_item_about:
+                openAboutFragment();
                 return true;
             case R.id.nav_item_logout:
                 mPresenter.onLogoutClick();
@@ -170,6 +171,12 @@ public class MainNavigationActivity extends BaseActivity implements MainNavigati
     @Override
     public void openLoginActivity() {
         startActivity(LoginActivity.getStartIntent(this));
+        finish();
+    }
+
+    @Override
+    public void openAboutFragment() {
+        startActivity(AboutActivity.getStartIntent(this));
         finish();
     }
 

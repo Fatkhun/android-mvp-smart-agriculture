@@ -13,5 +13,9 @@ public interface WateringFragmentMvpPresenter<V extends WateringFragmentMvpView>
 
     void getRelay();
 
+    void getUserAll();
+
     String getDeviceId();
+
+    String getUserId();
 }

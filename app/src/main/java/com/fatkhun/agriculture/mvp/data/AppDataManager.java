@@ -27,6 +27,7 @@ import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.RelayResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.User;
 import com.fatkhun.agriculture.mvp.data.prefs.PreferencesHelper;
 import com.fatkhun.agriculture.mvp.di.ApplicationContext;
 
@@ -88,6 +89,11 @@ public class AppDataManager implements DataManager {
     @Override
     public Single<List<DataResponse>> getDataAll(int page) {
         return mApiHelper.getDataAll(page);
+    }
+
+    @Override
+    public Single<List<User>> getUserAll() {
+        return mApiHelper.getUserAll();
     }
 
     @Override

@@ -15,6 +15,7 @@ import com.fatkhun.agriculture.mvp.ui.login.LoginActivity;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashActivity;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashMvpPresenter;
 import com.fatkhun.agriculture.mvp.ui.splash.SplashMvpView;
+import com.fatkhun.agriculture.mvp.utils.ScreenUtils;
 
 import javax.inject.Inject;
 
@@ -60,6 +61,7 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
 
     @Override
     protected void setUp() {
+        ScreenUtils.changeStatusBarColor("#FFFFFF", this);
         tvToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

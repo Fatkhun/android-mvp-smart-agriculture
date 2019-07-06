@@ -62,7 +62,6 @@ public class MainNavigationPresenter<V extends MainNavigationMvpView> extends Ba
 
     @Override
     public void getCheckRelay() {
-        getMvpView().showLoading();
         String deviceId = getDeviceId();
         getCompositeDisposable().add(getDataManager()
                 .getRelay(deviceId)
@@ -80,14 +79,11 @@ public class MainNavigationPresenter<V extends MainNavigationMvpView> extends Ba
                         }
                         getMvpView().getRelays(getRelay);
                     }
-                    getMvpView().hideLoading();
                     Log.d("Debug",getRelay.toString());
                 }, throwable ->  {
                     if (!isViewAttached()) {
                         return;
                     }
-
-                    getMvpView().hideLoading();
 
                     // handle the error here
                     if (throwable instanceof ANError) {

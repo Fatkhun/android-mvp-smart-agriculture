@@ -70,8 +70,8 @@ dependencies {
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
 
     // firebase
-    implementation 'com.google.firebase:firebase-core:10.0.1'
-    implementation 'com.google.firebase:firebase-messaging:10.0.1'
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
 
     // material tab and dialog
     implementation 'com.jpardogo.materialtabstrip:library:1.1.0'

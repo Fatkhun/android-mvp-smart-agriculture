@@ -43,6 +43,7 @@ public final class AppConstants {
     public static final String CHANNEL_DESCRIPTION = "www.smart.id";
 
     public static final String DEVICEID = "5c7ebb4267722562b4cc4395";
+    public static final String ISONLINE = "ONLINE";
 
     private AppConstants() {
         // This utility class is not publicly instantiable

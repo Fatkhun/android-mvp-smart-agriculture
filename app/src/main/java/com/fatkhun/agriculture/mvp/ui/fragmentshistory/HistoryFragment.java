@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.fatkhun.agriculture.mvp.R;
 import com.fatkhun.agriculture.mvp.data.network.model.DataResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.User;
 import com.fatkhun.agriculture.mvp.di.component.ActivityComponent;
 import com.fatkhun.agriculture.mvp.ui.base.BaseFragment;
 import com.fatkhun.agriculture.mvp.ui.detailhistory.DetailHistoryActivity;

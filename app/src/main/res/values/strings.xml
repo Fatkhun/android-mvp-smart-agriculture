@@ -52,11 +52,9 @@
     <string name="empty_password">Please provide a non empty password.</string>
 
     <!--about fragment-->
-    <string name="project_info">This sample app implements MVP architecture using Dagger2, GreenDao, RxJava, FastAndroidNetworking and PlaceholderView</string>
-    <string name="link_mvp_blog">1. https://blog.mindorks.com</string>
-    <string name="link_mvp_repo">2. https://github.com/MindorksOpenSource/android-mvp-architecture</string>
-    <string name="link_mindorks_blog">3. https://blog.mindorks.com</string>
-    <string name="link_mindorks_repo">4. https://github.com/MindorksOpenSource</string>
+    <string name="project_info">Smart Agriculture is apps for monitoring farmland and help farmer to use a modern watering system.</string>
+    <string name="contributor">Contributor :</string>
+    <string name="contributor_first">M. Fatkhun Najaa</string>
     <string name="version">"version"</string>
 
     <!--rating dialog-->

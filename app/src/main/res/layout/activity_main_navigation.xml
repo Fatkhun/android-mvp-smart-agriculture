@@ -48,9 +48,8 @@
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
         app:itemBackground="@color/white"
+        android:theme="@style/BottomNavigationTheme"
         android:foreground="?attr/selectableItemBackground"
-        app:itemIconTint="@color/colorPrimaryDark"
-        app:itemTextColor="@color/colorPrimaryDark"
         app:menu="@menu/navigation" />
 
 </android.support.design.widget.CoordinatorLayout>

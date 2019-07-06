@@ -306,10 +306,9 @@ public class DataFragment extends BaseFragment implements DataFragmentMvpView {
     private String dateConverter(String dateInput){
         try {
             SimpleDateFormat spf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            spf.setTimeZone(TimeZone.getTimeZone("UTC"));
             Date newDate = null;
             newDate = spf.parse(dateInput);
-            spf= new SimpleDateFormat("HH:mm");
+            spf= new SimpleDateFormat("HH:mm a");
             String returnDate = spf.format(newDate);
             return returnDate;
 

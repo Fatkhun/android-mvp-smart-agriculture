@@ -180,6 +180,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/gray</item>
+    </style>
+
 
     <!--new reminder-->
     <style name="AppThemeLight" parent="Theme.AppCompat.Light.NoActionBar">

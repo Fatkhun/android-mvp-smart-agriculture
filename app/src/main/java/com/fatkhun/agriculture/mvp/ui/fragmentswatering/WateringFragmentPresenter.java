@@ -10,6 +10,9 @@ import com.fatkhun.agriculture.mvp.ui.fragmentshistory.HistoryFragmentMvpView;
 import com.fatkhun.agriculture.mvp.utils.AppConstants;
 import com.fatkhun.agriculture.mvp.utils.rx.SchedulerProvider;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -159,7 +162,44 @@ public class WateringFragmentPresenter<V extends WateringFragmentMvpView> extend
     }
 
     @Override
+    public void getUserAll() {
+        getMvpView().showLoading();
+        getCompositeDisposable().add(getDataManager()
+                .getUserAll()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(dataResponseList ->  {
+                    if (!isViewAttached()){
+                        return;
+                    }
+                    if (dataResponseList != null && dataResponseList.size() != 0 ){
+                        getMvpView().updateUser(dataResponseList.get(0).getId());
+                        Log.d("USERS",dataResponseList.get(0).getId());
+                    }
+                    getMvpView().hideLoading();
+                    Log.d("Debug",dataResponseList.get(0).getId());
+                }, throwable ->  {
+                    if (!isViewAttached()) {
+                        return;
+                    }
+
+                    getMvpView().hideLoading();
+
+                    // handle the error here
+                    if (throwable instanceof ANError) {
+                        ANError anError = (ANError) throwable;
+                        baseHandleError(anError);
+                    }
+                }));
+    }
+
+    @Override
     public String getDeviceId() {
         return AppConstants.DEVICEID;
+    }
+
+    @Override
+    public String getUserId() {
+        return getDataManager().getCurrentUserId();
     }
 }

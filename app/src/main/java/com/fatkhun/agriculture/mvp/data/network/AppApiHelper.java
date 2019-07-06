@@ -22,6 +22,7 @@ import com.fatkhun.agriculture.mvp.data.network.model.LoginResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.LogoutResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.OpenSourceResponse;
 import com.fatkhun.agriculture.mvp.data.network.model.RelayResponse;
+import com.fatkhun.agriculture.mvp.data.network.model.User;
 import com.fatkhun.agriculture.mvp.data.prefs.PreferencesHelper;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
@@ -84,6 +85,14 @@ public class AppApiHelper implements ApiHelper {
                 .addHeaders(mApiHeader.getProtectedApiHeader())
                 .build()
                 .getObjectListSingle(DataResponse.class);
+    }
+
+    @Override
+    public Single<List<User>> getUserAll() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_USER_ALL)
+                .addHeaders(mApiHeader.getProtectedApiHeader())
+                .build()
+                .getObjectListSingle(User.class);
     }
 
     @Override
